@@ -1,5 +1,3 @@
-# Metro
-
 ## Overview
 
 - [Application](https://github.com/viatropos/metro.js/wiki/application)
