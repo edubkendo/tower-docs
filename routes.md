@@ -1,7 +1,7 @@
 # Routes
 
 ``` coffeescript
-Metro.Application.routes().draw ->
+Metro.Route.draw ->
   @match "/login",          to: "sessions#new", via: "get", as: "login"
   
   @match "/posts",          to: "posts#index", via: "get"

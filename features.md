@@ -1,0 +1,27 @@
+# Features
+
+- `Store` layer to all popular databases, which just normalizes the data for the `Model` layer.
+  - MongoDB
+  - Redis
+  - [Cassandra](https://github.com/wadey/node-thrift)
+  - PostgreSQL
+  - CouchDB
+- `Model` layer with validations, sophisticated attribute management, associations, named and chainable scopes, etc.
+- `Controller` layer that works pretty much exactly like the Rails controller system.
+- `View` layer which works just like Rails
+- `Route` layer, which handles mapping and finding routes
+- `Event` layer, for callbacks and event management [todo]
+- `Asset` layer, for asset compression pipeline just like Sprockets + Rails.  Handles image sprite creation too.
+- `I18n` layer [todo]
+- `Spec` layer for setting up tests for your app just like Rails.
+- `Generator` [todo]
+- `Component` layer, for building complex forms, tables, widgets, etc. [todo]
+- `Template` layer, so you can swap out any template engines. In the [Node.js Shift Module](https://github.com/viatropos/shift.js).
+- Can also use on the client:
+  - Model
+  - View
+  - Controller
+  - Route
+  - Template
+  - Support
+- Optimized for the browser.

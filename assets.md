@@ -2,48 +2,36 @@
 
 ## Compression
 
+## Uploading
+
 ``` coffeescript
-Metro = require("metro")
-
-Metro.configure ->
-  @assets.path            = "./public/assets"
-  @assets.css_compressor  = "yui"
-  @assets.js_compressor   = "uglifier"
-  @assets.js              = ["application.js"]
-  @assets.css             = ["application.css", "theme.css"]
-  @assets.css_paths       = ["./app/assets/stylesheets"]
-  @assets.js_paths        = ["./app/assets/javascripts"]
-
-Metro.Asset.compile()
+class Image extends Metro.Model
+  @attachment "data", "10x10"
 ```
 
-## Manually Compress CSS
+Then you can crop and upload the asset in the background:
 
 ``` coffeescript
-Metro = require("metro")
-
-css = '''
-body {
-  background: red;
-}
-'''
-css_compressor = new Metro.Asset.YUICompressor
-css_compressor.compress(css)
-  # 'body{background:red}'
+Image.async("upload")
 ```
 
-## Manually Compress JavaScript
+## Inject Raw Assets into the HTML Source
 
 ``` coffeescript
-Metro = require("metro")
+app     = Metro.Application.instance()
+script  = (source) -> app.assets().find(source).read()
+```
 
-js = '''
-$(document).ready(function() {
-  alert("ready!");
-});
-'''
-js_compressor = new Metro.Asset.UglifyJSCompressor
-js_compressor.compress(js)
-  # '$(document).ready(function(){alert("ready!")})'
-
+``` html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/javascripts/application.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      #{script("application.js")}
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
 ```

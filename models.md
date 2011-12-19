@@ -1,6 +1,5 @@
 # Models
 
 ``` coffeescript
-class Post
-  @include Metro.Model
+class Post extends Metro.Model
 ```
