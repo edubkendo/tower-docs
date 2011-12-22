@@ -1,4 +1,4 @@
-# Metro Observers
+# Observers
 
 ``` coffeescript
 class ImagesPresenter

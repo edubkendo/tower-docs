@@ -1,4 +1,4 @@
-# Metro Stores
+# Stores
 
 - local html5 storage
 
