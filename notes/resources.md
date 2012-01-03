@@ -292,3 +292,7 @@ These are projects that should either be integrated into Coach, or rewritten to 
 - http://www.html5rocks.com/en/tutorials/file/filesystem/
 - https://github.com/gregdingle/genetify
 - https://github.com/jquery/qunit
+
+## Other
+
+- [http://js2coffee.org/](http://js2coffee.org/)
