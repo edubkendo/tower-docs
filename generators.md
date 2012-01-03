@@ -10,27 +10,47 @@ Your new application:
 
 ```
 |-- app
+|   |-- client
+|   |   |-- stylesheets
+|   |   |   `-- application.stylus
+|   |   |-- config
+|   |   |   `-- assets.coffee
 |   |-- controllers
+|   |   `-- applicationController.coffee
 |   |-- models
 |   |-- views
 |   |   |-- layouts
-|   |   |   `-- application.jade
+|   |   |   `-- application.coffee
+|   |   |-- index.coffee
 |   `-- helpers
-`-- config
-|    |-- application.coffee
-|    |-- locale
-|        `-- en.coffee
-|    |-- routes.coffee
-`-- lib
-`-- spec
-|    |-- helper.coffee
-|    |-- models
-|    `-- acceptance
+|   |   `-- applicationHelper.coffee
+|-- Cakefile
+|-- config
+|   |-- application.coffee
+|   |-- environments
+|   |   |-- development.coffee
+|   |   |-- production.coffee
+|   |   `-- test.coffee
+|   |-- locale
+|   |   `-- en.coffee
+|   |-- routes.coffee
+|   |-- database.coffee
+|-- lib
+|-- package.json
+|-- public
+|   |-- favicon.ico
+|   |-- humans.txt
+|   `-- robots.txt
+|-- spec
+|   |-- helper.coffee
+|   |-- models
+|   `-- acceptance
 `-- vendor
-|    |-- javascripts
-|    |   |-- tower.js
-|    |   |-- underscore.js
-|    `-- stylesheets
+|   |-- javascripts
+|   |   |-- tower.js
+|   |   |-- underscore.js
+|   `-- stylesheets
+`-- Watchfile
 ```
 
 ### Options for the `new` command:
