@@ -45,4 +45,4 @@ The documentation site will be basically like this (organization/readability wis
 - image/asset/attachment model api (see [https://github.com/thoughtbot/paperclip](https://github.com/thoughtbot/paperclip))
 - basic model/controller logging
 - whip together a site USING TOWER AND THE TOWER APP GENERATOR
-- PUBLIC RELEASE
+- [PUBLIC RELEASE](http://towerjs.org)
