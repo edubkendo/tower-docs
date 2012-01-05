@@ -6,12 +6,16 @@ The documentation site will be basically like this (organization/readability wis
 
 - hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)
 - polymorphic associations (`Category.belongsTo "categorizable", polymorphic: true`)
+- test model pagination
 - uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
 - email/phone validation
 - push notifications (web socket integration into the controllers)
+- background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing)
 - controller events
 - client controllers
 - client controller dom event api
+- finalize resourceful routes
+- finalize resourceful controller actions (see [https://github.com/josevalim/inherited_resources](https://github.com/josevalim/inherited_resources))
 - switch to parsing url params with [URI.js](https://github.com/medialize/URI.js)
 - design.io updates:
   - auto-restart server
@@ -36,3 +40,5 @@ The documentation site will be basically like this (organization/readability wis
 - Test the mailer (already implemented but needs a few tests)
 - Command line api for generators
 - test with travis ci
+- image/asset/attachment model api (see [https://github.com/thoughtbot/paperclip](https://github.com/thoughtbot/paperclip))
+- PUBLIC RELEASE
