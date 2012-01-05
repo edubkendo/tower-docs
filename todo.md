@@ -46,3 +46,13 @@ The documentation site will be basically like this (organization/readability wis
 - basic model/controller logging
 - whip together a site USING TOWER AND THE TOWER APP GENERATOR
 - [PUBLIC RELEASE](http://towerjs.org)
+
+## Blocks of Functionality I'd Work On At Once
+
+- **Underscore helpers**: Make the string formatting functionality robust, this is a huge pain right now.  Same with Dates, I haven't even really touched dates.
+- **Associations**: Need to spend a few days testing these out, I need basically a test Blog app to test all the features haha.
+- **Resourceful Controllers**: Param parsing, model pagination/searching, bulk updates/deletes, `belongsTo` in the controller.
+- **Controller Events**: Web sockets, dom events, and client side rendering
+- **View Helpers**: Form/table builder (makes testing models easier, and makes building new apps insanely easy).  And makes things semantic
+- **Logging**
+- **Watchfile**
