@@ -39,6 +39,7 @@ The documentation site will be basically like this (organization/readability wis
 - Async integration (callbacks)
 - Test the mailer (already implemented but needs a few tests)
 - Command line api for generators
-- test with travis ci
+- test with [travis ci](http://about.travis-ci.org/)
 - image/asset/attachment model api (see [https://github.com/thoughtbot/paperclip](https://github.com/thoughtbot/paperclip))
+- whip together a site USING TOWER AND THE TOWER APP GENERATOR
 - PUBLIC RELEASE
