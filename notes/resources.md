@@ -265,6 +265,7 @@ These are projects that should either be integrated into Coach, or rewritten to 
 
 - https://github.com/maccman/spine
 - https://github.com/biggie/biggie-orm
+- http://maxdemarzi.com/2012/01/04/getting-started-with-ruby-and-neo4j/
 
 ### Events
 
@@ -296,3 +297,7 @@ These are projects that should either be integrated into Coach, or rewritten to 
 ## Other
 
 - [http://js2coffee.org/](http://js2coffee.org/)
+- https://github.com/paulasmuth/fnordmetric
+- https://github.com/medialize/URI.js
+- https://github.com/h5bp/mobile-boilerplate
+- https://github.com/visionmedia/stats

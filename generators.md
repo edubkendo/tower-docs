@@ -41,6 +41,7 @@ Your new application:
 |   |-- favicon.ico
 |   |-- humans.txt
 |   `-- robots.txt
+|-- README.md
 |-- spec
 |   |-- helper.coffee
 |   |-- models
