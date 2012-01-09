@@ -21,3 +21,7 @@ it "should attach engine to an http server", (done) ->
       server.once "close", done
       server.close()
 ```
+
+You need to create a mock request that extends EventEmitter:
+
+- https://github.com/senchalabs/connect/blob/master/test/support/http.js

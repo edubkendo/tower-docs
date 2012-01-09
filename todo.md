@@ -28,6 +28,7 @@ The documentation site will be basically like this (organization/readability wis
 - controller events
 - client controllers
 - client controller dom event api
+- client-side sync methods
 - finalize resourceful routes
 - some sort of `updateAll|deleteAll` functionality for controllers (array of ids)
 - finalize resourceful controller actions (see [https://github.com/josevalim/inherited_resources](https://github.com/josevalim/inherited_resources))
