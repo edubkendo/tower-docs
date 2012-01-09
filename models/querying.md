@@ -336,7 +336,7 @@ Person.where(addresses: city: "Berlin")
 
 # Match all people who live at an address in Berlin or
 # Munich where address is embedded.
-Person.where("addresses.city": {"$in" => ["Berlin, "Munich"]})
+Person.where("addresses.city": {"$in": ["Berlin, "Munich"]})
 
 # Example queries using symbol h4s to perform more complex criteria.
 Person.where(age: ">": 21)
