@@ -338,7 +338,7 @@ Person.where(addresses: city: "Berlin")
 # Munich where address is embedded.
 Person.where("addresses.city": {"$in": ["Berlin", "Munich"]})
 
-# Example queries using symbol h4s to perform more complex criteria.
+# Example complex queries
 Person.where(age: ">": 21)
 Person.where(age: $gt: 21)
 Person.where(age: ">=": 21)
