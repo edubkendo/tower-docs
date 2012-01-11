@@ -5,30 +5,27 @@ Tower.View.Components =
       input type: "hidden", name: "_method", value: options.outerHTML["data-method"]
       
   formOptions: ->
-    attributes                 = options.html || {}
-    attributes.action        = options.url
-    attributes.class         = options.class if options.hasKey?(:class)
-    mergeClass! attributes, config.formClass
-    attributes.id            = options.id if options.hasKey?(:id)
-    #attributes.id            ||= 
-    attributes.enctype       = "multipart/form-data" if (options.multipart || attributes.delete(:multipart)).toS == "true"
-    attributes.role          = :form
-    attributes.novalidate    = "true" # needs to be true b/c the error popups are horribly ugly!# if options.validate == false
-    attributes[:"data-validate"] = options.validate.toS if options.hasKey?(:validate)
+    attributes                  = options.html || {}
+    attributes.action           = options.url
+    attributes.class            = options.class if options.hasOwnProperty("class")
+    @mergeClass attributes, config.formClass
+    attributes.id               = options.id if options.hasOwnProperty("id")
+    attributes.enctype          = "multipart/form-data" if (options.multipart || attributes.delete(:multipart)).toS == "true"
+    attributes.role             = "form"
+    attributes.novalidate       = "true" # needs to be true b/c the error popups are horribly ugly!# if options.validate == false
+    attributes["data-validate"] = options.validate.toS if options.hasOwnProperty("validate")
   
-    method                     = attributes.method || options.method
+    method                      = attributes.method || options.method
   
-    if method.blank?
-      if @model.newRecord?
-        method                 = :put
+    if method.blank
+      if @model.isNew()
+        method                 = "put"
       else
-        method                 = :post
-      end
-    end
-  
-    attributes[:"data-method"] = method
-    attributes.method        = method == :get ? :get : :post
-
+        method                 = "post"
+    
+    attributes["data-method"] = method
+    attributes.method        = method == "get" ? "get" : "post"
+    
     attributes
     
   _label: ->

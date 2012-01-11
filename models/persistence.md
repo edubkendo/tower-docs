@@ -187,3 +187,16 @@ collections["people"].remove
 # Destroy all matching command.
 collections["people"].remove("firstName" : "Heinrich")
 ```
+
+## `Model.update`
+
+``` coffeescript
+User.update 1, 2, 3, name: "John", (error, records)
+User.update 1, 2, 3, name: "John", (error)
+User.update [1, 2, 3], name: "John", (error, records)
+User.update [1, 2, 3], name: "John", (error)
+User.update name: "John", (error, records)
+User.update name: "John", (error)
+User.update 1, 2, 3, {name: "John"}, {instantiate: false, validate: false}, (error)
+User.update {name: "John"}, {instantiate: false, validate: false}, (error)
+```

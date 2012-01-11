@@ -33,6 +33,10 @@ The documentation site will be basically like this (organization/readability wis
 - some sort of `updateAll|deleteAll` functionality for controllers (array of ids)
 - finalize resourceful controller actions (see [https://github.com/josevalim/inherited_resources](https://github.com/josevalim/inherited_resources))
 - switch to parsing url params with [URI.js](https://github.com/medialize/URI.js)
+- urlFor helpers
+- better controller rendering
+- controller renderer
+- controller params parser
 - design.io updates:
   - auto-restart server
   - growl notifications
