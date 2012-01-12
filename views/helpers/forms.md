@@ -6,7 +6,7 @@ formFor new User, (form) ->
     fields.field "firstName"
     fields.field "lastName"
     fields.field "email"
-  form.fieldset "Address" do |fields|
+  form.fieldset "Address", (fields) ->
     fields.field "lat", as: hidden
     fields.field "lng", as: hidden
     fields.field "street"
