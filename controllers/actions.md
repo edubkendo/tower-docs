@@ -1,7 +1,7 @@
-# Controllers
+# Actions
 
 ``` coffeescript
-class PostsController extends Tower.Controller
+class App.PostsController extends Tower.Controller
   index: ->
     @posts = Post.all()
     

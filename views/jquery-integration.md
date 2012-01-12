@@ -5,22 +5,22 @@
 Initialization events can be added to the application like this:
 
 ``` coffeescript
-$(document).ready -> MyApp.fire "ready"
-$(window).load    -> MyApp.fire "load"
-$(window).unload  -> MyApp.fire "unload"
+$(document).ready -> App.fire "ready"
+$(window).load    -> App.fire "load"
+$(window).unload  -> App.fire "unload"
 ```
 
 You can then use them like this:
 
 ``` coffeescript
-MyApp.on "ready", ->
+App.on "ready", ->
   alert "ready!"
 ```
 
 ...or abstracted away in helpers:
 
 ``` coffeescript
-MyApp.Helpers.FormHelper =
+App.Helpers.FormHelper =
   extended: ->
     @on "ready", ->
       @initializeValidations()
@@ -29,5 +29,5 @@ MyApp.Helpers.FormHelper =
     @on "unload", ->
       # save unsaved data
       
-MyApp.include MyApp.Helpers.FormHelper
+App.include App.Helpers.FormHelper
 ```

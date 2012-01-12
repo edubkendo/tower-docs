@@ -1,5 +1,5 @@
 # Models
 
 ``` coffeescript
-class Post extends Metro.Model
+class App.Post extends Tower.Model
 ```

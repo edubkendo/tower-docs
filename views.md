@@ -1,3 +1,3 @@
-# Metro Views
+# Tower Views
 
-Metro has built in support for every template framework.
+Tower has built in support for every template framework.

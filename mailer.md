@@ -1,13 +1,13 @@
-# Metro Mailers
+# Mailer
 
 ``` coffeescript
-class Notifier extends Metro.Mailer
+class Notifier extends Tower.Mailer
   @welcome: (user) ->
     @notification("welcome", name: user.firstName)
 
   @notification: (key, locals = {}) ->
     Notifier.defaultUrlOptions.host     = locals.host || "mysite.com"
-    subject                             = Metro.t("emails.#{key}.subject", locals)
+    subject                             = Tower.t("emails.#{key}.subject", locals)
     from                                = locals.from || I18n.t("emails.from")
     to                                  = locals.to
     
@@ -17,7 +17,7 @@ class Notifier extends Metro.Mailer
 Then you use it like this:
 
 ``` coffeescript
-class User extends Metro.Model
+class User extends Tower.Model
   welcome: ->
     Notifier.notification(@).deliver()
 ```
@@ -27,7 +27,7 @@ class User extends Metro.Model
 Here's a pattern I use a lot
 
 ``` coffeescript
-class User extends Metro.Model
+class User extends Tower.Model
   @welcome: (id) ->
     Notifier.notification(@constructor.find(id)).deliver()
     

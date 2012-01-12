@@ -1,1 +1,1 @@
-# Testing Associations
+# Associations

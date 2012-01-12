@@ -1,20 +1,30 @@
-# Controller Params-to-Criteria
+# Params
+
+You can define parameters which should be parsed into a `Tower.Model.Criteria`.  This allows you to build a very robust query api with minimal effort.
+
+Tower uses a set of pseudo-ruby conventions for defining ranges and sets of values to query by.  They are defined with the `@param` class method on a controller.  Tower looks for the attribute definition on the model class associated with the controller, unless you have specified the `type` option.
 
 ``` coffeescript
-class App.PostsController extends Tower.Controller
+class App.EventsController extends Tower.Controller
   @param "title"
-  @param "body"
-  @param "firstName"
+  @param "createdAt"
+  @param "memberCount"
+  @param "tags"
+  @param "coordinates"
+  
+  index: ->
+    App.Event.where(@criteria()).all (error, events) =>
+      @render json: events
 ```
 
-``` coffeescript
-class App.PostsController extends Tower.Controller
-  @params limit: 20, ->
-    @param "title"
-    @param "body"
-```
+- `String`
+- `Date`
+- `Array`
+- `Number`
+- `Order`
+- `Coordinates`
 
-## Strings
+## `String`
 
 ### Query
 
@@ -32,7 +42,7 @@ title='Hello+World'
 { "title" : { "$match" : ["Hello World"] } }
 ```
 
-## Dates
+## `Date`
 
 ### Query
 
@@ -54,7 +64,7 @@ createdAt=12-21-2011..12-31-2011,01-04-2012
 { "$or": [ { "createdAt" : { "$gte": Date(12-21-2011), "$lte": Date(12-31-2011) } }, { "createdAt" : Date(01-04-2012) } ] }
 ```
 
-## Numbers
+## `Number`
 
 ### Query
 
@@ -86,7 +96,7 @@ likeCount=^-1000
 { "likeCount": { "$neq": -1000 } }
 ```
 
-## Arrays
+## `Array`
 
 ### Query
 
@@ -106,7 +116,7 @@ tags=[ruby,javascript]
 { "tags" : { "$all": ["ruby", "javascript"] } }
 ```
 
-## Geospatial
+## `Coordinates`
 
 ### Query
 
@@ -122,7 +132,7 @@ coordinates=51.509981,-0.074704,10
 { "coordinates" : { "$near": [51.509981, -0.074704] , "$maxDistance" : 10 } }
 ```
 
-## Sorting
+## `Order`
 
 ### Query
 
@@ -170,21 +180,6 @@ The last url above would generate the criteria:
 }
 ```
 
-This way you can just do something like this (assuming we had some `Event` model):
-
-``` coffeescript
-class App.EventsController extends Tower.Controller
-  @param "title"
-  @param "createdAt"
-  @param "memberCount"
-  @param "tags"
-  @param "coordinates"
-  
-  index: ->
-    App.Event.where(@criteria()).all (error, events) =>
-      @render json: events
-```
-
 ### `OR` Queries Over Several Attributes
 
 You can do `OR` searches over several attributes, i.e. "find all posts in the past 2 days OR those tagged with 'javascript'".  Just prepend each `OR` block with an array index:
@@ -194,3 +189,5 @@ You can do `OR` searches over several attributes, i.e. "find all posts in the pa
 [0]createdAt=12-25-2011..12-31-2011&[1]tags=javascript,ruby&sort=createdAt-,title+
 createdAt[0]=12-25-2011..12-31-2011&tags[1]=javascript,ruby&sort=createdAt-,title+
 ```
+
+## Nested

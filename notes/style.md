@@ -34,14 +34,14 @@ This makes it so you don't have to use `require` everywhere on the client, setti
 
 ``` coffeescript
 class MyApp.User
-  @include Coach.Model
+  @include Tower.Model
 ```
 
 or
 
 ``` coffeescript
 class User
-  @include Coach.Model
+  @include Tower.Model
 
 MyApp.User = User
 ```
@@ -51,7 +51,7 @@ Instead of
 ``` coffeescript
 # user.coffee
 class User
-  @include Coach.Model
+  @include Tower.Model
 
 module.exports = User
 

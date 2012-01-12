@@ -1,5 +1,7 @@
 # Routes
 
+Tower routes are modeled after Rails' routes.
+
 ``` coffeescript
 Metro.Route.draw ->
   @match "/login",          to: "sessions#new", via: "get", as: "login"

@@ -5,7 +5,7 @@
 ## Uploading
 
 ``` coffeescript
-class Image extends Metro.Model
+class Image extends Tower.Model
   @attachment "data", "10x10"
 ```
 
@@ -18,7 +18,7 @@ Image.async("upload")
 ## Inject Raw Assets into the HTML Source
 
 ``` coffeescript
-app     = Metro.Application.instance()
+app     = Tower.Application.instance()
 script  = (source) -> app.assets().find(source).read()
 ```
 
