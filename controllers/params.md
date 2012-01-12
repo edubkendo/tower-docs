@@ -158,6 +158,8 @@ http://events.towerjs.org/?createdAt=12-25-2011..12-31-2011&tags=javascript,ruby
 http://events.towerjs.org/?createdAt=12-25-2011..12-31-2011&tags=javascript,ruby&memberCount=10..n&coordinates=51.509981,-0.074704,10&sort=createdAt-,title+
 ```
 
+The last url above would generate the criteria:
+
 ``` coffeescript
 { 
   "coordinates" : { "$near": [51.509981, -0.074704] , "$maxDistance" : 10 },
