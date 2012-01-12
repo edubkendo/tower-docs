@@ -11,6 +11,7 @@ class App.EventsController extends Tower.Controller
   @param "memberCount"
   @param "tags", type: "Array"
   @param "coordinates"
+  @param "admin", source: "admin.firstName"
   
   index: ->
     App.Event.where(@criteria()).all (error, events) =>
