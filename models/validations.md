@@ -162,7 +162,7 @@ Note that the regular expression above allows a trailing newline character.
 class Player extends Tower.Model
   @validates "points", numericality: true
   @validates "gamesPlayed", numericality: { onlyInteger: true }
-``` coffeescript
+```
 
 Besides `onlyInteger`, this helper also accepts the following options to add constraints to acceptable values:
 
