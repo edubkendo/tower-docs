@@ -1,3 +1,15 @@
+# Components
+
+## Configuration
+
+``` coffeescript
+Tower.View.configure
+  headerClass:        "header"
+  titleClass:         "title"
+  subtitleClass:      "subtitle"
+  defaultHeaderLevel: 3
+```
+
 ###
 Tower.View.Components =    
   formFor: ->

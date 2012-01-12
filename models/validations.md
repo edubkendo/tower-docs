@@ -1,5 +1,7 @@
 # Validations
 
+## The Errors Object
+
 ## Validation Helpers
 
 Tower offers many pre-defined validation helpers that you can use directly inside your model class definitions. These helpers provide common validation rules. Every time a validation fails, an error message is added to the object's errors collection, and this message is associated with the field being validated.
