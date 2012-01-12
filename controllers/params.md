@@ -9,7 +9,7 @@ class App.EventsController extends Tower.Controller
   @param "title"
   @param "createdAt"
   @param "memberCount"
-  @param "tags"
+  @param "tags", type: "Array"
   @param "coordinates"
   
   index: ->
