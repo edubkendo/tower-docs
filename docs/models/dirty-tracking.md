@@ -10,14 +10,11 @@ There are various ways to view what has been altered on a model. Changes are rec
 class User extends Tower.Model
   @field "name", type: "String"
 
-user = User.first
+user = User.first()
 user.set "name", "Alan Garner"
 
 # Check to see if the document has changed.
 user.changed() #=> true
-
-# Get an array of the names of the changed fields.
-user.changedAttributes() #=> [ "name" ]
 
 # Get a hash of the old and changed values for each field.
 user.changes() #=> { "name" : [ "Alan Parsons", "Alan Garner" ] }

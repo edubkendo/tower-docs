@@ -1,5 +1,13 @@
 # Tower.js
 
+## Key Points
+
+- pure javascript
+- built in coffeescript support (but you can opt out)
+- simplicity in form and function
+
+## Table of Contents
+
 - [Application](https://github.com/viatropos/tower.js/wiki/application)
   - [Generators](https://github.com/viatropos/tower.js/wiki/generators)
 - [Models](https://github.com/viatropos/tower.js/wiki/models)

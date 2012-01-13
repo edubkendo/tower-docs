@@ -12,3 +12,9 @@ class App.Page extents Tower.Model
 # Stores are the interface models use to find their data.
 # http://www.w3.org/TR/IndexedDB/
 # https://github.com/kriszyp/perstore
+
+# all()  
+# all(title: "Title")
+# all({title: "Title"}, {safe: true})
+# all({title: "Title"}, {safe: true}, (error, records) ->)
+# You can only do the last one!
