@@ -5,6 +5,7 @@
 - pure javascript
 - built in coffeescript support (but you can opt out)
 - simplicity in form and function
+- built on top of express and connect
 
 ## Table of Contents
 

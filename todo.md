@@ -63,3 +63,7 @@ The documentation site will be basically like this (organization/readability wis
 - basic model/controller logging
 - whip together a site USING TOWER AND THE TOWER APP GENERATOR
 - [PUBLIC RELEASE](http://towerjs.org)
+
+- basic responsive admin theme
+- syntax highlighting for github-style code
+- tower generate authentication Session
