@@ -5,10 +5,22 @@ Tower has a built-in asset compilation and deployment pipeline.  The `config/ass
 - Asset Manifest
 - Watchfile
 
+## Tasks
+
+```
+cake assets:bundle
+cake assets:upload # cake assets:upload:s3
+cake assets:stats
+```
+
+### `assets:bundle`
+
+Bundles all the assets
+
 ## Asset Manifest
 
 ``` coffeescript
-Tower.assets =
+module.exports =
   javascripts:
     application: [
       '/app/models/user'

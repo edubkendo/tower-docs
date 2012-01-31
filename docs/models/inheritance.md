@@ -4,31 +4,26 @@ Tower supports inheritance in both root and embedded documents. In scenarios whe
 
 ``` coffeescript
 class Canvas extends Tower.Model
-  field :name, type: String
-  embeds_many :shapes
+  @field "name", type: "String"
+  @hasMany "shapes", embedded: true
 
-class Browser < Canvas
-  field :version, type: Integer
-  scope :recent, where(:version.gt => 3)
+class Browser extends Canvas
+  @field "version", type: "Integer"
+  @scope "recent", @where(version: ">": 3)
 
-class Firefox < Browser
-end
+class Firefox extends Browser
 
-class Shape
-  include Tower::Document
-  field :x, type: Integer
-  field :y, type: Integer
-  embedded_in :canvas
-end
+class Shape extends Tower.Model
+  @field "x", type: "Integer"
+  @field "y", type: "Integer"
+  @belongsTo "canvas", embedded: true
 
-class Circle < Shape
-  field :radius, type: Float
-end
+class Circle extends Shape
+  @field "radius", type: "Float"
 
-class Rectangle < Shape
-  field :width, type: Float
-  field :height, type: Float
-end
+class Rectangle extends Shape
+  @field "width", type: "Float"
+  @field "height", type: "Float"
 ```
 
 In the above example, Canvas, Browser and Firefox will all save in the canvases collection. An additional attribute _type is stored in order to make sure when loaded from the database the correct document is returned. This also holds true for the embedded documents Circle, Rectangle, and Shape.

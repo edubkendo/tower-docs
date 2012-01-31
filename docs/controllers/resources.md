@@ -10,7 +10,7 @@ You can customize the variable names and resource type:
 
 ``` coffeescript
 class App.PostsController extends Tower.Controller
-  @resource type: "Article", collectionName: "articles", resourceName: "article"
+  @resource type: "Article", collection: "articles", resource: "article", key: "data", id: "dataId"
 ```
 
 ## Internals

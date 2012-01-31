@@ -2,15 +2,27 @@
 
 ## Todos
 
-## Contacts
+```
+tower new todos
+```
+
+## Blog
+
+```
+tower new blog
+```
 
 ## Cached Commons
+
+```
+tower new cached-commons --namespace CC
+```
 
 ## Inspiration
 
 - site where you can submit awesome sites
 
-## Attend
+## Events (Attend)
 
 - site like eventbrite
 
