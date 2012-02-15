@@ -1,7 +1,7 @@
 # Forms
 
 ``` coffeescript
-formFor new User, (form) ->
+formFor @user, (form) ->
   form.fieldset "Profile", (fields) ->
     fields.field "firstName"
     fields.field "lastName"

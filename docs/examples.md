@@ -3,7 +3,68 @@
 ## Todos
 
 ```
-tower new todos
+tower new todo --single-page
+tower page todo
+```
+
+``` coffeescript
+doctype 5
+html ->
+  head ->
+    stylus """
+    
+    html, body
+      margin: 0
+      
+    #todos
+    """
+    
+    # http://addyosmani.github.com/todomvc
+    script src: "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+    script src: "http://towerjs.org/javascripts/underscore.js"
+    script src: "http://towerjs.org/javascripts/coffeekup.js"
+    script src: "http://towerjs.org/javascripts/tower.js"
+  
+  body ->
+    coffeescript ->
+      class window.App extends Tower.Application
+      
+      class App.Todo extends Tower.Model
+        @field "id", type: "Id"
+        @field "name"
+        @field "done", type: "Boolean"
+  
+        @scope "active", @where(done: false)
+        @scope "done", @where(done: true)
+      
+      class App.TodosController extends Tower.Controller
+        @on "submit form", "create"
+        @on "change", "toggle"
+        @on "click .destroy", "destroy"
+        
+        index: ->
+          App.Todo.where(@criteria()).all (error, todos) =>
+            @render "index"
+        
+        toggle: ->
+          @todo.set "done", !@todo.get("done")
+          @todo.save()
+      
+      App.views    
+        "todos/_form": ->
+        "todos/_item": ->
+          li class: "todo", ->
+            input type: "checkbox"
+            span todo.get("name")
+            a class: "destroy"
+        "todos/index": ->
+        "todos/new": ->
+        "todos/edit": ->
+      
+      App.routes ->
+        @resources "todos", pathName: ""
+    
+      App.run()
 ```
 
 ## Blog

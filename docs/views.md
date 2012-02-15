@@ -2,6 +2,17 @@
 
 Tower has built in support for every template framework.
 
+## Helper Methods
+
+- HTML5 tags
+- formFor
+- tableFor
+- partial
+- render
+- yields
+- contentFor
+- hasContentFor
+
 # Components
 
 - Forms

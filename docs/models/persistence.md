@@ -8,7 +8,6 @@ Tower's standard persistence methods come in the form of common methods you woul
 - `Model#save`
 - `Model#updateAttributes`
 - `Model#updateAttribute`
-- `Model#delete`
 - `Model#destroy`
 
 ## `Model.create`
@@ -199,4 +198,20 @@ User.update name: "John", (error, records)
 User.update name: "John", (error)
 User.update 1, 2, 3, {name: "John"}, {instantiate: false, validate: false}, (error)
 User.update {name: "John"}, {instantiate: false, validate: false}, (error)
+```
+
+## Other Examples
+
+``` coffeescript
+# Model.create
+User.create(firstName: "Lance")
+User.where(firstName: "Lance").create()
+User.where(firstName: "Lance").create([{lastName: "Pollard"}, {lastName: "Smith"}])
+User.where(firstName: "Lance").create(new User(lastName: "Pollard"))
+
+# Model.update
+User.where(firstName: "Lance").update(1, 2, 3)
+User.update(User.first(), User.last(), firstName: "Lance")
+User.update([User.first(), User.last()], firstName: "Lance")
+User.update([1, 2], firstName: "Lance")
 ```

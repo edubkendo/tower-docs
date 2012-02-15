@@ -1,6 +1,6 @@
 # Querying
 
-The following are a list of chainable query methods in Tower.  Shown alongside each example are the generated query parameters and options which are passed to the `store` object.  The stores then convert these normalized criteria into the database-specific format.
+The following are a list of chainable query methods in Tower.js.  Shown alongside each example are the generated query parameters and options which are passed to the `store` object.  The stores then convert these normalized criteria into the datastore-specific format.
 
 Please note that criteria are lazy evaluated, and with each chained method it will be cloned and return a new criteria copy.
 
@@ -34,7 +34,7 @@ Adds a criterion that specifies values that must all match in order to return re
 
 ``` coffeescript
 # Match all people with Bond and 007 as aliases.
-Person.allIn(aliases: ["Bond", "007"])
+User.allIn(aliases: ["Bond", "007"])
 ```
 
 ### Criteria
@@ -51,7 +51,7 @@ Adds a criterion that specifies expressions that must all match in order to retu
 
 ``` coffeescript
 # Match all crazy old people.
-Person.allOf(age: {">=": 60 }, mentalState: "crazy mofos")
+User.allOf(age: {">=": 60 }, mentalState: "crazy mofos")
 ```
 
 ### Criteria
@@ -68,8 +68,8 @@ Adds a criterion that specifies values where any value can be matched in order t
 
 ``` coffeescript
 # Match all people with either Bond or 007 as aliases.
-Person.alsoIn(aliases: [ "Bond", "007" ])
-Person.anyIn(aliases: [ "Bond" ]).alsoIn(aliases: [ "007" ])
+User.alsoIn(aliases: [ "Bond", "007" ])
+User.anyIn(aliases: [ "Bond" ]).alsoIn(aliases: [ "007" ])
 ```
 
 ### Criteria
@@ -86,8 +86,8 @@ Adds a criterion that specifies values where any value can be matched in order t
 
 ``` coffeescript
 # Match all people with either Bond or 007 as aliases.
-Person.anyIn(aliases: [ "Bond", "007" ])
-Person
+User.anyIn(aliases: [ "Bond", "007" ])
+User
   .anyIn(aliases: [ "Bond", "007", "James" ])
   .anyIn(aliases: [ "Bond", "007" ])
 ```
@@ -106,7 +106,7 @@ Adds a criterion that specifies a set of expressions that any can match in order
 
 ``` coffeescript
 # Match all people with either last name Penn or Teller
-Person.anyOf({ lastName: "Penn" }, { lastName: "Teller" })
+User.anyOf({ lastName: "Penn" }, { lastName: "Teller" })
 ```
 
 ### Criteria
@@ -127,8 +127,7 @@ Adds ascending sort options for the provided fields.
 
 ``` coffeescript
 # Sort people by first and last name ascending.
-Person.asc("firstName", "lastName")
-Person.ascending("firstName", "lastName")
+User.asc("firstName", "lastName")
 ```
 
 ### Criteria
@@ -147,8 +146,7 @@ Adds descending sort options for the provided fields.
 
 ``` coffeescript
 # Sort people by first and last name descending.
-Person.desc("firstName", "lastName")
-Person.descending("firstName", "lastName")
+User.desc("firstName", "lastName")
 ```
 
 ### Criteria
@@ -167,7 +165,7 @@ Get the distinct values for the provided field.
 
 ``` coffeescript
 # Get the distinct values for last names
-Person.distinct("lastName")
+User.distinct("lastName")
 ```
 
 ### Criteria
@@ -184,7 +182,7 @@ Adds a criterion that specifies a set of expressions that cannot match in order 
 
 ``` coffeescript
 # Match all people without either last name Teller and first name Bob.
-Person.excludes(lastName: "Teller", firstName: "Bob")
+User.excludes(lastName: "Teller", firstName: "Bob")
 ```
 
 ### Criteria
@@ -197,13 +195,13 @@ Person.excludes(lastName: "Teller", firstName: "Bob")
 
 Adds a criterion that specifies a list of relational associations to eager load when executing the query. This is to prevent the n+1 issue when iterating over documents that access their relations during the iteration.
 
-This only works with `hasMany`, `hasOne`, and `belongsTo` relations and only 1 level deep at the current moment. If you try to eager load a many to many an exception will get raised. Many to many is not supported due to the performance actually being slower despite lowering the number of database calls.
+This only works with `hasMany`, `hasOne`, and `belongsTo` relations and only 1 level deep at the current moment. If you try to eager load a many to many an exception will get raised. Many to many is not supported due to the performance actually being slower despite lowering the number of datastore calls.
 
 ### Model
 
 ``` coffeescript
 # Eager load the posts and games when retrieving the people.
-Person.includes("posts", "comments")
+User.includes("posts", "comments")
 ```
 
 ### Criteria
@@ -222,7 +220,7 @@ Limits the number of returned results by the provided value.
 
 ``` coffeescript
 # Only return 20 documents.
-Person.limit(20)
+User.limit(20)
 ```
 
 ### Criteria
@@ -256,7 +254,7 @@ Adds a criterion that specifies a set of expressions that cannot match in order 
 
 ``` coffeescript
 # Match all people without last names Zorg and Dallas
-Person.notIn(lastName: [ "Zorg", "Dallas" ])
+User.notIn(lastName: [ "Zorg", "Dallas" ])
 ```
 
 ### Criteria
@@ -267,13 +265,13 @@ Person.notIn(lastName: [ "Zorg", "Dallas" ])
 
 ## `Model.only`
 
-Limits the fields returned from the database to those supplied to the method. Extremely useful for list views where the entire documents are not needed. Cannot be used in conjunction with `#without`.
+Limits the fields returned from the datastore to those supplied to the method. Extremely useful for list views where the entire documents are not needed. Cannot be used in conjunction with `#without`.
 
 ### Model
 
 ``` coffeescript
 # Return only the first and last names of each person.
-Person.only("firstName", "lastName")
+User.only("firstName", "lastName")
 ```
 
 ### Criteria
@@ -290,7 +288,7 @@ Sorts the results given the arguments that must match the MongoDB driver sorting
 
 ``` coffeescript
 # Provide the sorting options.
-Person.order("firstName", "asc").order("lastName", "desc")
+User.order("firstName", "asc").order("lastName", "desc")
 ```
 
 ### Criteria
@@ -309,7 +307,7 @@ Skips the number of the results given the provided value, similar to a SQL "offs
 
 ``` coffeescript
 # Skip 20 documents.
-Person.skip(20)
+User.skip(20)
 ```
 
 ### Criteria
@@ -326,31 +324,31 @@ Adds a criterion that must match in order to return results. If provided a strin
 
 ``` coffeescript
 # Match all people with first name Emmanuel
-Person.where(firstName: "Emmanuel")
+User.where(firstName: "Emmanuel")
 
 # Match all people who live in Berlin, where address is embedded.
-Person.where("addresses.city": "Berlin")
+User.where("addresses.city": "Berlin")
 
 # Same as above but with a hash.
-Person.where(addresses: city: "Berlin")
+User.where(addresses: city: "Berlin")
 
 # Match all people who live at an address in Berlin or
 # Munich where address is embedded.
-Person.where("addresses.city": {"$in": ["Berlin", "Munich"]})
+User.where("addresses.city": {"$in": ["Berlin", "Munich"]})
 
 # Example complex queries
-Person.where(age: ">": 21)
-Person.where(age: $gt: 21)
-Person.where(age: ">=": 21)
-Person.where(age: $gte: 21)
-Person.where(title: $in: ["Sir", "Madam"])
-Person.where(age: "<": 55)
-Person.where(age: $lt: 55)
-Person.where(age: "<=": 55)
-Person.where(age: $lte: 55)
-Person.where(title: $ne: "Mr")
-Person.where(title: $nin: ["Esquire"])
-Person.where(age: ">=": 18, "<=": 55)
+User.where(age: ">": 21)
+User.where(age: $gt: 21)
+User.where(age: ">=": 21)
+User.where(age: $gte: 21)
+User.where(title: $in: ["Sir", "Madam"])
+User.where(age: "<": 55)
+User.where(age: $lt: 55)
+User.where(age: "<=": 55)
+User.where(age: $lte: 55)
+User.where(title: $ne: "Mr")
+User.where(title: $nin: ["Esquire"])
+User.where(age: ">=": 18, "<=": 55)
 ```
 
 ### Criteria
@@ -379,17 +377,106 @@ Person.where(age: ">=": 18, "<=": 55)
 
 ## `Model.without`
 
-Limits the fields returned from the database to those NOT supplied to the method. Extremely useful for list views where the entire documents are not needed. Cannot be used in conjunction with `#only`.
+Limits the fields returned from the datastore to those NOT supplied to the method. Extremely useful for list views where the entire documents are not needed. Cannot be used in conjunction with `#only`.
 
 ### Model
 
 ``` coffeescript
 # Return all fields except first name and last name
-Person.without("firstName", "lastName")
+User.without("firstName", "lastName")
 ```
 
 ### Criteria
 
 ``` coffeescript
 { "fields" : { "firstName" : 0, "lastName" : 0 }}
+```
+
+# Scopes
+
+- `Model.where`
+- `Model.order`
+- `Model.asc`
+- `Model.desc`
+- `Model.page`
+- `Model.limit`
+
+## `Model.scope`
+
+# Create named scope class method finders for a model.
+#
+# @example Add scope to a User model
+# 
+#     class User
+#       @scope "active",      @where(active: true)
+#       @scope "recent",      @where(createdAt: ">=": 2.days().ago()).order("createdAt", "desc").order("email", "asc")
+#       @scope "developers",  @where(tags: _anyIn: ["ruby", "javascript"])
+# 
+
+# ## Examples
+# 
+#     # delete users 1, 2, and 3
+#     User.delete 1, 2, 3, (error, records)
+#     User.delete [1, 2, 3], (error, records)
+#     User.delete [1, 2, 3], (error)
+#     User.delete 1, 2, 3, {instantiate: false, validate: false}, (error)
+#     User.delete {instantiate: false, validate: false}, (error)
+#
+
+# ## Examples
+#
+#     User.update 1, 2, 3, name: "John", (error, records)
+#     User.update 1, 2, 3, name: "John", (error)
+#     User.update [1, 2, 3], name: "John", (error, records)
+#     User.update [1, 2, 3], name: "John", (error)
+#     User.update name: "John", (error, records)
+#     User.update name: "John", (error)
+#     User.update 1, 2, 3, {name: "John"}, {instantiate: false, validate: false}, (error)
+#     User.update {name: "John"}, {instantiate: false, validate: false}, (error)
+#
+
+# ## Examples
+#
+#     User.create name: "John", (error, record)
+#
+
+# find(1)
+# find(1, 2, 3)
+
+
+# @param only
+# @param include
+# @param except
+# @param methods
+# 
+#     @user.toJSON
+#       include:
+#         posts:
+#           include:
+#             taggings:
+#               include:
+#                 tag:
+#                   only: "name"
+
+``` coffeescript
+User.where(createdAt: ">=": 2.days().ago()).paginate(page: 10, limit: 20).all()
+```
+
+## Notes
+
+- https://github.com/visionmedia/dm-pagination
+
+``` html
+<div class="pager">
+  <a href="/items?page=1" class="first">First</a>
+  <a href="/items?page=1" class="previous">Previous</a>
+  <ul>
+    <li class="page-1 first"><a href="/items?page=1" class="">1</a></li>
+    <li class="active page-2"><a href="/items?page=2" class="">2</a></li>
+    <li class="page-3 last"><a href="/items?page=3" class="">3</a></li>
+    <li class="more">...</li>
+  </ul>
+  <a href="/items?page=3" class="next">Next</a>
+  <a href="/items?page=5" class="last">Last</a>
+</div>
 ```

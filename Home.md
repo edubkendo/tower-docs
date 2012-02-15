@@ -1,16 +1,47 @@
 # Tower.js
 
-## Key Points
+Full Stack Web Framework for Node.js and the Browser.
 
-- pure javascript
-- built in coffeescript support (but you can opt out)
+- Built for and by hackers
+  - Like you, we love building awesome things.
+- Built for node.js and the browser
+  - built on top of express and connect
+- Convention over configuration
+- Built on CoffeeScript
 - simplicity in form and function
-- built on top of express and connect
 - template engine agnostic
 - eliminate boilerplate
 - no built-in bindings (pick your own, or don't use at all!)
+- predictable expectation over time
+- humans love patterns & structure
+- simplifies building single page apps
+- composable (so mobile version is super tiny with only basic functionality for example)
+- use convention instead of events (you'll see why, way more powerful).  "MVC" proper vs. MVC practical
+- RESTful JSON interface
+- needed a better way to manage events and callbacks
+- super easy testing
+- provides architecture
 
-## Table of Contents
+- HTML5
+- CSS3
+- MongoDB
+- jQuery
+- Open Source
+- Node.js
+- CoffeeScript
 
-!SLIDE
+- http://emberjs.com/
+- http://mongoid.org/docs.html
 
+## Tower Namespace API
+
+- urlFor
+- get
+- post
+- put
+- destroy
+- index
+- show
+- hide
+- next
+- prev

@@ -1,4 +1,4 @@
-# Callbacks
+# `Tower.Model.Callbacks`
 
 Tower supports 3 main callbacks:
 
@@ -12,53 +12,65 @@ The following callbacks are implemented:
 - `@before  "validate"`
 - `@after   "validate"`
 - `@before  "create"`
-- `@around  "create"`
 - `@after   "create"`
 - `@before  "update"`
-- `@around  "update"`
 - `@after   "update"`
 - `@before  "save"`
-- `@around  "save"`
 - `@after   "save"`
 - `@before  "destroy"`
-- `@around  "destroy"`
 - `@after   "destroy"`
 
-Callbacks are available on any model, whether it is embedded within another model or not.
+Callbacks are available on any model.
 
 ## Define a callback with the callback phase helpers
 
 ``` coffeescript
-class Post extends Tower.Model
-  @field "name", type: "String"
+class App.Post extends Tower.Model
+  @field "title", type: "String"
   @field "slug", type: "String"
   
   @before "save", "generateSlug"
   
   generateSlug:  ->
-    @set "slug", @get("name").replace(/[^a-z0-9]+/, '-').toLowerCase()
+    @set "slug", @get("title").replace(/[^a-z0-9]+/, '-').toLowerCase()
 ```
 
 ## Define the phase and callback directly
 
 ``` coffeescript
-class Post extends Tower.Model
-  @field "name", type: "String"
+class App.Post extends Tower.Model
+  @field "title", type: "String"
   @field "slug", type: "String"
   
   @callback "save", "before", "generateSlug"
   
   generateSlug:  ->
-    @set "slug", @get("name").replace(/[^a-z0-9]+/, '-').toLowerCase()
+    @set "slug", @get("title").replace(/[^a-z0-9]+/, '-').toLowerCase()
 ```
 
 ## Define callbacks with anonymous functions
 
 ``` coffeescript
-class Post extends Tower.Model
-  @field "name", type: "String"
+class App.Post extends Tower.Model
+  @field "title", type: "String"
   @field "slug", type: "String"
   
   @before "save", ->
-    @set "slug", @get("name").replace(/[^a-z0-9]+/, '-').toLowerCase()
+    @set "slug", @get("title").replace(/[^a-z0-9]+/, '-').toLowerCase()
+```
+
+## Callbacks can be asynchronous
+
+If you have a callback that executes asynchronous code, you can add the `callback` argument to your function, and call it when complete:
+
+``` coffeescript
+class App.Post extends Tower.Model
+  @field "title", type: "String"
+  @field "url", type: "String"
+  
+  @before "save", "scrapeWebsite"
+  
+  scrapeWebsite: (callback) ->
+    SomeCrawler.scrapeHTML @get("url"), (error, html) ->
+      callback(error)
 ```

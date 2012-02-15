@@ -27,3 +27,9 @@ require = (key) ->
 
 window.μ = new class Urban
 αστικός, == Urban
+
+## Geocoordinates
+
+``` coffeescript
+User.within(miles: 10)
+```

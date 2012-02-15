@@ -7,7 +7,7 @@
     <button data-bind="click: function() { numberOfClicks(0) }">Reset clicks</button>
 </div>
 
-Metro.bind "visible", id: "#too-many"
+Tower.bind "visible", id: "#too-many"
 
 $("#user-first-name-input").change ->
   value = $(this).value()
@@ -157,3 +157,33 @@ bindingDefinitions =
 bind = (type, context, options = {}) ->
   context.on "#{options.attribute}Change", (value) ->
     bindingDefinitions[type] $(options.selector), value
+    
+## Tumblr
+
+``` html
+{block:Video}
+<div id="post-{PostID}" class="post type-video{block:Tags} tag_{URLSafeTag}{/block:Tags}">
+	<div class="post-panel">
+		<div class="media loading">
+			{Video-500}
+			{block:IfInfiniteScrolling}
+			{block:IndexPage}<div class="js-string hidden">{JSVideo-500}</div>{/block:IndexPage}
+			{/block:IfInfiniteScrolling}
+		</div>
+		<div class="copy">
+			{block:Caption}
+				{Caption}
+			{/block:Caption}
+		</div>
+{/block:Video}
+
+{block:IndexPage}<div class="js-string hidden">{JSVideo-500}</div>{/block:IndexPage}
+
+<meta name="block:IndexPage"/>
+<div class="js-string hidden"><meta name="JSVideo-500">A Video!</div>
+
+if global.IndexPage.changed?
+  $("meta[name='block:IndexPage']").next().replaceWith($("#IndexPage").render())
+if JSVideo500.changed?
+  $("meta[name='JSVideo-500']").next().replaceWith(global.JSVideo500)
+```

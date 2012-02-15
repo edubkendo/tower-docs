@@ -7,20 +7,17 @@ Tower supports tracking of changed or "dirty" fields with an API that mirrors th
 There are various ways to view what has been altered on a model. Changes are recorded from the time a document is instantiated, either as a new document or via loading from the database up to the time it is saved. Any persistence operation clears the changes.
 
 ``` coffeescript
-class User extends Tower.Model
+class App.User extends Tower.Model
   @field "name", type: "String"
 
-user = User.first()
+user = App.User.first()
 user.set "name", "Alan Garner"
 
 # Check to see if the document has changed.
-user.changed() #=> true
+user.isDirty() #=> true
 
 # Get a hash of the old and changed values for each field.
-user.changes() #=> { "name" : [ "Alan Parsons", "Alan Garner" ] }
-
-# Check if a specific field has changed.
-user.changed("name") #=> true
+user.changes #=> { "name" : [ "Alan Parsons", "Alan Garner" ] }
 
 # Get the changes for a specific field.
 user.attributeChange("name") #=> [ "Alan Parsons", "Alan Garner" ]
@@ -34,7 +31,7 @@ user.attributeWas("name") #=> "Alan Parsons"
 You can reset changes of a field to it's previous value by calling the reset method.
 
 ``` coffeescript
-user = User.first()
+user = App.User.first()
 
 user.set "name", "Alan Garner"
 

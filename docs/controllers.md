@@ -1,5 +1,46 @@
 # Controllers
 
+## Class Methods
+
+- beforeAction
+- afterAction
+- helper
+- layout
+- params
+- param
+- resource
+- resourceType
+- resourceName
+- collectionName
+- respondTo
+- belongsTo
+- on
+
+## Instance Methods
+
+- index
+- new
+- create
+- show
+- edit
+- update
+- destroy
+- headers
+- params
+- format
+- action
+- criteria
+- head
+- render
+- renderToString
+- broadcast
+- emit
+- respondWith
+- respondTo
+- redirectTo
+
+## Example
+
 ``` coffeescript
 class PostsController extends Tower.Controller
   index: ->

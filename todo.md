@@ -67,3 +67,58 @@ The documentation site will be basically like this (organization/readability wis
 - basic responsive admin theme
 - syntax highlighting for github-style code
 - tower generate authentication Session
+
+- client and server have the same _interface_
+- cache manifest: https://github.com/johntopley/manifesto
+
+``` coffeescript
+# hasMany "comments", through: "posts"
+comments  = user.comments().where(message: /(javascript)/).limit(10).all()
+
+# eager load associations
+Post.includes("author").where(author: firstName: "=~": "Baldwin").all()
+Post.includes("author").where("author.firstName": "=~": "Baldwin").all()
+User.includes("posts").where("posts.title": "Welcome").all()
+```
+
+## Collections
+
+Need a better way to handle $push, $pop, etc.
+
+Maybe:
+
+``` coffeescript
+set: (options) ->
+  if options.$push
+    for key, value of options.$push
+      oldValue = @attributes[key]
+      newValue = oldValue.concat().push(value)
+      @changes[key] = [@attributes[key], newValue, value] # [old, new, diff]
+```
+
+The above will give you a way of being notified when any attribute changes.
+
+## Events on Scopes
+
+``` coffeescript
+scope = User.where(active: true)
+scope.on "create"
+scope.on "update"
+scope.on "destroy"
+```
+
+The problem with the above approach is if you had 10 scopes all with these event handlers, you'd have to iterate through all of them every time a model was added, even though the model may have matched the first scope only (technically several scopes might match a given record).
+
+It's probably easier/clearer to just listen to any model that's added and manually check:
+
+``` coffeescript
+scope = User.where(active: true)
+User.on "create", (error, model) ->
+  if scope.contains(model)
+    # ...
+```
+
+- http://stackoverflow.com/questions/1992902/add-new-gist-using-the-github-api
+- https://github.com/emerleite/node-gist
+- Integration with Ember.js on client?
+- Hardcore event dispatching framework?
