@@ -1,4 +1,4 @@
-# Finders
+# Finders - `Tower.Model.Scopes` Part 1
 
 Here are the methods used to query models in a datastore:
 

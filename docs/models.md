@@ -7,13 +7,13 @@ class App.User extends Tower.Model
 
 `Tower.Model` provides a standard set of interfaces for usage in model classes:
 
-- `Tower.Model.Attributes`
-- `Tower.Model.Callbacks`
-- `Tower.Model.Dirty`
-- `Tower.Model.Naming`
-- `Tower.Model.Persistence`
-- `Tower.Model.Scoping`
-- `Tower.Model.Validations`
+- [`Tower.Model.Attributes`](#attributes)
+- [`Tower.Model.Callbacks`](#callbacks)
+- [`Tower.Model.Changes`](#changes)
+- [`Tower.Model.Naming`](#naming)
+- [`Tower.Model.Persistence`](#persistence)
+- [`Tower.Model.Scoping`](#scoping)
+- [`Tower.Model.Validations`](#validations)
 
 `Tower.Model` also helps building custom ORMs for use outside of Tower.js.
 

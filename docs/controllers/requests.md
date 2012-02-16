@@ -4,8 +4,16 @@
 - Cookies
 - User Agent
 
-### URL
+## URL
 
 ``` coffeescript
 
 ```
+
+## User Agent
+
+## Subdomains
+
+## Cookies
+
+## Session

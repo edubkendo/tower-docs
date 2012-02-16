@@ -1,4 +1,4 @@
-# Persistence
+# `Tower.Model.Persistence`
 
 Tower's standard persistence methods come in the form of common methods you would find in other mapping frameworks.
 

@@ -221,7 +221,6 @@ There is also a :caseSensitive option that you can use to define whether the uni
 ``` coffeescript
 class User extends Tower.Model
   @validates "name", uniqueness: { caseSensitive: false }
-end
 ```
 
 Note that some databases are configured to perform case-insensitive searches anyway.
