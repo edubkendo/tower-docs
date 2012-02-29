@@ -1,11 +1,13 @@
 # Tower.js
+*Full Stack Web Framework for Node.js and the Browser*
 
-Full Stack Web Framework for Node.js and the Browser.
-
+##Features
 - Built for and by hackers
-  - Like you, we love building awesome things.
+
+    Like you, we love building awesome things.
+
 - Built for node.js and the browser
-  - built on top of express and connect
+- Built on top of express and connect
 - Convention over configuration
 - Built on CoffeeScript
 - simplicity in form and function
@@ -21,7 +23,6 @@ Full Stack Web Framework for Node.js and the Browser.
 - needed a better way to manage events and callbacks
 - super easy testing
 - provides architecture
-
 - HTML5
 - CSS3
 - MongoDB
@@ -29,9 +30,8 @@ Full Stack Web Framework for Node.js and the Browser.
 - Open Source
 - Node.js
 - CoffeeScript
-
-- http://emberjs.com/
-- http://mongoid.org/docs.html
+- [ember.js](http://emberjs.com/)
+- [mongoid](http://mongoid.org/docs.html)
 
 ## Tower Namespace API
 
