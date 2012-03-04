@@ -2,6 +2,9 @@
 
 Tower has built in support for every template framework.
 
+- HTML5 Bootstrap
+- Twitter Bootstrap
+
 ## Helper Methods
 
 - HTML5 tags

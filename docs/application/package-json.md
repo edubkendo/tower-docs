@@ -117,7 +117,7 @@ $ npm link my-module
 ./node_modules/my-module -> /usr/local/lib/node_modules/my-module -> /Users/username/git/node/my-module
 ```
 
-I love `npm link`, makes development so much easier.
+I love `npm link`, it makes development so much easier.
 
 ### `npm publish`
 

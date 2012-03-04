@@ -19,11 +19,10 @@ Inserts a new document into the database given the provided attributes. This wil
 ``` coffeescript
 # Insert a new German poet to the db.
 Person.create(firstName: "Heinrich", lastName: "Heine")
-```
-
 # This can also take a block.
 Person.create firstName: "Heinrich", (record) ->
   doc.lastName = "Heine"
+```
 
 ### Store
 

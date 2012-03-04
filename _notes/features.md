@@ -1,5 +1,7 @@
 # Features
 
+Version with `v0.8.7-1`
+
 - `Store` layer to all popular databases, which just normalizes the data for the `Model` layer.
   - MongoDB
   - Redis

@@ -1,5 +1,7 @@
 # Assets
 
+- require() in the browser
+
 ## Usage
 
 ```

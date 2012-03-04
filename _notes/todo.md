@@ -122,3 +122,4 @@ User.on "create", (error, model) ->
 - https://github.com/emerleite/node-gist
 - Integration with Ember.js on client?
 - Hardcore event dispatching framework?
+- setup multiple versions of node.js locally to test your app against.

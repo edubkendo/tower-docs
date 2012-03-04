@@ -12,7 +12,7 @@
 
 ## Git Workflow
 
-#### Do all of your work on a `development` branch.
+### Do all of your work on a `development` branch.
 
 ```
 git branch development
@@ -22,7 +22,7 @@ git add . ; git commit -a -m 'developed a new feature'
 git push origin development
 ```
 
-#### Merge with other people's `development` branch into yours
+### Merge with other people's `development` branch into yours
 
 ```
 # link to somebody else's fork, call it "upstream" or "username-upstream" or whatever
@@ -32,7 +32,7 @@ git fetch upstream
 git merge upstream/development
 ```
 
-#### Merge `development` to `master`
+### Merge `development` to `master`
 
 ```
 git branch # "development"
@@ -42,7 +42,7 @@ git merge development
 git push origin master
 ```
 
-#### If you want to hack, create _another_ branch
+### If you want to hack, create _another_ branch
 
 You can have as many branches as you want.
 
@@ -52,7 +52,7 @@ git branch hacks # create "hacks" branch
 git branch node5 # create "node7" branch, where you're upgrading code to work on node version 5.
 ```
 
-#### Use `remote` to push code to separate domains
+### Use `remote` to push code to separate domains
 
 Everybody calls GitHub their `origin`, so you do map the remote address to `origin` like this:
 
@@ -93,7 +93,7 @@ git push development development:master
 git push <my-branch> <the-remote-name-i-gave-my-branch>:master
 ```
 
-#### Other helpful git commands
+### Other helpful git commands
 
 ```
 # check current branch you're on

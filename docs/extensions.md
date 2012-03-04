@@ -19,11 +19,13 @@ require = (key) ->
 - pluralization
 - schema.org (https://github.com/indexzero/node-schema-org)
 - geo: https://github.com/manuelbieh/Geolib
+- kibo for keyboard
 - tiny-require.js (browser + node)
   - useragent (npm install useragent)
   - shift.js (templating)
   - async.js (callbacks)
   - mimetypes
+- unicode character lookup
 
 window.μ = new class Urban
 αστικός, == Urban

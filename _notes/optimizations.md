@@ -1,0 +1,6 @@
+- when the url on the client changes, it should be only parse the criteria/query out if it hasn't already done so (you change the url with history.pushState, serializing/deserializing objects to urls which is a waste)
+- don't think you really need the "responder" to handle multiple mime-types on the client.  remove to reduce overall client download size.
+- think about getting rid of the idea of request/response objects on the client.  it makes it so the client has the same api as the server, but you never access them directly so you can probably remove them and further reduce overall download size.
+- simplify the middleware on the client so it only needs 1 (router)
+- export `support` helpers to underscore-ext
+- add [zepto](https://github.com/madrobby/zepto) for mobile browsers.
