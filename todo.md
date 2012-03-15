@@ -59,3 +59,11 @@ For 0.5.0, Tower will include the features below.  It's going to be a rolling li
 
 <h2><a name="potential-features-0.5.0" href="potential-features-0.5.0">Potential features for 0.5.0</a></h2>
 
+<h2><a name="features-0.6.0+" href="features-0.6.0+">0.6.0+ - Future Features</a></h2>
+
+These are next, larger features.  These will be included in earlier releases if a member of the community contributes them.  Otherwise they will be more formally approached after the 0.5.0 release.
+
+- Neo4j support
+- CouchDB support
+- PostGreSQL support
+- MySQL support
