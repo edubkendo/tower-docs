@@ -66,6 +66,7 @@ Let me know if you'd like to implement any of these things, will help speed up t
 - `benchmarks` folder with stress tests
 - https helper methods
 - redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/questions/4046960/how-to-redirect-without-www-using-rails-3-rack)
+- make sure templates have proper escaping ([xss protection](http://asciicasts.com/episodes/204-xss-protection-in-rails-3))
 
 <h2><a name="potential-features-0.5.0" href="potential-features-0.5.0">Potential features for 0.5.0</a></h2>
 
