@@ -53,5 +53,5 @@ For 0.5.0, Tower will include the features below.  It's going to be a rolling li
 - cache manifest: https://github.com/johntopley/manifesto
 - add `includes` to associations: `Post.includes("author").where(author: firstName: "=~": "Baldwin").all()`
 
-<h2><a name="potential-features-0.5.0" href="potential-features-0.5.0">#</a>Potential features for 0.5.0</a></h2>
+<h2><a name="potential-features-0.5.0" href="potential-features-0.5.0">Potential features for 0.5.0</a></h2>
 
