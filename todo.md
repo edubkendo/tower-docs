@@ -4,7 +4,7 @@ Tower is currently at version 0.3.9-x.  Going to move to 0.4.0 once it looks lik
 
 For 0.5.0, Tower will include the features below.  It's going to be a rolling list.  If you have ideas or features you'd like to see, include them in the section [Potential features for 0.5.0](#potential-features-0.5.0) section.
 
-<h2><a id='features-0.5.0'>0.5.0 - Full Featured Release</a></h2>
+<h2><a name="features-0.5.0" href="features-0.5.0">0.5.0 - Full Featured Release</a></h2>
 
 - mongo embedded documents
 - error/stacktrace printing when view fails to fully render
