@@ -12,12 +12,12 @@ For 0.5.0, Tower will include the features below.  It's going to be a rolling li
 - error hooks for controllers
 - test subdomains on heroku
 - database seeds
-- authentication extension
+- test `factories` (something like [factory.js](https://github.com/viatropos/factory.js))
+- authentication extension (so it's easy to start using authentication, potentially with [passport](https://github.com/jaredhanson/passport))
 - authorization extension (https://github.com/ryanb/cancan)
 - test storing images/blobs in mongo
 - test storing images on s3
 - hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)
-- polymorphic associations (`Category.belongsTo "categorizable", polymorphic: true`)
 - test model pagination
 - uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
 - email/phone validation (and other common validation helpers)
