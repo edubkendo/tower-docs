@@ -14,6 +14,8 @@ Let me know if you'd like to implement any of these things, will help speed up t
 - error hooks for controllers
 - test subdomains on heroku
 - database seeds
+- test inheritance with `type` property
+- extends hook for coffeescript
 - test `factories` (something like [factory.js](https://github.com/viatropos/factory.js))
 - authentication extension (so it's easy to start using authentication, potentially with [passport](https://github.com/jaredhanson/passport))
 - authorization extension (https://github.com/ryanb/cancan)
@@ -57,6 +59,13 @@ Let me know if you'd like to implement any of these things, will help speed up t
 - cache manifest: https://github.com/johntopley/manifesto
 - add `includes` to associations: `Post.includes("author").where(author: firstName: "=~": "Baldwin").all()`
 - inline css in email templates
+- http caching methods in the controller
+- integrate `"use strict";` into the codebase
+- css sprites
+- model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
+- `benchmarks` folder with stress tests
+- https helper methods
+- redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/questions/4046960/how-to-redirect-without-www-using-rails-3-rack)
 
 <h2><a name="potential-features-0.5.0" href="potential-features-0.5.0">Potential features for 0.5.0</a></h2>
 
