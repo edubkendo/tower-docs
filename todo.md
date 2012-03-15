@@ -2,7 +2,7 @@
 
 Tower is currently at version 0.3.9-x.  Going to move to 0.4.0 once it looks like everyone is able to build an app - just about there.
 
-For 0.5.0, Tower will include the features below.  It's going to be a rolling list.  If you have ideas or features you'd like to see, include them in the section [Potential features for 0.5.0](#potential-features-0.5.0) section.
+For 0.5.0, Tower will include the features below.  It's going to be a rolling list.  If you have ideas or features you'd like to see, include them in the section [Potential features for 0.5.0](#potential-features-0.5.0) section and we'll move them up if they're in scope.
 
 <h2><a name="features-0.5.0" href="features-0.5.0">0.5.0 - Full Featured Release</a></h2>
 
