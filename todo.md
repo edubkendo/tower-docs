@@ -13,6 +13,7 @@ For 0.5.0, Tower will include the features below.  It's going to be a rolling li
 - test subdomains on heroku
 - database seeds
 - authentication extension
+- authorization extension (https://github.com/ryanb/cancan)
 - test storing images/blobs in mongo
 - test storing images on s3
 - hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)
