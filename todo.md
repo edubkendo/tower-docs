@@ -55,6 +55,7 @@ For 0.5.0, Tower will include the features below.  It's going to be a rolling li
 - chunk code into parts for the client, so you can use only bare minimum if desired
 - cache manifest: https://github.com/johntopley/manifesto
 - add `includes` to associations: `Post.includes("author").where(author: firstName: "=~": "Baldwin").all()`
+- hierarchical models (nested sets)
 
 <h2><a name="potential-features-0.5.0" href="potential-features-0.5.0">Potential features for 0.5.0</a></h2>
 
