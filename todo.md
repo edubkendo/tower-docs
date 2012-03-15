@@ -34,7 +34,9 @@ For 0.5.0, Tower will include the features below.  It's going to be a rolling li
   - auto-run tests
 - mock/test setup for http requests (controllers)
 - database "cleaner" code for tests
-- generators (generates project skeleton, model/view/controller base templates, or a node module base template)
+- generators for tests
+- test the generator code
+- customize template engine, orm, and test framework in `App.config`
 - automatic form validations based on model on client
 - test client side view rendering with coffeekup
 - finish table builder
