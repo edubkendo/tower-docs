@@ -2,9 +2,9 @@
 
 Tower is currently at version 0.3.9-x.  Going to move to 0.4.0 once it looks like everyone is able to build an app - just about there.
 
-For 0.5.0, Tower will include the features below.  It's going to be a rolling list.  If you have ideas or features you'd like to see, include them in the section [Potential features for 0.5.0](https://github.com/viatropos/tower/wiki/todo/#0.5.0-potential-features) section.
+For 0.5.0, Tower will include the features below.  It's going to be a rolling list.  If you have ideas or features you'd like to see, include them in the section [Potential features for 0.5.0](#potential-features-0.5.0) section.
 
-<h2><a id='0.5.0-features'>0.5.0 - Full Featured Release</a></h2>
+<h2><a id='features-0.5.0'>0.5.0 - Full Featured Release</a></h2>
 
 - mongo embedded documents
 - error/stacktrace printing when view fails to fully render
@@ -53,5 +53,5 @@ For 0.5.0, Tower will include the features below.  It's going to be a rolling li
 - cache manifest: https://github.com/johntopley/manifesto
 - add `includes` to associations: `Post.includes("author").where(author: firstName: "=~": "Baldwin").all()`
 
-<h2><a id='0.5.0-potential-features'>Potential features for 0.5.0</a></h2>
+<h2><a id='potential-features-0.5.0'>Potential features for 0.5.0</a></h2>
 
