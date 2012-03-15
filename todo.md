@@ -40,7 +40,6 @@ For 0.5.0, Tower will include the features below.  It's going to be a rolling li
 - automatic form validations based on model on client
 - test client side view rendering with coffeekup
 - finish table builder
-- state machine (see [https://github.com/pluginaweek/state_machine](https://github.com/pluginaweek/state_machine))
 - i18n (internationalization/localization, how to organize the random labels in the app, and prepare for translation into other languages)
 - underscore integration (cleanup/finalize, you easily spend a lot of your time formatting dates, numbers, and strings once the base app is in place):
   - date helpers
@@ -58,6 +57,8 @@ For 0.5.0, Tower will include the features below.  It's going to be a rolling li
 - hierarchical models (nested sets)
 
 <h2><a name="potential-features-0.5.0" href="potential-features-0.5.0">Potential features for 0.5.0</a></h2>
+
+- state machine (see [https://github.com/pluginaweek/state_machine](https://github.com/pluginaweek/state_machine))
 
 <h2><a name="features-0.6.0+" href="features-0.6.0+">0.6.0+ Future Features</a></h2>
 
