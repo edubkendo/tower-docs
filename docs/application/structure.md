@@ -40,20 +40,22 @@
 |    |-- application.coffee
 |    |-- assets.coffee
 |    |-- databases.coffee
+|    |-- preinitializers
+|    |-- initializers
 |    |-- environments
-|       |-- development
-|       |-- production
-|       `-- test
+|       |-- development.coffee
+|       |-- production.coffee
+|       `-- test.coffee
 |    |-- locale
 |       `-- en.coffee
 |    |-- routes.coffee
 `-- test
-|    |-- helper.coffee
+|    |-- config.coffee
 |    |-- models
 |    |   |-- postTest.coffee
 |    |   |-- userTest.coffee
 |    `-- acceptance
-|        |-- login.coffee
-|        |-- signup.coffee
-|        `-- posts.coffee
+|        |-- loginTest.coffee
+|        |-- signupTest.coffee
+|        `-- postsTest.coffee
 ```

@@ -1,6 +1,6 @@
 # Commands
 
-## `tower new <name> [options]`
+## `tower new <app-name> [options]`
 
 ## `tower server` (todo)
 

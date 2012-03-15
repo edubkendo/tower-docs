@@ -1,6 +1,6 @@
 # Watchfile
 
-Tower uses [Design.io](https://github.com/viatropos/design.io)'s `Watchfile` to:
+Tower uses [design.io](https://github.com/viatropos/design.io)'s `Watchfile` to:
 
 - Automatically compile assets when they are added, saved, or removed.  See the [Tower Asset Pipeline](/assets/pipeline)
 - Automatically restart the server in development mode when you modify a file

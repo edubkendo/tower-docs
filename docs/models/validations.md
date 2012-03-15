@@ -8,7 +8,7 @@ Tower offers many pre-defined validation helpers that you can use directly insid
 
 Each helper accepts an arbitrary number of attribute names, so with a single line of code you can add the same kind of validation to several attributes.
 
-All of them accept the :on and :message options, which define when the validation should be run and what message should be added to the errors collection if it fails, respectively. The :on option takes one of the values :save (the default), :create or :update. There is a default error message for each one of the validation helpers. These messages are used when the :message option isn't specified. Let's take a look at each one of the available helpers.
+All of them accept the `on` and `message` options, which define when the validation should be run and what message should be added to the errors collection if it fails, respectively. The `on` option takes one of the values `save` (the default), `create` or `update`. There is a default error message for each one of the validation helpers. These messages are used when the `message` option isn't specified. Let's take a look at each one of the available helpers.
 
 ### Acceptance
 
@@ -21,7 +21,7 @@ class User extends Tower.Model
   
 The default error message for this helper is "must be accepted".
 
-It can receive an :accept option, which determines the value that will be considered acceptance. It defaults to "1" and can be easily changed.
+It can receive an `accept` option, which determines the value that will be considered acceptance. It defaults to "1" and can be easily changed.
 
 ``` coffeescript
 class User extends Tower.Model
@@ -53,17 +53,12 @@ class User extends Tower.Model
   @validates "email", confirmation: true
 ```
 
-In your view template you could use something like
-
-<%= textField :person, :email %>
-<%= textField :person, :emailConfirmation %>
-
 This check is performed only if emailConfirmation is not nil. To require confirmation, make sure to add a presence check for the confirmation attribute (we'll take a look at presence later on this guide):
 
 ``` coffeescript
 class User extends Tower.Model
-  @validates "email", :confirmation: true
-  @validates "emailConfirmation", :presence: true
+  @validates "email", confirmation: true
+  @validates "emailConfirmation", presence: true
 ```
 
 The default error message for this helper is "doesn't match confirmation".
@@ -77,13 +72,13 @@ class Account extends Tower.Model
   @validates "subdomain", exclusion: { in: ["www", "us", "ca", "jp"], message: "Subdomain %{value} is reserved." }
 ```
 
-The exclusion helper has an option :in that receives the set of values that will not be accepted for the validated attributes. The :in option has an alias called :within that you can use for the same purpose, if you'd like to. This example uses the :message option to show how you can include the attribute's value.
+The exclusion helper has an option `in` that receives the set of values that will not be accepted for the validated attributes. The `in` option has an alias called `within` that you can use for the same purpose, if you'd like to. This example uses the `message` option to show how you can include the attribute's value.
 
 The default error message is "is reserved".
 
 ### Format
 
-This helper validates the attributes' values by testing whether they match a given regular expression, which is specified using the :with option.
+This helper validates the attributes' values by testing whether they match a given regular expression, which is specified using the `with` option.
 
 ``` coffeescript
 class Product extends Tower.Model
@@ -101,7 +96,7 @@ class Coffee extends Tower.Model
   @validates "size", inclusion: { in: ["small", "medium", "large"], message: "%{value} is not a valid size" }
 ```
 
-The inclusion helper has an option :in that receives the set of values that will be accepted. The :in option has an alias called :within that you can use for the same purpose, if you'd like to. The previous example uses the :message option to show how you can include the attribute's value.
+The inclusion helper has an option `in` that receives the set of values that will be accepted. The `in` option has an alias called `within` that you can use for the same purpose, if you'd like to. The previous example uses the `message` option to show how you can include the attribute's value.
 
 The default error message for this helper is "is not included in the list".
 
@@ -119,38 +114,37 @@ class User extends Tower.Model
 
 The possible length constraint options are:
 
-:minimum – The attribute cannot have less than the specified length.
-:maximum – The attribute cannot have more than the specified length.
-:in (or :within) – The attribute length must be included in a given interval. The value for this option must be a range.
-:is – The attribute length must be equal to the given value.
-The default error messages depend on the type of length validation being performed. You can personalize these messages using the :wrongLength, :tooLong, and :tooShort options and %{count} as a placeholder for the number corresponding to the length constraint being used. You can still use the :message option to specify an error message.
+`minimum` – The attribute cannot have less than the specified length.
+`maximum` – The attribute cannot have more than the specified length.
+`in` (or `within`) – The attribute length must be included in a given interval. The value for this option must be a range.
+`is` – The attribute length must be equal to the given value.
+The default error messages depend on the type of length validation being performed. You can personalize these messages using the `wrongLength`, `tooLong`, and `tooShort` options and %{count} as a placeholder for the number corresponding to the length constraint being used. You can still use the `message` option to specify an error message.
 
 ``` coffeescript
 class User extends Tower.Model
-  @validates "bio", length: { :maximum: 1000, tooLong: "%{count} characters is the maximum allowed" }
+  @validates "bio", length: { maximum: 1000, tooLong: "%{count} characters is the maximum allowed" }
 ```
 
-This helper counts characters by default, but you can split the value in a different way using the :tokenizer option:
+This helper counts characters by default, but you can split the value in a different way using the `tokenizer` option:
 
 ``` coffeescript
 class Essay extends Tower.Model
   @validates "content", length:
     minimum:   300,
     maximum:   400,
-    tokenizer: lambda { |str| str.scan(/\w+/) },
     tooShort:  "must have at least %{count} words",
     tooLong:   "must have at most %{count} words"
 ```
 
-Note that the default error messages are plural (e.g., "is too short (minimum is %{count} characters)"). For this reason, when :minimum is 1 you should provide a personalized message or use validatesPresenceOf instead. When :in or :within have a lower limit of 1, you should either provide a personalized message or call presence prior to length.
+Note that the default error messages are plural (e.g., "is too short (minimum is %{count} characters)"). For this reason, when `minimum` is 1 you should provide a personalized message or use validatesPresenceOf instead. When `in` or `within` have a lower limit of 1, you should either provide a personalized message or call presence prior to length.
 
 The size helper is an alias for length.
 
 ### Numericality
 
-This helper validates that your attributes have only numeric values. By default, it will match an optional sign followed by an integral or floating point number. To specify that only integral numbers are allowed set :onlyInteger to true.
+This helper validates that your attributes have only numeric values. By default, it will match an optional sign followed by an integral or floating point number. To specify that only integral numbers are allowed set `onlyInteger` to true.
 
-If you set :onlyInteger to true, then it will use the
+If you set `onlyInteger` to true, then it will use the
 
 ``` coffeescript
 /\A[+-]?\d+\Z/
@@ -168,13 +162,13 @@ class Player extends Tower.Model
 
 Besides `onlyInteger`, this helper also accepts the following options to add constraints to acceptable values:
 
-:greaterThan – Specifies the value must be greater than the supplied value. The default error message for this option is "must be greater than %{count}".
-:greaterThanOrEqualTo – Specifies the value must be greater than or equal to the supplied value. The default error message for this option is "must be greater than or equal to %{count}".
-:equalTo – Specifies the value must be equal to the supplied value. The default error message for this option is "must be equal to %{count}".
-:lessThan – Specifies the value must be less than the supplied value. The default error message for this option is "must be less than %{count}".
-:lessThanOrEqualTo – Specifies the value must be less than or equal the supplied value. The default error message for this option is "must be less than or equal to %{count}".
-:odd – Specifies the value must be an odd number if set to true. The default error message for this option is "must be odd".
-:even – Specifies the value must be an even number if set to true. The default error message for this option is "must be even".
+`greaterThan` – Specifies the value must be greater than the supplied value. The default error message for this option is "must be greater than %{count}".
+`greaterThanOrEqualTo` – Specifies the value must be greater than or equal to the supplied value. The default error message for this option is "must be greater than or equal to %{count}".
+`equalTo` – Specifies the value must be equal to the supplied value. The default error message for this option is "must be equal to %{count}".
+`lessThan` – Specifies the value must be less than the supplied value. The default error message for this option is "must be less than %{count}".
+`lessThanOrEqualTo` – Specifies the value must be less than or equal the supplied value. The default error message for this option is "must be less than or equal to %{count}".
+`odd` – Specifies the value must be an odd number if set to true. The default error message for this option is "must be odd".
+`even` – Specifies the value must be an even number if set to true. The default error message for this option is "must be even".
 The default error message is "is not a number".
 
 ### Presence
@@ -194,7 +188,7 @@ class LineItem extends Tower.Model
   @validates "orderId", presence: true
 ```
 
-Since false.blank? is true, if you want to validate the presence of a boolean field you should use validates :fieldName, :inclusion: { :in: [true, false] }.
+Since false.blank? is true, if you want to validate the presence of a boolean field you should use validates `fieldName`, `inclusion: { in: [true, false] }`.
 
 The default error message is "can't be empty".
 
@@ -209,14 +203,14 @@ class Account extends Tower.Model
 
 The validation happens by performing an SQL query into the model's table, searching for an existing record with the same value in that attribute.
 
-There is a :scope option that you can use to specify other attributes that are used to limit the uniqueness check:
+There is a `scope` option that you can use to specify other attributes that are used to limit the uniqueness check:
 
 ``` coffeescript
 class Holiday extends Tower.Model
   validates "name", uniqueness: { scope: "year", message: "should happen once per year" }
 ```
 
-There is also a :caseSensitive option that you can use to define whether the uniqueness constraint will be case sensitive or not. This option defaults to true.
+There is also a `caseSensitive` option that you can use to define whether the uniqueness constraint will be case sensitive or not. This option defaults to true.
 
 ``` coffeescript
 class User extends Tower.Model
