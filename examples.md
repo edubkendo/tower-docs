@@ -69,10 +69,17 @@ html ->
       App.run()
 ```
 
-## Blog
+## GeekList / CoderWall / WorkingWithRails
+
+You can chat with other node.js hackers too, and send code samples back and forth
 
 ```
-tower new blog
+tower new node-hacker
+cd node-hacker
+npm install
+tower generate scaffold user firstName lastName email website twitter github
+tower generate scaffold company website twitter email description:text founded:date
+node server
 ```
 
 ## Cached Commons

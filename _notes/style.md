@@ -1,5 +1,46 @@
 # Design Principles
 
+## Avoid CoffeeScript Keywords
+
+- Don't use any "JS_KEYWORDS" words that CoffeeScript allows you to use, because even though you can do `user.delete()` in CoffeeScript, you'd have to write `user["delete"]()` in JavaScript.  These words are:
+
+`true`, `false`, `null`, `this`, `new`, `delete`, `typeof`, `in`, `instanceof`, `return`, `throw`, `break`, `continue`, `debugger`, `if`, `else`, `switch`, `for`, `while`, `do`, `try`, `catch`, `finally`, `class`, `extends`, `super`
+
+## Use the `=>` operator instead of `_this`, `_self`, etc.
+
+## Group public/private methods
+
+Put private methods at the bottom of the file, even if they're named after a public method.  Reason: it's easier to read the code, you get the API first, then the implementation.
+
+Correct:
+
+``` coffeescript
+set: ->
+
+get: ->
+
+_set: ->
+
+_get: ->
+```
+
+Incorrect:
+
+``` coffeescript
+set: ->
+
+_set: ->
+
+get: ->
+
+_get: ->
+```
+
+## Align `=` and `:`
+
+- align semicolons on the left
+- align equal signs on the right, 2n tabs in (falls on an even number of whitespaces)
+
 ### Minimize the number of methods
 
 - less code to manage
@@ -13,6 +54,8 @@ model.buildRelation("user") # can opt into
 # vs.
 model.buildUser()
 ```
+
+Convert `model.store()` to a `store()` method on the class ONLY IF the number of times you use the method is such that creating the "wrapper" method would save on the number of characters in the js/coffee file (so when it's minimized, it's maximally minimized).  That is, if you only call the long method once, don't wrap it, just deal with it.  Or, if the method is sufficiently complex and needs to be tested, and is still only used once, then make it a method and test it. Better to test than to not.
 
 ### Use double underscore `__name` for private/protected methods
 

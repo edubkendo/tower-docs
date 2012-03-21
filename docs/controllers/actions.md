@@ -27,15 +27,15 @@ class App.PostsController extends Tower.Controller
       @redirectTo post
     
   show: ->
-    App.Post.find @params.id (error, post) =>
+    App.Post.find @params.id, (error, post) =>
       @render "show", locals: post: post
     
   edit: ->
-    App.Post.find @params.id (error, post) =>
+    App.Post.find @params.id, (error, post) =>
       @render "edit", locals: post: post
     
   update: ->
-    App.Post.find @params.id (error, post) =>
+    App.Post.find @params.id, (error, post) =>
       post.updateAttributes @params.post, (error) =>
         if error
           @render "edit", locals: post: post
@@ -43,7 +43,7 @@ class App.PostsController extends Tower.Controller
           @redirectTo post
     
   destroy: ->
-    App.Post.find @params.id (error, post) =>
+    App.Post.find @params.id, (error, post) =>
       post.destroy (error) =>
         @redirectTo "index"
 ```

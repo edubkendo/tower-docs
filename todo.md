@@ -9,24 +9,29 @@ Let me know if you'd like to implement any of these things, will help speed up t
 <h2><a name="features-0.5.0" href="features-0.5.0">0.5.0 - Full Featured Release</a></h2>
 
 - mongo embedded documents
+- autosave association functionality
+- test model pagination
+- model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
+- test `factories` (something like [factory.js](https://github.com/viatropos/factory.js))
+- test inheritance with `type` property
+- acceptsNestedAttributesFor functionality
+- background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing)
 - error/stacktrace printing when view fails to fully render
 - auto-restart server when file changes (development)
 - error hooks for controllers
 - test subdomains on heroku
 - database seeds
-- test inheritance with `type` property
 - extends hook for coffeescript
-- test `factories` (something like [factory.js](https://github.com/viatropos/factory.js))
+- get class methods/variables to clone from parent class (`extended` callback!).
+  - extended callback doesn't look like it's going to be implemented, so see `Tower.metadata` for alternative.
 - authentication extension (so it's easy to start using authentication, potentially with [passport](https://github.com/jaredhanson/passport))
 - authorization extension (https://github.com/ryanb/cancan)
 - test storing images/blobs in mongo
 - test storing images on s3
 - hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)
-- test model pagination
 - uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
 - email/phone validation (and other common validation helpers)
 - push notifications (web socket integration into the controllers)
-- background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing)
 - finish resourceful routes
 - some sort of `updateAll|deleteAll` functionality for controllers (array of ids)
 - finalize resourceful controller actions (see [https://github.com/josevalim/inherited_resources](https://github.com/josevalim/inherited_resources))
@@ -62,11 +67,22 @@ Let me know if you'd like to implement any of these things, will help speed up t
 - http caching methods in the controller
 - integrate `"use strict";` into the codebase
 - css sprites
-- model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
 - `benchmarks` folder with stress tests
 - https helper methods
 - redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/questions/4046960/how-to-redirect-without-www-using-rails-3-rack)
 - make sure templates have proper escaping ([xss protection](http://asciicasts.com/episodes/204-xss-protection-in-rails-3))
+- better url extraction in redirectTo
+- clean up and test server-side responders, make sure JSON is the default
+- set all class variables through the `Tower.metadata` object
+- move all top-level random variables to `Tower.config`
+- minimize the number of methods on `Tower.Application`, which is the namespace for your app
+- set gzip headers for assets in production
+- test the controller events
+- add socket.io support
+- test the sockets
+- get tower to load multiple `taskname.cake` files (coffee-script doesn't support this)
+- write tests for the command-line api
+- merge https://github.com/pthrasher/kckr with design.io (or switch)
 
 <h2><a name="potential-features-0.5.0" href="potential-features-0.5.0">Potential features for 0.5.0</a></h2>
 
