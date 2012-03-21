@@ -123,7 +123,7 @@ These are next, larger features.  These will be included in earlier releases if 
 - (PostGreSQL support ?)
 - (MySQL support ?)
 
-<a name="#potential-features" href="#potential-features"></a>
+<a name="potential-features" href="potential-features"></a>
 
 ## Potential Features
 
