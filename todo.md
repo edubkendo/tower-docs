@@ -15,8 +15,8 @@ Let me know if you'd like to implement any of these things, will help speed up t
 -  switch to parsing url params with URI.js
 -  urlFor helpers
 -  Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes 
-  -  urlFor 'Log on', :route => 'sign_in'
-  -  urlFor 'Log on',  'sign_in_path'
+  -  `urlFor 'Log on', route: 'signIn'`
+  -  `urlFor 'Log on',  'signInPath'`
 -  auto-restart server when file changes (development)
 -  database seeds
 -  better controller rendering
@@ -31,7 +31,7 @@ Let me know if you'd like to implement any of these things, will help speed up t
 
 ### 0.4.2
 
--  some sort of updateAll|deleteAll ​functionality for controllers (array of ids)
+-  some sort of `updateAll`|`deleteAll` ​functionality for controllers (array of ids)
 -  finish resourceful routes
 -  i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
 
@@ -46,7 +46,7 @@ Let me know if you'd like to implement any of these things, will help speed up t
 ### 0.4.4
 
 -  test inheritance with type property
--  finalize resourceful controller actions (see https://github.com/​josevalim/inherited_resources)
+-  finalize resourceful controller actions (see https://github.com/​josevalim/inheritedResources)
 -  error/stacktrace printing when view fails to fully render
 -  error hooks for controllers
 
@@ -55,12 +55,12 @@ Let me know if you'd like to implement any of these things, will help speed up t
 -  test storing images/blobs in mongo
 -  test storing images on s3
 -  test subdomains on heroku
--  hasMany through associations (Post.hasMany "comments"; Post.hasMany "commenters", through: "comments")
+-  hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)
 
 ### 0.4.6
 
 -  push notifications (web socket integration into the controllers)
--  background queuing with redis (User.queue("welcome", 1) vs. User.welcome(1), for background processing)
+-  background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing)
 -  test model pagination
 
 ### 0.4.7
@@ -74,7 +74,7 @@ Let me know if you'd like to implement any of these things, will help speed up t
 
 -  Test the mailer (already implemented but needs tests)
 -  image/asset/attachment model api (see https://github.com/​thoughtbot/paperclip)
--  add includes to associations: Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()
+-  add includes to associations: `Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()`
 -  model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
 
 ### 0.4.9
@@ -128,4 +128,4 @@ These are next, larger features.  These will be included in earlier releases if 
 ## Potential Features
 
 - hierarchical models (nested sets)
-- state machine (see [https://github.com/pluginaweek/state_machine](https://github.com/pluginaweek/state_machine))
+- state machine (see [https://github.com/pluginaweek/stateMachine](https://github.com/pluginaweek/stateMachine))
