@@ -8,76 +8,120 @@ Let me know if you'd like to implement any of these things, will help speed up t
 
 <h2><a name="features-0.5.0" href="features-0.5.0">0.5.0 - Full Featured Release</a></h2>
 
-- mongo embedded documents
-- error/stacktrace printing when view fails to fully render
-- auto-restart server when file changes (development)
-- error hooks for controllers
-- test subdomains on heroku
-- database seeds
-- test inheritance with `type` property
-- extends hook for coffeescript
-- test `factories` (something like [factory.js](https://github.com/viatropos/factory.js))
-- authentication extension (so it's easy to start using authentication, potentially with [passport](https://github.com/jaredhanson/passport))
-- authorization extension (https://github.com/ryanb/cancan)
-- test storing images/blobs in mongo
-- test storing images on s3
-- hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)
-- test model pagination
-- uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
-- email/phone validation (and other common validation helpers)
-- push notifications (web socket integration into the controllers)
-- background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing)
-- finish resourceful routes
-- some sort of `updateAll|deleteAll` functionality for controllers (array of ids)
-- finalize resourceful controller actions (see [https://github.com/josevalim/inherited_resources](https://github.com/josevalim/inherited_resources))
-- switch to parsing url params with [URI.js](https://github.com/medialize/URI.js)
-- urlFor helpers
-- better controller rendering
-- design.io updates:
-  - growl notifications
-  - auto-run tests
-- mock/test setup for http requests (controllers)
-- database "cleaner" code for tests
-- generators for tests
-- test the generator code
-- customize template engine, orm, and test framework in `App.config`
-- automatic form validations based on model on client
-- test client side view rendering with coffeekup
-- finish table builder
-- i18n (internationalization/localization, how to organize the random labels in the app, and prepare for translation into other languages)
-- underscore integration (cleanup/finalize, you easily spend a lot of your time formatting dates, numbers, and strings once the base app is in place):
-  - date helpers
-  - string helpers
-  - number helpers
-- Test the mailer (already implemented but needs tests)
-- image/asset/attachment model api (see [https://github.com/thoughtbot/paperclip](https://github.com/thoughtbot/paperclip))
-- basic model/controller logging
-- basic responsive admin theme, with functionality like http://activeadmin.info/
-- `tower generate authentication Session`
-- client and server have the same _interface_, separate code out so client is as lean as possible
-- chunk code into parts for the client, so you can use only bare minimum if desired
-- cache manifest: https://github.com/johntopley/manifesto
-- add `includes` to associations: `Post.includes("author").where(author: firstName: "=~": "Baldwin").all()`
-- inline css in email templates
-- http caching methods in the controller
-- integrate `"use strict";` into the codebase
-- css sprites
-- model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
-- `benchmarks` folder with stress tests
-- https helper methods
-- redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/questions/4046960/how-to-redirect-without-www-using-rails-3-rack)
-- make sure templates have proper escaping ([xss protection](http://asciicasts.com/episodes/204-xss-protection-in-rails-3))
+### 0.4.0
+
+* switch to parsing url params with URI.js
+* urlFor helpers
+* Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes 
+  * urlFor 'Log on', :route => 'sign_in'
+  * urlFor 'Log on',  'sign_in_path'
+* auto-restart server when file changes (development)
+* database seeds
+* better controller rendering
+
+### 0.4.1
+
+* extends hook for coffeescript
+* mongo embedded documents
+* test factories (something like factory.js)
+* underscore integration (cleanup/finalize, you easily spend a lot of your time formatting dates, numbers, and strings once the base app is in place)
+ 	- date helpers, string helpers, number helpers
+
+### 0.4.2
+
+* some sort of updateAll|deleteAll ​functionality for controllers (array of ids)
+* finish resourceful routes
+* i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
+
+### 0.4.3
+
+* uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
+* email/phone validation (and other common validation helpers)
+* automatic form validations based on model of client
+* test client side view rendering with coffeekup
+* basic model/controller logging
+
+### 0.4.4
+
+* test inheritance with type property
+* finalize resourceful controller actions (see https://github.com/​josevalim/inherited_resources)
+* error/stacktrace printing when view fails to fully render
+* error hooks for controllers
+
+### 0.4.5
+
+* test storing images/blobs in mongo
+* test storing images on s3
+* test subdomains on heroku
+* hasMany through associations (Post.hasMany "comments"; Post.hasMany "commenters", through: "comments")
+
+### 0.4.6
+
+* push notifications (web socket integration into the controllers)
+* background queuing with redis (User.queue("welcome", 1) vs. User.welcome(1), for background processing)
+* test model pagination
+
+### 0.4.7
+
+* mock/test setup for http requests (controllers)
+* generators for tests
+* test the generator code
+* customize template engine, orm, and test framework in App.config
+
+### 0.4.8
+
+* Test the mailer (already implemented but needs tests)
+* image/asset/attachment model api (see https://github.com/​thoughtbot/paperclip)
+* add includes to associations: Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()
+* model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
+
+### 0.4.9
+
+* design.io updates:
+  * growl notifications
+  * auto-run tests
+* database "cleaner" code for tests
+* finish table builder
+* inline css in email templates
+* http caching methods in the controller
+* https helper methods
+
+### 0.5.0
+
+* basic responsive admin theme, with functionality like http://activeadmin.info/
+* client and server have the same interface, separate code out so client is as lean as possible
+* make sure templates have proper escaping (xss protection)
+
+### 0.5.1
+
+* chunk code into parts for the client, so you can use only bare minimum if desired
+* cache manifest: https://github.com/​johntopley/manifesto
+* integrate "use strict"; into the codebase
+* css sprites
+* benchmarks folder with stress tests
+* redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/​questions/4046960/how-to-​redirect-without-www-using-​rails-3-rack)
+
+## Separate plugins
+
+### TowerPassport
+
+* authentication extension (so it's easy to start using authentication, potentially with passport
+* tower generate authentication Session
+
+### TowerCanDo
+
+* authorization extension (https://github.com/ryanb/​cancan)
 
 <h2><a name="potential-features-0.5.0" href="potential-features-0.5.0">Potential features for 0.5.0</a></h2>
 
 - hierarchical models (nested sets)
 - state machine (see [https://github.com/pluginaweek/state_machine](https://github.com/pluginaweek/state_machine))
 
-<h2><a name="features-0.6.0+" href="features-0.6.0+">0.6.0+ Future Features</a></h2>
+## Support for alternative data stores (as plugins) 
 
-These are next, larger features.  These will be included in earlier releases if a member of the community contributes them.  Otherwise they will be more formally approached after the 0.5.0 release.
+These are next, larger features.  These will be included in earlier releases if a member of the community contributes them.  Otherwise they might be approached after the 0.5.0 release according to community requests.
 
 - Neo4j support
 - CouchDB support
-- PostGreSQL support
-- MySQL support
+- (PostGreSQL support ?)
+- (MySQL support ?)
