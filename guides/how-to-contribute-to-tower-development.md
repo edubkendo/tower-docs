@@ -10,7 +10,7 @@ https://github.com/viatropos/tower/issues
 
 ### 1.2 Features
 
-Add these to the [https://github.com/viatropos/tower/wiki/todo#wiki-potential-features] "Potential Features" section.
+Add these to the todo wiki's [Potential Features](https://github.com/viatropos/tower/wiki/todo#wiki-potential-features) section.
 
 ### 1.3 Questions
 
