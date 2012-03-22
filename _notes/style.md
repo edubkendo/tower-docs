@@ -57,8 +57,6 @@ model.buildUser()
 
 Convert `model.store()` to a `store()` method on the class ONLY IF the number of times you use the method is such that creating the "wrapper" method would save on the number of characters in the js/coffee file (so when it's minimized, it's maximally minimized).  That is, if you only call the long method once, don't wrap it, just deal with it.  Or, if the method is sufficiently complex and needs to be tested, and is still only used once, then make it a method and test it. Better to test than to not.
 
-### Use double underscore `__name` for private/protected methods
-
 ### Use single underscore for Ruby-ish `bang!` methods: `_create()`.
 
 ### Organize the code so it can be compiled for the client

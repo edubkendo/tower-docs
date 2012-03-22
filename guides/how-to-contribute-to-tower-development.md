@@ -6,9 +6,19 @@ This guide is for developing Tower in a Mac OS X environment.
 
 ### 1.1 Bugs
 
+https://github.com/viatropos/tower/issues
+
 ### 1.2 Features
 
+Add these to the [https://github.com/viatropos/tower/wiki/todo#wiki-potential-features] "Potential Features" section.
+
 ### 1.3 Questions
+
+http://stackoverflow.com/
+
+### 1.4 Discussion
+
+https://groups.google.com/group/towerjs
 
 ## 2. Setting up the Development Environment
 
@@ -53,16 +63,22 @@ curl http://npmjs.org/install.sh | sh
 brew install mongodb
 ```
 
+Then follow the instructions output in the terminal to start mongodb (`mongod start`).
+
 ### 2.4 Install Redis
 
 ```
 brew install redis
 ```
 
+Not using Redis yet.
+
 ### 2.5 Download Tower
 
+Fork Tower and clone your fork.
+
 ```
-git clone git://github.com/viatropos/tower.git
+git clone git://github.com/<username>/tower.git
 cd tower
 ```
 
@@ -74,6 +90,8 @@ Now that you have everything installed and running, time to run the Tower test s
 npm test
 ```
 
+Tower uses [Mocha](http://visionmedia.github.com/mocha/) for writing tests.
+
 ## 3. Contributing to the Tower Codebase
 
 ### 3.1 Create a dedicated branch
@@ -84,6 +102,8 @@ git checkout development
 ```
 
 It doesn't really matter what name you use, because this branch will only exist on your local computer and your personal repository on GitHub. It won't be part of the Tower git repository.
+
+This is also optional, but it's good practice.
 
 ### 3.2 Compile the CoffeeScript Files for Tower
 
@@ -103,7 +123,7 @@ Tower follows a simple set of coding style conventions.
 - No trailing whitespace. Blank lines should not have any space.
 - Prefer &&/|| over and/or.
 - `a = b` and not `a=b`.
-- Follow the conventions you see used in the source already.
+- Follow the conventions you see used in the source already.  Check the [style guide](https://github.com/viatropos/tower/wiki/style) for a few notes as well.
 
 ### 3.5 Commit Your Changes
 
@@ -115,11 +135,13 @@ git commit -a -m "Here is a commit message on what I changed in this commit"
 
 Please squash your commits into a single commit when appropriate. This simplifies future cherry picks, and also keeps the git log clean.
 
-### 3.6 Fork Tower
+### 3.6 Issue a Pull Request
 
-### 3.7 Issue a Pull Request
+Push your code to your repository and issue a pull request:
 
-### 3.8 Get Some Feedback
+http://help.github.com/send-pull-requests/
+
+### 3.7 Get Some Feedback
 
 Now you need to get other people to look at your patch, just as you've looked at other people's patches. You can use the `#towerjs` channel on IRC freenode for this. You might also try just talking to Tower developers that you know.
 
@@ -151,7 +173,7 @@ Current translation efforts:
 
 ## 6. Tower Contributors
 
-All contributions, either via master or the wiki, get credit in [Tower Contributors](http://towerjs.org/contributors).
+All contributions, either via master or the wiki, get credit in [Tower Contributors](http://towerjs.org/contributors) once we get that page up.
 
 ## Feedback
 
