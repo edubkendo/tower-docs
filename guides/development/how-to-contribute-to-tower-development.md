@@ -75,14 +75,21 @@ Not using Redis yet.
 
 ### 2.5 Download Tower
 
-Fork Tower and clone your fork.
+Fork Tower and clone your fork
 
 ```
 git clone git://github.com/<username>/tower.git
 cd tower
 ```
 
-### 2.6. Run the Test Suite
+### 2.6 Install node modules
+
+```
+$ npm install mocha redis mongodb underscore underscore.logger underscore.string pathfinder async 
+$ npm install restler chai sinon moment coffeekup mime
+```
+
+### 2.7. Run the Test Suite
 
 Now that you have everything installed and running, time to run the Tower test suite.
 
@@ -103,7 +110,7 @@ git checkout development
 
 It doesn't really matter what name you use, because this branch will only exist on your local computer and your personal repository on GitHub. It won't be part of the Tower git repository.
 
-This is also optional, but it's good practice.
+This is also optional, but it's good practice. You can also use feature branches on your main development branch.
 
 ### 3.2 Compile the CoffeeScript Files for Tower
 
@@ -157,7 +164,47 @@ Tower has two main sets of documentation: The guides help you to learn Tower, an
 
 You can help improve the Tower guides by making them more coherent, adding missing information, correcting factual errors, fixing typos, bringing it up to date with the latest edge Tower.
 
-### 5.1 Translating the Tower Guides
+### 5.1 Development guide
+
+Tower should also have a development guide that goes through the main structure of Tower, the APIs and how to add functionality while following the existing conventions and design/architecture.
+
+The development guide should be structured according to the folder structure inside lib/tower:
+
+* Application
+  * Locale
+* Client
+  * Application
+  * Controller
+  * Store
+  * View
+* Controller
+* Http
+  * Param
+  * Route
+* Middleware
+* Model
+  * Locale
+  * Relation
+  * Scope
+  * Validator
+* Server
+  * Application
+  * Command
+  * Controller
+  * Generator
+  * Mailer
+  * Middleware
+  * Store
+* Store
+  * Memory
+* Support
+  * Locale
+* View
+  * Form
+  * Helpers
+  * Locale
+
+### 5.2 Translating the Tower Guides
 
 It's great to have people volunteer to translate the Tower Guides into their own language.
 
