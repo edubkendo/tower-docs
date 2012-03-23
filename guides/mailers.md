@@ -1,4 +1,4 @@
-# Mailer
+# Mailers
 
 ``` coffeescript
 class Notifier extends Tower.Mailer

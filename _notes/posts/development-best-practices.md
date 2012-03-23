@@ -1,4 +1,0 @@
-- develop against a set of fixtures so you're dealing with the same graphics every time you refresh the page (uploaded images, etc.).  but also be able to create new things
-- be able to reset the db back to the base "fixtured" state.
-- use `console.log` and related on the client so you can see the line number (i.e. don't wrap it)
-- http://jsperf.com/dynamic-arguments

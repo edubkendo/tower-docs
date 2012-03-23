@@ -301,3 +301,4 @@ These are projects that should either be integrated into Coach, or rewritten to 
 - https://github.com/medialize/URI.js
 - https://github.com/h5bp/mobile-boilerplate
 - https://github.com/visionmedia/stats
+- http://ricostacruz.com/backbone-patterns/
