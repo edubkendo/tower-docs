@@ -1,46 +1,131 @@
-## Near Future
+# Roadmap
 
-- Finish the initializer process
-- Add file uploading support
-- **Embedded Documents in MongoDB**
-- Autoreload js/coffee files when they change (without restarting the server with something like [nodemon](https://github.com/remy/nodemon))
-- **Break the client library into small modules**, with the tower.core.js being ideally <= 10k.  So you start with just barebones functionality (model layer), then you can add controllers, then views, one piece at a time if you want.  The default tower.js will include everything.
-- Probably going to want to divide the client/server implementation into more clearly separated chunks.  From a "building an app" perspective, you won't know the different, it'll just work - they'll have the same api.  But from an implementation perspective, they should probably be separate projects.  This way the client can be as lean and mean as possible, to minimize download size, while the server can be robust like Rails.
-- **Logging**.  Just put debug/info level logging throughout the http/database calls like Rails so you can see what's going on in a standard way.
-- Make socket.io a plugin to the framework, not a default dependency.
-- Setup [zombie](https://github.com/assaf/zombie) tests internally to test tower's client side implementation.
-- **Consider data binding/event dispatching**.  [Just ideas]. Consider integrating ember.metal.js into the base tower model and scope objects (opt-in of course).  This way you could take advantage of ember.js views in tower models.  I first want to really test performance with ember.js, after years of Adobe Flex I'm very resistant to data-binding...  Even though you write a lot less code, the amount of memory that data binding uses up, and the tons of additional calculations it does whenever anything changes, makes even simple apps SLOW.  I am not okay with slowness.  Also, data-binding is an abstraction layer that, while making the beginning developer move very fast initially, makes the simple impossibly hard the intermediate and advanced developer who just wants to make "this" happen when an a data binding is triggered, vs. "that".  It becomes a black box that's impenetrable, and it comes with a significant performance loss.  I need to run tests a) to see if data binding has near equal performance as manually the writing code on a one-off basis, and b) to see if the amount of time you save by having data binding abstracted away is greater than the amount of time you spend manually writing the code on a per-app basis.  I've always thought manually writing the code, while tedious, is easy code to write - and you have total control over performance which is key b/c this is all UI.
-- Test out the mailer with sendgrid, and integrate inline css.
-- Build redis/resque into an `enqueue` module.
-- Build a _lightweight but powerful_ hierarchical relationship manager (https://github.com/collectiveidea/awesome_nested_set) (directed acyclic graph).
-- add namespaces to global app when you generate a namespaced scaffold
-- Consider `require()` in the browser.  My main concern with this is there needs to be a super light "standard" library for this, that everybody's using.  Why doesn't this exist yet?  Once it does, and it's a common name like `underscore.js`, and it's _lightweight_ ([requirejs](https://github.com/jrburke/requirejs) is not lightweight), then we'll potentially start using this standard.
-- Finish the I18n implementation
-- Integrate (or give examples of) a date parsing library like moment.js.
-- Refactor the `Tower.Model.Scope` calculations into an algorithm (if there is one, similar to [Arel](https://github.com/rails/arel))
-- Integrate [URI.js](http://medialize.github.com/URI.js/) server-side.
-- Benchmark
-- Write the best tests in the world
-- To decrease app startup time, you might be able to write some sort of method missing functionality in javascript as follows: When you call `App.Post`, and `require('./app/models/post')` has not been called, it inspects the `error.stack` to figure out "oh, 'Post' was called on 'App'", and then knows how to find it.  This way you wouldn't have to pollute your app with `require` for every single model call, but could also lazy load models/controllers/etc.  Wrap the whole app in a try/catch block and inspect function calls recursively, something like that.  Just an idea.
-- Authentication example
-- Authorization plugin like https://github.com/ryanb/cancan
+Tower is currently at version 0.3.9-x.  Going to move to 0.4.0 once it looks like everyone is able to build an app - just about there.
 
-## Further Future
+For 0.5.0, Tower will include the features below.  It's going to be a rolling list.  If you have ideas or features you'd like to see, include them in the section [Potential features](#potential-features) section and we'll move them up if they're in scope.
 
-- Generating generators: http://asciicasts.com/episodes/218-making-generators-in-rails-3
-- https://github.com/gregbell/active_admin
-- https://github.com/sferik/rails_admin
-- have [exceptional](http://www.exceptional.io/) and [newrelic](http://newrelic.com/) style logging
-- sharding and replication (scaling) should all be built in to some degree: https://github.com/tchandy/octopus, https://www.ruby-toolbox.com/categories/Active_Record_Sharding
-- calculate age
-- autoincrement id in mongodb
-- download csv node.js express
+Let me know if you'd like to implement any of these things, will help speed up the process.
 
-## Test on node.js hosting platforms
+<a name="features-0.5.0" href="features-0.5.0"></a>
 
-- https://no.de/ (paid)
-- http://nodester.com (free)
-- http://heroku.com (free)
-- http://www.webbynode.com/ (paid)
-- http://nodejitsu.com (private)
-- http://docs.dotcloud.com/services/nodejs/ (free)
+## 0.5.0 - Full Featured Release
+
+### 0.4.0
+
+-  switch to parsing url params with URI.js
+-  urlFor helpers
+-  Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes 
+  -  `urlFor 'Log on', route: 'signIn'`
+  -  `urlFor 'Log on',  'signInPath'`
+-  auto-restart server when file changes (development)
+-  database seeds
+-  better controller rendering
+
+### 0.4.1
+
+-  extends hook for coffeescript
+-  mongo embedded documents
+-  test factories (something like factory.js)
+-  underscore integration (cleanup/finalize, you easily spend a lot of your time formatting dates, numbers, and strings once the base app is in place)
+ 	- date helpers, string helpers, number helpers
+
+### 0.4.2
+
+-  some sort of `updateAll`|`deleteAll` ​functionality for controllers (array of ids)
+-  finish resourceful routes
+-  i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
+
+### 0.4.3
+
+-  uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
+-  email/phone validation (and other common validation helpers)
+-  automatic form validations based on model of client
+-  test client side view rendering with coffeekup
+-  basic model/controller logging
+
+### 0.4.4
+
+-  test inheritance with type property
+-  finalize resourceful controller actions (see https://github.com/​josevalim/inheritedResources)
+-  error/stacktrace printing when view fails to fully render
+-  error hooks for controllers
+
+### 0.4.5
+
+-  test storing images/blobs in mongo
+-  test storing images on s3
+-  test subdomains on heroku
+-  hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)
+
+### 0.4.6
+
+-  push notifications (web socket integration into the controllers)
+-  background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing)
+-  test model pagination
+
+### 0.4.7
+
+-  mock/test setup for http requests (controllers)
+-  generators for tests
+-  test the generator code
+-  customize template engine, orm, and test framework in App.config
+
+### 0.4.8
+
+-  Test the mailer (already implemented but needs tests)
+-  image/asset/attachment model api (see https://github.com/​thoughtbot/paperclip)
+-  add includes to associations: `Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()`
+-  model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
+
+### 0.4.9
+
+-  design.io updates:
+  -  growl notifications
+  -  auto-run tests
+-  database "cleaner" code for tests
+-  finish table builder
+-  inline css in email templates
+-  http caching methods in the controller
+-  https helper methods
+
+### 0.5.0
+
+-  basic responsive admin theme, with functionality like http://activeadmin.info/
+-  client and server have the same interface, separate code out so client is as lean as possible
+-  make sure templates have proper escaping (xss protection)
+
+### 0.5.1
+
+-  chunk code into parts for the client, so you can use only bare minimum if desired
+-  cache manifest: https://github.com/​johntopley/manifesto
+-  integrate "use strict"; into the codebase
+-  css sprites
+-  benchmarks folder with stress tests
+-  redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/​questions/4046960/how-to-​redirect-without-www-using-​rails-3-rack)
+
+## Separate plugins
+
+### TowerPassport
+
+-  authentication extension (so it's easy to start using authentication, potentially with passport
+-  tower generate authentication Session
+
+### TowerCanDo
+
+-  authorization extension (https://github.com/ryanb/​cancan)
+
+## Support for alternative data stores (as plugins) 
+
+These are next, larger features.  These will be included in earlier releases if a member of the community contributes them.  Otherwise they might be approached after the 0.5.0 release according to community requests.
+
+- Neo4j support
+- CouchDB support
+- (PostGreSQL support ?)
+- (MySQL support ?)
+
+<a name="potential-features" href="potential-features"></a>
+
+## Potential Features
+
+- hierarchical models (nested sets)
+- state machine (see [https://github.com/pluginaweek/stateMachine](https://github.com/pluginaweek/stateMachine))

@@ -23,21 +23,21 @@ Bundles all the assets
 module.exports =
   javascripts:
     application: [
-      '/app/models/user'
-      '/app/models/post'
+      "/app/models/user"
+      "/app/models/post"
     ]
     bottom: [
       "/vendor/assets/javascripts/jmd/showdown"
       "/vendor/assets/javascripts/jmd/jquery.markedit"
     ]
     vendor: [
-      '/vendor/assets/javascripts/tower'
-      '/vendor/assets/javascripts/underscore'
+      "/vendor/assets/javascripts/tower"
+      "/vendor/assets/javascripts/underscore"
     ]
     development: [
-      '/vendor/assets/javascripts/jasmine'
-      '/vendor/assets/javascripts/faker'
-      '/vendor/assets/javascripts/coffeekup'
+      "/vendor/assets/javascripts/jasmine"
+      "/vendor/assets/javascripts/faker"
+      "/vendor/assets/javascripts/coffeekup"
     ]
   
   stylesheets:
@@ -50,7 +50,7 @@ module.exports =
     ]
     
 try
-  Tower.assetManifest = JSON.parse(require('fs').readFileSync('public/assets/manifest.json', 'utf-8'))
+  Tower.assetManifest = JSON.parse(require("fs").readFileSync("public/assets/manifest.json", "utf-8"))
 catch error
   Tower.assetManifest = {}
 ```
