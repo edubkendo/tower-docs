@@ -6,32 +6,34 @@ Built on top of Node's Connect and Express, modeled after Ruby on Rails.  Built 
 
 Follow me [@viatropos](http://twitter.com/viatropos).
 
-More docs in the docs section on [towerjs.org](http://towerjs.org).  Docs are a work in progress.
+Docs are a work in progress.
 
 ## Default Development Stack
 
 - MongoDB (database)
 - Redis (background jobs)
 - CoffeeScript
-- Stylus
-- Jasmine (tests)
+- Stylus (LESS is also supported)
+- Mocha (tests)
 - jQuery
 
-Includes a database-agnostic ORM with browser (memory) and MongoDB support, modeled after ActiveRecord and Mongoid for Ruby.  Includes a controller architecture that works the same on both the client and server, modeled after Rails.  The routing API is pretty much exactly like Rails 3's.  Templates work on client and server as well (and you can swap in any template engine no problem).  Includes asset pipeline that works just like Rails 3's - minifies and gzips assets with an md5-hashed name for optimal browser caching, only if you so desire.  And it includes a watcher that automatically injects javascripts and stylesheets into the browser as you develop.  It solves a lot of our problems, hope it solves yours too.  If not, let me know!
+Includes a database-agnostic ORM with browser (memory) and MongoDB support, modeled after ActiveRecord and Mongoid for Ruby.  Includes a controller architecture that works the same on both the client and server, modeled after Rails.  The routing API is pretty much exactly like Rails 3's.  Templates work on client and server as well (and you can swap in any template engine no problem).  Includes asset pipeline that works just like Rails 3's - minifies and gzips assets with an md5-hashed name for optimal browser caching, only if you so desire.  And it includes a watcher that automatically injects javascripts and stylesheets into the browser as you develop.  It solves a lot of our problems, hope it solves yours too.
 
 ## Install
 
 ``` bash
 npm install tower -g
+npm install design.io -g
 ```
 
-## Generator
+## Generate
 
 ``` bash
 tower new app
 cd app
-tower generate scaffold Post title:string body:text belongsTo:user
-tower generate scaffold User email:string firstName:string lastName:string hasMany:posts
+npm install
+tower generate scaffold Post title:string body:text
+node server
 ```
 
 ## Structure
@@ -132,7 +134,7 @@ class App.User extends Tower.Model
   @hasOne "address", embed: true
   
   @hasMany "posts"
-  @hasmany "comments"
+  @hasMany "comments"
   
   @scope "thisWeek", -> @where(createdAt: ">=": -> require('moment')().subtract('days', 7))
   
@@ -159,7 +161,7 @@ class App.Post extends Tower.Model
   @before "validate", "slugify"
   
   slugify: ->
-    @set "slug", @get("title").replace(/^[a-z0-9]+/g, "-").toLowerCase()
+    @set "slug", @get("title").replace(/[^a-z0-9]+/g, "-").toLowerCase()
 ```
 ``` coffeescript
 # app/models/comment.coffee
@@ -339,7 +341,7 @@ html ->
     yields "bottom"
 ```
 
-The default templating engine is [CoffeeKup](http://coffeekup.org/), which is pure CoffeeScript.  It's much more powerful than Jade, and it's just as performant if not more so.  You can set Jade or any other templating engine as the default by setting `Tower.View.engine = "jade"` in `config/application`.  Tower uses [Shift.js](http://github.com/viatropos/shift.js), which is a normalized interface to most of the Node.js templating languages.
+The default templating engine is [CoffeeKup](http://coffeekup.org/), which is pure CoffeeScript.  It's much more powerful than Jade, and it's just as performant if not more so.  You can set Jade or any other templating engine as the default by setting `Tower.View.engine = "jade"` in `config/application`.  Tower uses [Mint.js](http://github.com/viatropos/mint.js), which is a normalized interface to most of the Node.js templating languages.
 
 ## Styles
 
@@ -362,10 +364,10 @@ class App.PostsController extends Tower.Controller
     @post = new App.Post(@params.post)
     
     super (success, failure) ->
-      @success.html -> @render "posts/edit"
-      @success.json -> @render text: "success!"
-      @failure.html -> @render text: "Error", status: 404
-      @failure.json -> @render text: "Error", status: 404
+      @success.html => @render "posts/edit"
+      @success.json => @render text: "success!"
+      @failure.html => @render text: "Error", status: 404
+      @failure.json => @render text: "Error", status: 404
     
   show: ->
     App.Post.find @params.id, (error, post) =>
@@ -541,31 +543,15 @@ watch /app\/views\/.+\.mustache/
     # do anything!
 ```
 
-## Test, Develop, Minify
+## Test
 
 ``` bash
-cake spec
-cake coffee
-cake minify
+npm test
 ```
 
 ## Examples
 
 - [towerjs.org (project site)](https://github.com/viatropos/towerjs.org)
-
-## Accent Libraries
-
-Tower.js is just the bare bones, so you're free to choose a date parsing library, a template engine, or a form validation library, whatever.
-
-Here's some of the libraries I recommend:
-
-- [moment.js](http://momentjs.com/) for date parsing
-- [underscore.js](http://documentcloud.github.com/underscore/)
-- [socket.io](http://socket.io/) for web sockets.
-- [async.js](https://github.com/caolan/async) for taming callback spaghetti
-- [geolib](https://github.com/manuelbieh/Geolib) for geo calculations
-- [tiny-require.js](https://github.com/viatropos/tiny-require.js) for using `require()` in the browser
-- [shift.js](https://github.com/viatropos/shift.js) for a generic interface to the JavaScript template engines
 
 ## License
 

@@ -10,7 +10,7 @@ program
   .option('-b, --bar', 'add some bar')
 
 argv = ['node', 'test', '--foo', '--', '--bar', 'baz'] # program.ARGV mock
-  
+
 program.parse(argv)
 ```
 

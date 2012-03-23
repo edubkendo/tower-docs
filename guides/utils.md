@@ -1,4 +1,4 @@
-# Client Extensions
+# Utils
 
 Have CachedCommons.org let you load files with `require('socket.io')`:
 
