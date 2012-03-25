@@ -76,7 +76,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### 0.4.7 (background jobs, emails)
 
-- background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing)
+- background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing) - https://github.com/technoweenie/coffee-resque
 - Test the mailer (already implemented but needs tests)
 - inline css in email templates
 
