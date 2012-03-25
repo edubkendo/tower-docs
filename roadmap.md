@@ -10,109 +10,116 @@ Let me know if you'd like to implement any of these things, will help speed up t
 
 ## 0.5.0 - Full Featured Release
 
-### 0.4.0
+### 0.4.0 (functional release)
 
--  switch to parsing url params with URI.js
--  urlFor helpers
--  Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes 
-  -  `urlFor 'Log on', route: 'signIn'`
-  -  `urlFor 'Log on',  'signInPath'`
--  auto-restart server when file changes (development)
--  database seeds
--  better controller rendering
+- switch to parsing url params with URI.js
+- urlFor helpers
+- Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes 
+  - `urlFor 'Log on', route: 'signIn'`
+  - `urlFor 'Log on',  'signInPath'`
+- auto-restart server when file changes (development)
+- test subdomains on heroku
+- mongo embedded documents
+- database seeds
+- finish resourceful routes
+- test model pagination
 
-### 0.4.1
+### 0.4.1 (tests)
 
--  extends hook for coffeescript
--  mongo embedded documents
--  test factories (something like factory.js)
--  underscore integration (cleanup/finalize, you easily spend a lot of your time formatting dates, numbers, and strings once the base app is in place)
- 	- date helpers, string helpers, number helpers
+- generate `test/models` with example code for scaffold
+- generate `test/routes` or `test/controllers` with example code for scaffold
+- test inheritance with type property
+- extends hook for coffeescript
+- test factories (something like factory.js)
+- mock/test setup for http requests (controllers)
+- generators for tests
+- test the generator code
 
-### 0.4.2
+### 0.4.2 (controllers)
 
--  some sort of `updateAll`|`deleteAll` ​functionality for controllers (array of ids)
--  finish resourceful routes
--  i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
+- better controller rendering
+- some sort of `updateAll`|`deleteAll` ​functionality for controllers (array of ids)
+- finalize resourceful controller actions (see https://github.com/​josevalim/inheritedResources)
+- error hooks for controllers
+- basic controller logging
 
-### 0.4.3
+### 0.4.3 (models)
 
--  uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
--  email/phone validation (and other common validation helpers)
--  automatic form validations based on model of client
--  test client side view rendering with coffeekup
--  basic model/controller logging
+- basic model logging
+- uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
+- email/phone validation (and other common validation helpers)
+- i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
 
-### 0.4.4
+### 0.4.4 (model attachments)
 
--  test inheritance with type property
--  finalize resourceful controller actions (see https://github.com/​josevalim/inheritedResources)
--  error/stacktrace printing when view fails to fully render
--  error hooks for controllers
+- test storing images/blobs in mongo
+- test storing images on s3
+- image/asset/attachment model api (see https://github.com/​thoughtbot/paperclip)
 
-### 0.4.5
+### 0.4.5 (views)
 
--  test storing images/blobs in mongo
--  test storing images on s3
--  test subdomains on heroku
--  hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)
+- test client side view rendering with coffeekup
+- automatic form validations based on model of client
+- error/stacktrace printing when view fails to fully render
+- finish table builder
 
-### 0.4.6
+### 0.4.6 (sockets, background jobs)
 
--  push notifications (web socket integration into the controllers)
--  background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing)
--  test model pagination
+- push notifications (web socket integration into the controllers)
+- background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing)
 
-### 0.4.7
+### 0.4.7 (configuration)
 
--  mock/test setup for http requests (controllers)
--  generators for tests
--  test the generator code
--  customize template engine, orm, and test framework in App.config
+- customize template engine, orm, and test framework in App.config
+- underscore integration (cleanup/finalize, you easily spend a lot of your time formatting dates, numbers, and strings once the base app is in place)
+  - date helpers, string helpers, number helpers
 
 ### 0.4.8
 
--  Test the mailer (already implemented but needs tests)
--  image/asset/attachment model api (see https://github.com/​thoughtbot/paperclip)
--  add includes to associations: `Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()`
--  model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
+- hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)
+- add includes to associations: `Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()`
+- model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
+- database "cleaner" code for tests
 
 ### 0.4.9
 
--  design.io updates:
-  -  growl notifications
-  -  auto-run tests
--  database "cleaner" code for tests
--  finish table builder
--  inline css in email templates
--  http caching methods in the controller
--  https helper methods
+- Test the mailer (already implemented but needs tests)
+- design.io updates:
+  - growl notifications
+  - auto-run tests
+- inline css in email templates
+- http caching methods in the controller
+- https helper methods
 
 ### 0.5.0
 
--  basic responsive admin theme, with functionality like http://activeadmin.info/
--  client and server have the same interface, separate code out so client is as lean as possible
--  make sure templates have proper escaping (xss protection)
+- basic responsive admin theme, with functionality like http://activeadmin.info/
+- client and server have the same interface, separate code out so client is as lean as possible
+- make sure templates have proper escaping (xss protection)
 
 ### 0.5.1
 
--  chunk code into parts for the client, so you can use only bare minimum if desired
--  cache manifest: https://github.com/​johntopley/manifesto
--  integrate "use strict"; into the codebase
--  css sprites
--  benchmarks folder with stress tests
--  redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/​questions/4046960/how-to-​redirect-without-www-using-​rails-3-rack)
+- chunk code into parts for the client, so you can use only bare minimum if desired
+- cache manifest: https://github.com/​johntopley/manifesto
+- integrate "use strict"; into the codebase
+- css sprites
+- benchmarks folder with stress tests
+- redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/​questions/4046960/how-to-​redirect-without-www-using-​rails-3-rack)
 
 ## Separate plugins
 
 ### TowerPassport
 
--  authentication extension (so it's easy to start using authentication, potentially with passport
--  tower generate authentication Session
+- authentication extension (so it's easy to start using authentication, potentially with passport
+- tower generate authentication Session
 
 ### TowerCanDo
 
--  authorization extension (https://github.com/ryanb/​cancan)
+- authorization extension (https://github.com/ryanb/​cancan)
+
+### TowerAttachment
+
+- paperclip?
 
 ## Support for alternative data stores (as plugins) 
 
