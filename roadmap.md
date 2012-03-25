@@ -6,6 +6,8 @@ For 0.5.0, Tower will include the features below.  It's going to be a rolling li
 
 Let me know if you'd like to implement any of these things, will help speed up the process.
 
+You are free to implement any of these features in any order… I'm more of a fan of doing what you want when you want to, as long as it follows some general plan.  I stay motivated and get way more done that way.
+
 <a name="features-0.5.0" href="features-0.5.0"></a>
 
 ## 0.5.0 - Full Featured Release
