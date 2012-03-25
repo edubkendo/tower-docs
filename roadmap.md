@@ -72,17 +72,11 @@ Let me know if you'd like to implement any of these things, will help speed up t
 - test client-side sockets
 - swappable sockets api (socket.ly, socket.io)
 
-### 0.4.6 (background jobs, emails)
+### 0.4.7 (background jobs, emails)
 
 - background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing)
 - Test the mailer (already implemented but needs tests)
 - inline css in email templates
-
-### 0.4.7 (configuration)
-
-- customize template engine, orm, and test framework in App.config
-- underscore integration (cleanup/finalize, you easily spend a lot of your time formatting dates, numbers, and strings once the base app is in place)
-  - date helpers, string helpers, number helpers
 
 ### 0.4.8 (models [robustness])
 
@@ -91,10 +85,13 @@ Let me know if you'd like to implement any of these things, will help speed up t
 - model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
 - database "cleaner" code for tests
 
-### 0.4.9 (cleanup, optimizations, documentation)
+### 0.4.9 (cleanup, optimizations, configuration, documentation)
 
 - chunk code into parts for the client, so you can use only bare minimum if desired
 - finalize tower.js internal code organization
+- customize template engine, orm, and test framework in App.config
+- underscore integration (cleanup/finalize, you easily spend a lot of your time formatting dates, numbers, and strings once the base app is in place)
+  - date helpers, string helpers, number helpers
 - design.io updates:
   - growl notifications
   - auto-run tests
