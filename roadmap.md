@@ -19,11 +19,11 @@ You are free to implement any of these features in any order… I'm more of a fa
 - Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes 
   - `urlFor 'Log on', route: 'signIn'`
   - `urlFor 'Log on',  'signInPath'`
+- finish resourceful routes
 - auto-restart server when file changes (development)
 - test subdomains on heroku
 - mongo embedded documents
 - database seeds
-- finish resourceful routes
 - test model pagination
 
 ### 0.4.1 (tests)
