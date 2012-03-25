@@ -42,6 +42,9 @@ Let me know if you'd like to implement any of these things, will help speed up t
 - finalize resourceful controller actions (see https://github.com/​josevalim/inheritedResources)
 - error hooks for controllers
 - basic controller logging
+- https helper methods
+- http caching methods in the controller
+- redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/​questions/4046960/how-to-​redirect-without-www-using-​rails-3-rack)
 
 ### 0.4.3 (models)
 
@@ -63,10 +66,17 @@ Let me know if you'd like to implement any of these things, will help speed up t
 - error/stacktrace printing when view fails to fully render
 - finish table builder
 
-### 0.4.6 (sockets, background jobs)
+### 0.4.6 (sockets)
 
 - push notifications (web socket integration into the controllers)
+- test client-side sockets
+- swappable sockets api (socket.ly, socket.io)
+
+### 0.4.6 (background jobs, emails)
+
 - background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing)
+- Test the mailer (already implemented but needs tests)
+- inline css in email templates
 
 ### 0.4.7 (configuration)
 
@@ -74,37 +84,35 @@ Let me know if you'd like to implement any of these things, will help speed up t
 - underscore integration (cleanup/finalize, you easily spend a lot of your time formatting dates, numbers, and strings once the base app is in place)
   - date helpers, string helpers, number helpers
 
-### 0.4.8
+### 0.4.8 (models [robustness])
 
 - hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)
 - add includes to associations: `Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()`
 - model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
 - database "cleaner" code for tests
 
-### 0.4.9
+### 0.4.9 (cleanup, optimizations, documentation)
 
-- Test the mailer (already implemented but needs tests)
+- chunk code into parts for the client, so you can use only bare minimum if desired
+- finalize tower.js internal code organization
 - design.io updates:
   - growl notifications
   - auto-run tests
-- inline css in email templates
-- http caching methods in the controller
-- https helper methods
+- document code
+- make sure class methods and subclasses work correctly*
 
-### 0.5.0
+### 0.5.0 (theme)
 
+- css sprites
 - basic responsive admin theme, with functionality like http://activeadmin.info/
 - client and server have the same interface, separate code out so client is as lean as possible
 - make sure templates have proper escaping (xss protection)
 
-### 0.5.1
+### 0.5.1 (benchmarking)
 
-- chunk code into parts for the client, so you can use only bare minimum if desired
 - cache manifest: https://github.com/​johntopley/manifesto
 - integrate "use strict"; into the codebase
-- css sprites
 - benchmarks folder with stress tests
-- redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/​questions/4046960/how-to-​redirect-without-www-using-​rails-3-rack)
 
 ## Separate plugins
 
