@@ -119,7 +119,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 - authentication extension (so it's easy to start using authentication, potentially with passport
 - tower generate authentication Session
-- see [devise](https://github.com/plataformatec/devise) for inspiration, but I'm not a fan of devise b/c it's way too hard to customize and creates too much abstraction.  But the feature set it includes is great.
+- see [devise](https://github.com/plataformatec/devise) for inspiration, but I'm not a fan of devise b/c it's way too hard to customize and creates too much abstraction.  But the feature set it includes is great.  https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
 
 ### Tower.Authorization (TowerCanDo)
 
