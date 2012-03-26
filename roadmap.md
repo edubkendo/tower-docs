@@ -149,6 +149,7 @@ Ideally we'd be able to make these libraries much smaller so we could use _all_ 
 - history pushState: https://github.com/balupton/History.js/
 - date parsing: https://github.com/timrwood/moment
 
+
 ## Support for alternative data stores (as plugins) 
 
 These are next, larger features.  These will be included in earlier releases if a member of the community contributes them.  Otherwise they might be approached after the 0.5.0 release according to community requests.
