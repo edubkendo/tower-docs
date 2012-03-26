@@ -128,13 +128,17 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 - paperclip?
 
-### Tower.NestedSet
+### NestedSet
 
 - https://github.com/collectiveidea/awesome_nested_set for hierarchical relationships
 
-### Tower.StateMachine
+### StateMachine
 
 - https://github.com/pluginaweek/state_machine
+
+### Factory
+
+- https://github.com/thoughtbot/factory_girl
 
 ### Existing / External Plugins to Integrate
 
