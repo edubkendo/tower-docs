@@ -120,13 +120,30 @@ You are free to implement any of these features in any order… I'm more of a fa
 - authentication extension (so it's easy to start using authentication, potentially with passport
 - tower generate authentication Session
 
-### TowerCanDo
+### Tower.Authorization (TowerCanDo)
 
 - authorization extension (https://github.com/ryanb/​cancan)
 
-### TowerAttachment
+### Tower.Attachment
 
 - paperclip?
+
+### Tower.NestedSet
+
+- https://github.com/collectiveidea/awesome_nested_set for hierarchical relationships
+
+### Tower.StateMachine
+
+- https://github.com/pluginaweek/state_machine
+
+### Existing / External Plugins to Integrate
+
+Ideally we'd be able to make these libraries much smaller so we could use _all_ of them on the iPhone, but for now they handle tons of use cases and with gzipping it should be reasonably small.  I'm all about fully featured and tested + small file size, but given a robust library already exists, I'm going with that until I find a way to rewrite it better.
+
+- validation: https://github.com/chriso/node-validator
+- url parsing: https://github.com/medialize/URI.js
+- history pushState: https://github.com/balupton/History.js/
+- date parsing: https://github.com/timrwood/moment
 
 ## Support for alternative data stores (as plugins) 
 
