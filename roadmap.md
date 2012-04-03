@@ -12,7 +12,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ## 0.5.0 - Full Featured Release
 
-### 0.4.0 (functional release)
+### ✔ 0.4.0 (functional release)
 
 - ~~urlFor helpers~~
 - ~~Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes~~
@@ -20,7 +20,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - ~~hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)~~
 - ~~database seeds~~
 - ~~test model pagination~~
-- auto-restart server when file changes (development)
+- ~~auto-restart server when file changes (development)~~
 
 ### 0.4.1 (tests)
 
