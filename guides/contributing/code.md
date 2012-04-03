@@ -1,5 +1,7 @@
 # Contributing to the Tower Codebase
 
+Tower's `master` branch is always a reflection of what you'll get with `npm install`.  Tower's `development` branch is the latest stuff.  So when a pull request is merged, it's first going to be merged to development and it may be a while before it's pushed to master.  Issues will be closed when code is pushed to master.
+
 ## Create a dedicated branch
 
 ```

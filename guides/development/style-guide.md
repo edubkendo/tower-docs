@@ -122,3 +122,20 @@ return true if object.hasOwnProperty(key)
 @render "action", locals: {@post}
 ```
 
+## OR=
+
+``` coffeescript
+a ?= true
+
+b ||= true
+
+c or= true
+```
+
+``` javascript
+if (typeof a === "undefined" || a === null) a = true;
+
+b || (b = true);
+
+c || (c = true);
+```

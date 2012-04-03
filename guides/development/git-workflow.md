@@ -101,3 +101,14 @@ git branch
 # list all remote branches you're connected to
 git remote -a
 ```
+
+## Notes
+
+The --no-ff flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature.
+
+## Resources
+
+- http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
+- http://nvie.com/posts/a-successful-git-branching-model/
+- http://stackoverflow.com/questions/2850369/why-does-git-use-fast-forward-merging-by-default
+- http://www.slideshare.net/can3p/uber-git-workflow-6813993

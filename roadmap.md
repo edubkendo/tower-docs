@@ -14,17 +14,15 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### 0.4.0 (functional release)
 
-- switch to parsing url params with URI.js
-- urlFor helpers
+- ~~urlFor helpers~~
 - Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes 
-  - `urlFor 'Log on', route: 'signIn'`
-  - `urlFor 'Log on',  'signInPath'`
+  - `urlFor route: 'signIn'`
 - finish resourceful routes
 - auto-restart server when file changes (development)
-- test subdomains on heroku
+- ~~hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)~~
 - mongo embedded documents
 - database seeds
-- test model pagination
+- ~~test model pagination~~
 
 ### 0.4.1 (tests)
 
@@ -43,6 +41,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 - some sort of `updateAll`|`deleteAll` ​functionality for controllers (array of ids)
 - finalize resourceful controller actions (see https://github.com/​josevalim/inheritedResources)
 - error hooks for controllers
+- test subdomains on heroku
+- switch to parsing url params with URI.js
 - basic controller logging
 - https helper methods
 - http caching methods in the controller
@@ -86,7 +86,6 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### 0.4.8 (models [robustness])
 
-- hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)
 - add includes to associations: `Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()`
 - model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
 - database "cleaner" code for tests

@@ -214,3 +214,25 @@ User.hasMany "groups", -> @anyIn(id: _.map(@memberships().all(), (membership) ->
 ```
 
 At some point that may be refactored into a `through` api, but right now it's overly complex.
+
+## NOTES
+
+1. Embedded models cannot be accessed by class methods.
+
+``` coffeescript
+class App.Address extends Tower.Model
+  @embedded()
+  
+class App.User extends Tower.Model
+  @hasMany "addresses"
+  
+# Given: there are 2 users with 2 addresses each.
+# This won't return anything b/c Address is embedded:
+App.Address.all()
+# This will return 2 addresses:
+App.User.first().addresses().all()
+```
+
+2. Embedded models can be appended through nested routes.
+
+POST /users/2/addresses
