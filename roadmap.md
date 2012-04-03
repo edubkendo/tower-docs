@@ -15,8 +15,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 ### 0.4.0 (functional release)
 
 - ~~urlFor helpers~~
-- ~~Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes 
-  - `urlFor route: 'signIn'`~~
+- ~~Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes~~
+  - ~~`urlFor route: 'signIn'`~~
 - finish resourceful routes
 - auto-restart server when file changes (development)
 - ~~hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)~~
