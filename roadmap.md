@@ -1,7 +1,5 @@
 # Roadmap
 
-Tower is currently at version 0.3.9-x.  Going to move to 0.4.0 once it looks like everyone is able to build an app - just about there.
-
 For 0.5.0, Tower will include the features below.  It's going to be a rolling list.  If you have ideas or features you'd like to see, include them in the section [Potential features](#potential-features) section and we'll move them up if they're in scope.
 
 Let me know if you'd like to implement any of these things, will help speed up the process.
