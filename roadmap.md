@@ -21,7 +21,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - auto-restart server when file changes (development)
 - ~~hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)~~
 - mongo embedded documents
-- database seeds
+- ~~database seeds~~
 - ~~test model pagination~~
 
 ### 0.4.1 (tests)
