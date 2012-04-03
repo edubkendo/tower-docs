@@ -17,12 +17,10 @@ You are free to implement any of these features in any order… I'm more of a fa
 - ~~urlFor helpers~~
 - ~~Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes~~
   - ~~`urlFor route: 'signIn'`~~
-- finish resourceful routes
-- auto-restart server when file changes (development)
 - ~~hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)~~
-- mongo embedded documents
 - ~~database seeds~~
 - ~~test model pagination~~
+- auto-restart server when file changes (development)
 
 ### 0.4.1 (tests)
 
@@ -34,9 +32,11 @@ You are free to implement any of these features in any order… I'm more of a fa
 - mock/test setup for http requests (controllers)
 - generators for tests
 - test the generator code
+- basic client test setup for tower development
 
 ### 0.4.2 (controllers)
 
+- finish resourceful routes
 - better controller rendering
 - some sort of `updateAll`|`deleteAll` ​functionality for controllers (array of ids)
 - finalize resourceful controller actions (see https://github.com/​josevalim/inheritedResources)
@@ -50,6 +50,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### 0.4.3 (models)
 
+- mongo embedded documents
 - basic model logging
 - uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
 - email/phone validation (and other common validation helpers)
