@@ -1,1 +1,18 @@
+## MAC OS
+.DS_Store
+*.gem
+
+## TEXTMATE
+*.tmproj
+tmtags
+
+## VIM
+*.swp
+
+## PROJECT::GENERAL
+pkg
+*.log
+
+## PROJECT::SPECIFIC
+
 _notes
