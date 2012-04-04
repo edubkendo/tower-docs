@@ -33,6 +33,9 @@ You are free to implement any of these features in any order… I'm more of a fa
 - generators for tests
 - test the generator code
 - basic client test setup for tower development
+- make "database cleaner"
+- make `store` global, so you only have to apply it once, not per model.
+  - makes testing easier.
 
 ### 0.4.2 (controllers)
 
@@ -50,6 +53,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### 0.4.3 (models)
 
+- nested field queries ("addresses.city", etc.)
 - mongo embedded documents
 - basic model logging
 - uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
@@ -72,6 +76,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - automatic form validations based on model of client
 - error/stacktrace printing when view fails to fully render
 - finish table builder
+- 404/etc error pages
 
 ### 0.4.6 (sockets)
 
@@ -84,6 +89,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - background queuing with redis (`User.queue("welcome", 1)` vs. `User.welcome(1)`, for background processing) - https://github.com/technoweenie/coffee-resque
 - Test the mailer (already implemented but needs tests)
 - inline css in email templates
+- https://github.com/voodootikigod/postmark.js
 
 ### 0.4.8 (models [robustness])
 
@@ -135,10 +141,6 @@ You are free to implement any of these features in any order… I'm more of a fa
 ### NestedSet
 
 - https://github.com/collectiveidea/awesome_nested_set for hierarchical relationships
-
-### StateMachine
-
-- https://github.com/pluginaweek/state_machine
 
 ### Factory
 
