@@ -100,6 +100,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 ### 0.4.9 (cleanup, optimizations, configuration, documentation)
 
 - chunk code into parts for the client, so you can use only bare minimum if desired
+  - so you can do things like `require('tower-model')`
 - finalize tower.js internal code organization
 - customize template engine, orm, and test framework in App.config
 - underscore integration (cleanup/finalize, you easily spend a lot of your time formatting dates, numbers, and strings once the base app is in place)
