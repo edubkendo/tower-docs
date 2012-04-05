@@ -1,5 +1,7 @@
 # Components
 
+Tower allows configuration of some components such as View components (see below).
+
 ## Configuration
 
 ``` coffeescript
