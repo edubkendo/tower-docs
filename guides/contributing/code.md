@@ -23,6 +23,26 @@ design.io watch
 
 ## Write Your Code
 
+The code should be written in a Test Driven manner. Use mocha for executing the Tower test suite.
+To run the entire test suite from the console, simply execute:
+
+```
+npm test
+```
+
+That references the `test` key in [package.json](https://github.com/viatropos/tower/blob/e0e3348a1d36c35b8b088434185fb3b3529cc698/package.json#L82), which looks like this:
+
+```
+mocha $(find test -name "*Test.coffee")
+```
+
+You can customize this expression to run a subset of tests if you're developing something and don't want the clutter.
+
+Example: run all "article" related tests
+
+`mocha $(find test -name "article*Test.coffee")`
+
+
 ## Follow the Coding Conventions
 
 Tower follows a simple set of coding style conventions.
@@ -41,13 +61,23 @@ When you're happy with the code on your computer, you need to commit the changes
 git commit -a -m "Here is a commit message on what I changed in this commit"
 ```
 
-Please squash your commits into a single commit when appropriate. This simplifies future cherry picks, and also keeps the git log clean.
+Please [squash your commits into a single commit](http://ariejan.net/2011/07/05/git-squash-your-latests-commits-into-one) when appropriate. This simplifies future cherry picks, and also keeps the git log clean.
+
+Before you do the final push, synchronize with upstream from @viatropos/master
+
+```
+git remote add upstream git@github.com:viatropos/tower.git
+git fetch upstream
+git merge upstream/master
+```
 
 ## Issue a Pull Request
 
-Push your code to your repository and issue a pull request:
+Push your code to your repository
 
-http://help.github.com/send-pull-requests/
+`git push`
+
+and [issue a pull request]((http://help.github.com/send-pull-requests/):
 
 ## Get Some Feedback
 
