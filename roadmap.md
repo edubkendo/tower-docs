@@ -52,6 +52,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
 - email/phone validation (and other common validation helpers)
 - i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
+- Add generator for translating different locales in tower.
 
 ### 0.4.4 (model attachments)
 
