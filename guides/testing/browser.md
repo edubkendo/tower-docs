@@ -1,14 +1,12 @@
 # Browser Testing
 
-## Acceptance Testing
-
 [Mocha](http://visionmedia.github.com/mocha/) can be used to "spec" an app including specs for acceptance testing.
-See the Tower test code for examples on how to use it.
+See the Tower test suite for how to use Mocha to test a Tower app.
+
+- [Javascript testing with Mocha](http://www.adomokos.com/2012/01/javascript-testing-with-mocha.html)
 
 The "BDD" interface provides: describe(), it(), before(), after(), beforeEach(), and afterEach().
 The "TDD" interface provides: suite(), test(), setup(), and teardown().
-
-- [Javascript testing with Mocha](http://www.adomokos.com/2012/01/javascript-testing-with-mocha.html)
 
 To setup Mocha for browser use all you have to do is include the script, stylesheet, tell Mocha which interface you wish to use, and then run the tests. A typical setup might look something like the following, where we call `mocha.setup('bdd')` to use the _BDD_ interface before loading the test scripts, running them onload with `mocha.run()`.
 
@@ -39,8 +37,12 @@ To setup Mocha for browser use all you have to do is include the script, stylesh
 </html>
 ```
 
+## Acceptance Testing
+
+Use the Mocha BDD interface for Acceptance Testing. The Acceptance Tests can be executed from the console or from within the browser.
+
 ## Design.IO
 
-Run watch tasks when a file changes, and inject the result into the browser.
+Design.IO can be used to run watch tasks when a file changes, and inject the result into the browser.
 
 - [Design IO on github](https://github.com/viatropos/design.io)
