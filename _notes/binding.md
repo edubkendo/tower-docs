@@ -1,3 +1,4 @@
+``` html
 <div>You've clicked <span data-bind="text: numberOfClicks">&nbsp;</span> times</div>
  
 <button data-bind="click: registerClick, enable: !hasClickedTooManyTimes()">Click me</button>
@@ -6,7 +7,11 @@
     That's too many clicks! Please stop before you wear out your fingers.
     <button data-bind="click: function() { numberOfClicks(0) }">Reset clicks</button>
 </div>
+````
 
+## Achieving this in Tower
+
+``` coffeescript
 Tower.bind "visible", id: "#too-many"
 
 $("#user-first-name-input").change ->
@@ -17,8 +22,11 @@ $("#user-first-name-input").change ->
     $("#user-last-name-input").attr("disabled", true)
 
 bind "#user-last-name-input", "disabled", "#user-first-name-input", value: presence: true
+```
 
-# BETTER
+## A better approach
+
+``` coffeescript
 @dispatcher = global || window
 
 $(@dispatcher).on "change", (event) ->
@@ -30,14 +38,18 @@ $("#user-first-name-input").change ->
   model.set("firstName", value)
 
 bind "#user-last-name-input", "disabled", "!!User.current().firstName"
+```
 
 ## METHOD 1
 
+``` coffeescript
 @bind "#user-first-name-input", set: (value) -> @resource.firstName = value, event: "keypress"
 @bind "#user-first-name-input", "firstName"
+```
 
 ## Method 2
 
+``` coffeescript
 @on "change #user-first-name-input", "firstNameChanged"
 
 changedFirstName = (value) ->
@@ -45,9 +57,11 @@ changedFirstName = (value) ->
     @elements.userLastNameInput.attr("disabled", true)
   else
     @elements.userLastNameInput.attr("disabled", false)
+```
     
 ## Method 2b
 
+``` coffeescript
 @on "change #user-first-name-input", "enable", dependent: "#user-last-name-input"
 @on "change #user-first-name-input", "enable #user-last-name-input" # enable: (selector)
 @on "change #user-first-name-input", "validate"
@@ -107,9 +121,11 @@ removeAddress: (id) ->
   
 toggleDetails: ->
   $(@selector).toggle()
+```
 
 ## Method 3
 
+``` coffeescript
 bind  = (selector, options) ->
   bindings[selector] ||= []
   bindings[selector].push options
@@ -123,9 +139,11 @@ $(@dispatcher).on "keypress", (event) ->
     if binding.hasOwnProperty("value")
       binding.value(target.val())
   event
+```
   
 ## Method 4
 
+``` coffeescript
 presenter.firstName.on "change", (value) ->
   if _.blank(value)
     $("#user-last-name-input").attr("disabled", true)
@@ -157,6 +175,7 @@ bindingDefinitions =
 bind = (type, context, options = {}) ->
   context.on "#{options.attribute}Change", (value) ->
     bindingDefinitions[type] $(options.selector), value
+```
     
 ## Tumblr
 
