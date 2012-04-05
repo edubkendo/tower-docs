@@ -1,6 +1,8 @@
 # The Object Model
 
-Tower [work in progress] uses the core Ember Object Model, which is inspired a lot by Ruby and other dynamic programming languages.
+Tower uses the core [Ember](emberjs.com) Object Model, which is inspired a lot by Ruby and other dynamic programming languages.
+
+The following concepts are available for models. Due to this fact, some models can be quite "thick". Using the power of Javascript mixing however, it is easy to separate these concepts (or concerns) if the models become too thick.
 
 - Classes
 - Mixins
@@ -11,4 +13,3 @@ Tower [work in progress] uses the core Ember Object Model, which is inspired a l
 - Binding
 - StateMachines
 - Run Loops
-
