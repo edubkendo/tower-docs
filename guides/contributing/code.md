@@ -2,6 +2,8 @@
 
 Tower's `master` branch is always a reflection of what you'll get with `npm install`.  Tower's `development` branch is the latest stuff.  So when a pull request is merged, it's first going to be merged to development and it may be a while before it's pushed to master.  Issues will be closed when code is pushed to master.
 
+First setup your Tower development [[environment]].
+
 ## Create a dedicated branch
 
 ```
@@ -23,7 +25,7 @@ design.io watch
 
 ## Write Your Code
 
-The code should be written in a Test Driven manner. Use mocha for executing the Tower test suite.
+The code should be written Test Driven. Use mocha to execute the Tower test suite.
 To run the entire test suite from the console, simply execute:
 
 ```
@@ -42,6 +44,7 @@ Example: run all "article" related tests
 
 `mocha $(find test -name "article*Test.coffee")`
 
+See [[Browser testing]] for more info.
 
 ## Follow the Coding Conventions
 
