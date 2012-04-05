@@ -21,3 +21,10 @@ class App extends Tower.Application
 
 module.exports = global.App = App
 ```
+
+The configure function is used to configure your application.
+The _favicon_ points to the icon file displayed in the browser address bar when users access your application.
+The _static_ is used to set where public (static) files reside and their cache duration.
+The _profiler_ is by default configured to only be used when not in production environment.
+
+You can extend the configure function with your own application configuration logic.
