@@ -1,6 +1,6 @@
 # `Tower.Model.Attributes`
 
-Consider a simple class for modeling a user in an application. A user may have a first name, last name, and middle name. We can define these attributes on a user by using the fields macro.
+Consider a simple class for modeling a user in an application. A user may have a first name, last name, and middle name. We can define these attributes on a user by using the `field` macro funnction.
 
 ``` coffeescript
 class App.User extends Tower.Model
@@ -22,7 +22,7 @@ Below is a list of valid types for fields.
 - String
 - Time
 
-If you decide not to specify the field's `type`, Tower.js will treat it as a JavaScript `Object` and will try not typecast it when sending the values to the data store.  This means that by default you can easily store things like arbitrary JavaScript objects in MongoDB without worrying about it.
+If you decide not to specify the field `type`, Tower.js will treat it as a JavaScript `Object` and will try not typecast it when sending the values to the data store.  This means that by default you can easily store things like arbitrary JavaScript objects in MongoDB without worrying about it.
 
 ## Getting and Setting Field Values
 
@@ -49,7 +49,9 @@ User.new(firstName: "Jean-Baptiste", middleName: "Emmanuel")
 user.attributes = { firstName: "Jean-Baptiste", middleName: "Emmanuel" }
 ```
 
-**Note**: Unlike frameworks such as Spine.js and Backbone.js, changing an attribute's value does not dispatch an event.  Tower.js does not come stocked with event dispatching, for many reasons (more on this later).  There is a simple module `Tower.Model.Events` which you can include in the base model which will add event dispatching.  For simple apps, you don't need event dispatching using the Controller model from Rails that Tower.js implements.  For complex apps that need data-binding, client-side frameworks like Ember.js, Knockout.js, and Angular.js complement Tower.js perfectly and can definitely be used with it.
+### Notes on attribute event dispatching
+
+Unlike frameworks such as Spine.js and Backbone.js, changing an attribute's value does not dispatch an event.  Tower.js does not come stocked with event dispatching, for many reasons (more on this later).  There is a simple module `Tower.Model.Events` which you can include in the base model which will add event dispatching.  For simple apps, you don't need event dispatching using the Controller model from Rails that Tower.js implements.  For complex apps that need data-binding, client-side frameworks like Ember.js, Knockout.js, and Angular.js complement Tower.js perfectly and can definitely be used with it.
 
 ## Defaults
 
@@ -93,6 +95,8 @@ class Point
   encode: (object) ->
     { "x" : object[0], "y" : object[1] }
 ```
+
+Note: This is very similar to how you would define custom fields in _Mongoid_ (MongoDB mapper for Rails)
 
 ## Reserved Names
 
