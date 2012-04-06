@@ -9,5 +9,16 @@ Generates:
 ```
 |-- app
 |   |-- models
-|   |   |   `-- user.coffee
+|   |   |   `-- post.coffee
+```
+
+The Post model generated:
+
+```coffeescript
+class App.Post extends Tower.Model
+  @field "id", type: "Id"
+  @field "title"
+  @field "body"
+  @belongs_to "user", type: "User", foreignKey: "userId"
+  @field "createdAt", type: "Time", default: -> new Date()
 ```

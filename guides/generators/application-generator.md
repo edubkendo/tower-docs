@@ -1,10 +1,13 @@
 # Application Generator
 
+Tower comes with a full application skeleton generator similar to the Rails variant. 
+To use the app generator, simply execute the following in a console.
+
 ```
 tower new my-app
 ```
 
-Your new application:
+The generated application will have the following structure:
 
 ```
 |-- app
@@ -54,6 +57,8 @@ Your new application:
 
 ### Options for the `new` command:
 
+The following options are currently supported:
+
 ```
 --javascripts <format>  Format for JavaScripts (coffee, js)
 --stylesheets <format>  Format for StyleSheets (styl, less, css)
@@ -64,3 +69,5 @@ Your new application:
 -v, --version           Output the version number
 -h, --help              Output usage information
 ```
+
+In a future release Tower will likely support a `--locales` option.

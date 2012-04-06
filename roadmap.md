@@ -1,7 +1,5 @@
 # Roadmap
 
-Tower is currently at version 0.3.9-x.  Going to move to 0.4.0 once it looks like everyone is able to build an app - just about there.
-
 For 0.5.0, Tower will include the features below.  It's going to be a rolling list.  If you have ideas or features you'd like to see, include them in the section [Potential features](#potential-features) section and we'll move them up if they're in scope.
 
 Let me know if you'd like to implement any of these things, will help speed up the process.
@@ -14,7 +12,6 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### ✔ 0.4.0 (functional release)
 
-- ~~urlFor helpers~~
 - ~~Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes~~
   - ~~`urlFor route: 'signIn'`~~
 - ~~hasMany through associations (`Post.hasMany "comments"; Post.hasMany "commenters", through: "comments"`)~~
@@ -59,6 +56,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
 - email/phone validation (and other common validation helpers)
 - i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
+- Add generator for translating different locales in tower.
 
 ### 0.4.4 (model attachments)
 

@@ -62,6 +62,14 @@ cd tower
 
 ## 2.6 Install node modules
 
+The npm command uses the [[package-json]] file to determine and install dependencies similar to the Gemfile for Bundler in Rails. If you stand in the Tower root dir and run `npm install` all development dependencies should be installed globally.
+
+```
+tower $ npm install -g
+```
+
+If for some reason that doesn't work, you can install them manually...
+
 ```
 $ npm install mocha redis mongodb underscore underscore.logger underscore.string pathfinder async 
 $ npm install restler chai sinon moment coffeekup mime

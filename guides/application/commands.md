@@ -1,17 +1,23 @@
-# Commands
+# Tower console commands
 
-## `tower new <app-name> [options]`
+## New app
 
-## `tower server` (todo)
+`tower new <app-name> [options]`
 
-Right now, `node server` works well and is pure node.
+## Start server
 
-## `tower console` (todo)
+`tower server` (todo)
+
+Note: Right now, `node server` works well and is pure node.
+
+## Tower console
 
 Use the Tower.js console to programmatically mess around with your application data.
 
-```
-tower console
-```
+`tower console`
 
-## `tower generate <generator> [args] [options]`
+## Run Tower generator
+
+`tower generate <generator> [args] [options]`
+
+See the available [[Generators]] for details on how to use them.

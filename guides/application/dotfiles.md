@@ -4,18 +4,6 @@
 
 In Tower.js, there's 3 by default:
 
-- `.gitignore`
-- `.npmignore`
-- `.slugignore`
-
-## `.gitignore`
-
-This tells git the files and directories it should ignore.
-
-## `.npmignore`
-
-This tells npm what to ignore when your module is published.
-
-## `.slugignore`
-
-This tells Heroku what to ignore about your project.
+- `.gitignore` Tells git the files and directories it should ignore.
+- `.npmignore` Tells npm what to ignore when your module is published.
+- `.slugignore` Tells Heroku what to ignore about your project.
