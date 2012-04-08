@@ -112,3 +112,5 @@ The --no-ff flag causes the merge to always create a new commit object, even if 
 - http://nvie.com/posts/a-successful-git-branching-model/
 - http://stackoverflow.com/questions/2850369/why-does-git-use-fast-forward-merging-by-default
 - http://www.slideshare.net/can3p/uber-git-workflow-6813993
+
+- npm install git://github.com/viatropos/inflection.git

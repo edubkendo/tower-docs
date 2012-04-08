@@ -108,6 +108,11 @@ You are free to implement any of these features in any order… I'm more of a fa
   - auto-run tests
 - document code
 - make sure class methods and subclasses work correctly*
+- add underscore helpers
+  - pixel transforms  (px to em to percent)
+  - color transforms  (hsl to rgb to hex, etc.)
+  - unit transforms   (miles to km, etc.)
+  - geo transforms    (lat/lng to x/y in pixels, etc.)
 
 ### 0.5.0 (theme)
 

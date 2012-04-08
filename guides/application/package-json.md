@@ -141,3 +141,14 @@ Here's a `package.json` that installs a RubyGem after the node module is install
   }
 }
 ```
+
+Run custom scripts like this:
+
+```
+npm run-script docs
+```
+
+## References
+
+- http://npmjs.org/doc/json.html
+- http://npmjs.org/doc/config.html
