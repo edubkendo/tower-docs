@@ -58,8 +58,18 @@ You are free to implement any of these features in any order… I'm more of a fa
 - email/phone validation (and other common validation helpers)
 - i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
 - Add generator for translating different locales in tower.
+- add includes to associations: `Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()`
+- model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
 
-### 0.4.4 (model attachments)
+### 0.4.4 (views)
+
+- test client side view rendering with coffeekup
+- automatic form validations based on model of client
+- error/stacktrace printing when view fails to fully render
+- finish table builder
+- 404/etc error pages
+
+### 0.4.5 (model attachments)
 
 - test storing images/blobs in mongo (GridFS?)
   - "Binary" data type?
@@ -68,14 +78,6 @@ You are free to implement any of these features in any order… I'm more of a fa
 - get progress bar feedback for streaming file uploads
   - http://debuggable.com/posts/streaming-file-uploads-with-node-js:4ac094b2-b6c8-4a7f-bd07-28accbdd56cb
 - image/asset/attachment model api (see https://github.com/​thoughtbot/paperclip)
-
-### 0.4.5 (views)
-
-- test client side view rendering with coffeekup
-- automatic form validations based on model of client
-- error/stacktrace printing when view fails to fully render
-- finish table builder
-- 404/etc error pages
 
 ### 0.4.6 (sockets)
 
@@ -90,30 +92,28 @@ You are free to implement any of these features in any order… I'm more of a fa
 - inline css in email templates
 - https://github.com/voodootikigod/postmark.js
 
-### 0.4.8 (models [robustness])
+### 0.4.8 (helpers, configuration)
 
-- add includes to associations: `Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()`
-- model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
-- database "cleaner" code for tests
-
-### 0.4.9 (cleanup, optimizations, configuration, documentation)
-
-- chunk code into parts for the client, so you can use only bare minimum if desired
-  - so you can do things like `require('tower-model')`
-- finalize tower.js internal code organization
-- customize template engine, orm, and test framework in App.config
-- underscore integration (cleanup/finalize, you easily spend a lot of your time formatting dates, numbers, and strings once the base app is in place)
-  - date helpers, string helpers, number helpers
-- design.io updates:
-  - growl notifications
-  - auto-run tests
-- document code
-- make sure class methods and subclasses work correctly*
 - add underscore helpers
   - pixel transforms  (px to em to percent)
   - color transforms  (hsl to rgb to hex, etc.)
   - unit transforms   (miles to km, etc.)
   - geo transforms    (lat/lng to x/y in pixels, etc.)
+  - date helpers
+  - string helpers
+  - number helpers
+  - validators
+- customize template engine, orm, and test framework in App.config
+
+### 0.4.9 (cleanup, optimizations, documentation)
+
+- chunk code into parts for the client, so you can use only bare minimum if desired
+  - so you can do things like `require('tower-model')`
+- finalize tower.js internal code organization
+- design.io updates:
+  - growl notifications
+  - auto-run tests
+- document code
 
 ### 0.5.0 (theme)
 
