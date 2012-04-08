@@ -21,16 +21,17 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### 0.4.1 (tests)
 
-- generate `test/models` with example code for scaffold
+- ~~generate `test/models` with example code for scaffold~~
+- ~~generators for tests~~
+- ~~load tests in browser~~
+- ~~make "database cleaner"~~
 - generate `test/routes` or `test/controllers` with example code for scaffold
 - test inheritance with type property
 - extends hook for coffeescript
 - test factories (something like factory.js)
 - mock/test setup for http requests (controllers)
-- generators for tests
 - test the generator code
 - basic client test setup for tower development
-- make "database cleaner"
 - make `store` global, so you only have to apply it once, not per model.
   - makes testing easier.
 
