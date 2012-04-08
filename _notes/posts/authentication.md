@@ -33,6 +33,13 @@ class SessionsController extends Metro.Controller
   
 ```
 
+Some links on _everyauth_ integration
+
+- (everyauth config example)[https://github.com/viatropos/tower/issues/18#issuecomment-4278945]
+- (init)[https://gist.github.com/2318237]
+- (app)[https://gist.github.com/2318167]
+- (User)[https://gist.github.com/2318251]
+
 ## Authorization
 
 - https://github.com/ryanb/cancan/wiki/Defining-Abilities
