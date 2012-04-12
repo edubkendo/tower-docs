@@ -24,6 +24,8 @@
 - [AwesomeNestedSet](https://github.com/collectiveidea/awesome_nested_set)
 - [Thor](https://github.com/wycats/thor)
 - [I18n](https://github.com/svenfuchs/i18n)
+- [AppScrolls](https://github.com/drnic/appscrolls)
+- [ActiveModel::Serializers](https://github.com/josevalim/active_model_serializers)
 
 ### Node.js and NPM Modules
 
