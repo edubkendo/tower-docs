@@ -25,13 +25,15 @@ You are free to implement any of these features in any order… I'm more of a fa
 - ~~generators for tests~~
 - ~~load tests in browser~~
 - ~~make "database cleaner"~~
-- generate `test/routes` or `test/controllers` with example code for scaffold
+- generate `test/controllers` with example code for scaffold
 - test inheritance with type property
 - extends hook for coffeescript
 - test factories (something like factory.js)
 - mock/test setup for http requests (controllers)
 - test the generator code
+- add extension/module generator
 - basic client test setup for tower development
+- NODE_ENV=production
 - make `store` global, so you only have to apply it once, not per model.
   - makes testing easier.
 
@@ -48,6 +50,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - https helper methods
 - http caching methods in the controller
 - redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/​questions/4046960/how-to-​redirect-without-www-using-​rails-3-rack)
+- namespaced controllers
 
 ### 0.4.3 (models)
 
@@ -57,9 +60,18 @@ You are free to implement any of these features in any order… I'm more of a fa
 - uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
 - email/phone validation (and other common validation helpers)
 - i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
+- strict validation
+- confirmation validation
 - Add generator for translating different locales in tower.
 - add includes to associations: `Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()`
 - model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
+- hasSecurePassword
+- namespaced models
+- mongo url handler (https://github.com/viatropos/tower/issues/52#issuecomment-4586648)
+- `model#reload`
+- acceptsNestedAttributes
+- `find(id: null) # find by null`
+- `find(address: city: "San Diego") # nested doc/object queries`
 
 ### 0.4.4 (views)
 
@@ -67,7 +79,9 @@ You are free to implement any of these features in any order… I'm more of a fa
 - automatic form validations based on model of client
 - error/stacktrace printing when view fails to fully render
 - finish table builder
+- make form builder more robust
 - 404/etc error pages
+- error handling on forms when validation error
 
 ### 0.4.5 (model attachments)
 
