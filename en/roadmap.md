@@ -10,6 +10,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ## 0.5.0 - Full Featured Release
 
+<a name="0.4.0" href="0.4.0"></a>
+
 ### ✔ 0.4.0 (functional release)
 
 - ~~Extend helper method urlFor so that can it resolve to registered paths (aliases) for routes~~
@@ -18,6 +20,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 - ~~database seeds~~
 - ~~test model pagination~~
 - ~~auto-restart server when file changes (development)~~
+
+<a name="0.4.1" href="0.4.1"></a>
 
 ### 0.4.1 (tests)
 
@@ -37,6 +41,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 - make `store` global, so you only have to apply it once, not per model.
   - makes testing easier.
 
+<a name="0.4.2" href="0.4.2"></a>
+
 ### 0.4.2 (controllers)
 
 - finish resourceful routes
@@ -51,6 +57,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 - http caching methods in the controller
 - redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/​questions/4046960/how-to-​redirect-without-www-using-​rails-3-rack)
 - namespaced controllers
+
+<a name="0.4.3" href="0.4.3"></a>
 
 ### 0.4.3 (models)
 
@@ -73,6 +81,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 - `find(id: null) # find by null`
 - `find(address: city: "San Diego") # nested doc/object queries`
 
+<a name="0.4.4" href="0.4.4"></a>
+
 ### 0.4.4 (views)
 
 - test client side view rendering with coffeekup
@@ -82,6 +92,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 - make form builder more robust
 - 404/etc error pages
 - error handling on forms when validation error
+
+<a name="0.4.5" href="0.4.5"></a>
 
 ### 0.4.5 (model attachments)
 
@@ -93,11 +105,15 @@ You are free to implement any of these features in any order… I'm more of a fa
   - http://debuggable.com/posts/streaming-file-uploads-with-node-js:4ac094b2-b6c8-4a7f-bd07-28accbdd56cb
 - image/asset/attachment model api (see https://github.com/​thoughtbot/paperclip)
 
+<a name="0.4.6" href="0.4.6"></a>
+
 ### 0.4.6 (sockets)
 
 - push notifications (web socket integration into the controllers)
 - test client-side sockets
 - swappable sockets api (socket.ly, socket.io)
+
+<a name="0.4.7" href="0.4.7"></a>
 
 ### 0.4.7 (background jobs, emails)
 
@@ -105,6 +121,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 - Test the mailer (already implemented but needs tests)
 - inline css in email templates
 - https://github.com/voodootikigod/postmark.js
+
+<a name="0.4.8" href="0.4.8"></a>
 
 ### 0.4.8 (helpers, configuration)
 
@@ -119,6 +137,8 @@ You are free to implement any of these features in any order… I'm more of a fa
   - validators
 - customize template engine, orm, and test framework in App.config
 
+<a name="0.4.9" href="0.4.9"></a>
+
 ### 0.4.9 (cleanup, optimizations, documentation)
 
 - chunk code into parts for the client, so you can use only bare minimum if desired
@@ -129,11 +149,15 @@ You are free to implement any of these features in any order… I'm more of a fa
   - auto-run tests
 - document code
 
+<a name="0.5.0" href="0.5.0"></a>
+
 ### 0.5.0 (theme)
 
 - basic responsive admin theme, with functionality like http://activeadmin.info/
 - client and server have the same interface, separate code out so client is as lean as possible
 - make sure templates have proper escaping (xss protection)
+
+<a name="0.5.1" href="0.5.1"></a>
 
 ### 0.5.1 (benchmarking)
 
