@@ -3,6 +3,6 @@
 Delete design.io in devDependencies as it will cause an issue. This issue has been flagged by nodejitsu.
 
 Put this at the top of config/application.coffee:
-if process.env.NODE_ENV == 'production'
-  Tower.Application::watch = ->
-  Tower.env = 'production'
+if process.env.NODE_ENV == 'production' \n
+  Tower.Application::watch = -> \n
+  Tower.env = 'production' \n
