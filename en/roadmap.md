@@ -137,7 +137,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 ### 0.4.8 (helpers, configuration)
 
 - add underscore helpers
-  - pixel transforms  (px to em to percent)
+  - pixel transforms  (px to em to percent to rem)
   - color transforms  (hsl to rgb to hex, etc.)
   - unit transforms   (miles to km, etc.)
   - geo transforms    (lat/lng to x/y in pixels, etc.)
