@@ -34,29 +34,26 @@ You are free to implement any of these features in any order… I'm more of a fa
 - ~~basic client test setup for tower development~~
 - ~~extends hook for coffeescript~~
 - ~~test "factories"~~
-- test inheritance with type property
-- test assets can be served with gzip
+- ~~basic tests for socket.io~~
 - test the generator code
-- basic tests for socket.io
-  - https://github.com/LearnBoost/socket.io/blob/master/test/transports.flashsocket.test.js
-  - http://nodejs.org/docs/v0.6.11/api/net.html#net.createConnection
-- add extension/module generator
 - generate `test/controllers` with example code for scaffold
 - NODE_ENV=production
-  
+
 <a name="0.4.2" href="0.4.2"></a>
 
 ### 0.4.2 (views)
 
 - ember.js integration
-- test client side view rendering with coffeekup
-- test client side view rendering with ember
 - automatic form validations based on model of client
 - error/stacktrace printing when view fails to fully render
 - finish table builder
 - make form builder more robust
 - 404/etc error pages
 - error handling on forms when validation error
+- test client side view rendering with coffeekup
+- test client side view rendering with ember
+- test files reload when changed (integration test)
+- test assets can be served with gzip
 
 <a name="0.4.3" href="0.4.3"></a>
 
@@ -92,6 +89,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
 - authentication
 - authorization
+- test inheritance with type property
 - namespaced models
 - mongo url handler (https://github.com/viatropos/tower/issues/52#issuecomment-4586648)
 - `model#reload`
@@ -107,6 +105,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### 0.4.5 (model attachments)
 
+- add extension/module generator
 - test storing images/blobs in mongo (GridFS?)
   - "Binary" data type?
   - http://blog.james-carr.org/2012/01/09/streaming-files-from-mongodb-gridfs/
@@ -122,6 +121,9 @@ You are free to implement any of these features in any order… I'm more of a fa
 - push notifications (web socket integration into the controllers)
 - test client-side sockets
 - swappable sockets api (socket.ly, socket.io)
+- subscribe/notifications
+  - http://railscasts.com/episodes/249-notifications-in-rails-3
+  - pub/sub data through sockets
 
 <a name="0.4.7" href="0.4.7"></a>
 

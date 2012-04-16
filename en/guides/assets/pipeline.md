@@ -61,3 +61,7 @@ catch error
 cake assets:bundle
 cake assets:upload
 ```
+
+## Notes
+
+Node 0.6.0 has a stable zlib in its core now: http://nodejs.org/docs/v0.6.7/api/zlib.html#zlib.  The alternative was to use gzippo.

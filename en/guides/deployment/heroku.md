@@ -81,3 +81,9 @@ git push demo demo:master
 ```
 heroku logs --app <%= app.name %>-development -n 500 --tail
 ```
+
+## Notes
+
+Heroku defaults to Node 0.4.0.  To use your own version of node, check this out:
+
+- http://blog.superpat.com/2011/11/15/running-your-own-node-js-version-on-heroku/
