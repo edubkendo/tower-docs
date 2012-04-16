@@ -227,3 +227,4 @@ These are next, larger features.  These will be included in earlier releases if 
 
 - hierarchical models (nested sets)
 - state machine (see [https://github.com/pluginaweek/stateMachine](https://github.com/pluginaweek/stateMachine))
+- rails like flash messages
