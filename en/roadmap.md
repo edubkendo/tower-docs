@@ -45,10 +45,24 @@ You are free to implement any of these features in any order… I'm more of a fa
 - NODE_ENV=production
 - make `store` global, so you only have to apply it once, not per model.
   - makes testing easier.
-
+  
 <a name="0.4.2" href="0.4.2"></a>
 
-### 0.4.2 (controllers)
+### 0.4.2 (views)
+
+- ember.js integration
+- test client side view rendering with coffeekup
+- test client side view rendering with ember
+- automatic form validations based on model of client
+- error/stacktrace printing when view fails to fully render
+- finish table builder
+- make form builder more robust
+- 404/etc error pages
+- error handling on forms when validation error
+
+<a name="0.4.3" href="0.4.3"></a>
+
+### 0.4.3 (controllers)
 
 - finish resourceful routes
 - better controller rendering
@@ -63,9 +77,9 @@ You are free to implement any of these features in any order… I'm more of a fa
 - redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/​questions/4046960/how-to-​redirect-without-www-using-​rails-3-rack)
 - namespaced controllers
 
-<a name="0.4.3" href="0.4.3"></a>
+<a name="0.4.4" href="0.4.4"></a>
 
-### 0.4.3 (models)
+### 0.4.4 (models)
 
 - nested field queries ("addresses.city", etc.)
 - mongo embedded documents
@@ -86,18 +100,6 @@ You are free to implement any of these features in any order… I'm more of a fa
 - `find(id: null) # find by null`
 - `where(name: "!=": "x")`
 - `find(address: city: "San Diego") # nested doc/object queries`
-
-<a name="0.4.4" href="0.4.4"></a>
-
-### 0.4.4 (views)
-
-- test client side view rendering with coffeekup
-- automatic form validations based on model of client
-- error/stacktrace printing when view fails to fully render
-- finish table builder
-- make form builder more robust
-- 404/etc error pages
-- error handling on forms when validation error
 
 <a name="0.4.5" href="0.4.5"></a>
 
