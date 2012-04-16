@@ -1,0 +1,1 @@
+- http://shiflett.org/blog/2011/may/the-accept-header

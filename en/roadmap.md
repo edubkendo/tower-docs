@@ -29,14 +29,19 @@ You are free to implement any of these features in any order… I'm more of a fa
 - ~~generators for tests~~
 - ~~load tests in browser~~
 - ~~make "database cleaner"~~
-- generate `test/controllers` with example code for scaffold
+- ~~test setup for http requests (controllers)~~
+- ~~test the command-line api~~
+- ~~basic client test setup for tower development~~
+- ~~extends hook for coffeescript~~
+- ~~test "factories"~~
 - test inheritance with type property
-- extends hook for coffeescript
-- test factories (something like factory.js)
-- mock/test setup for http requests (controllers)
+- test assets can be served with gzip
 - test the generator code
+- basic tests for socket.io
+  - https://github.com/LearnBoost/socket.io/blob/master/test/transports.flashsocket.test.js
+  - http://nodejs.org/docs/v0.6.11/api/net.html#net.createConnection
 - add extension/module generator
-- basic client test setup for tower development
+- generate `test/controllers` with example code for scaffold
 - NODE_ENV=production
 - make `store` global, so you only have to apply it once, not per model.
   - makes testing easier.
@@ -64,7 +69,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 - nested field queries ("addresses.city", etc.)
 - mongo embedded documents
-- basic model logging
+- basic model logging (so you can see things like database queries)
 - uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
 - email/phone validation (and other common validation helpers)
 - i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
@@ -79,6 +84,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - `model#reload`
 - acceptsNestedAttributes
 - `find(id: null) # find by null`
+- `where(name: "!=": "x")`
 - `find(address: city: "San Diego") # nested doc/object queries`
 
 <a name="0.4.4" href="0.4.4"></a>
@@ -136,6 +142,7 @@ You are free to implement any of these features in any order… I'm more of a fa
   - number helpers
   - validators
 - customize template engine, orm, and test framework in App.config
+- create normalized file/directory api (wrench, pathfinder, findit... need to merge this stuff into one)
 
 <a name="0.4.9" href="0.4.9"></a>
 
@@ -148,6 +155,12 @@ You are free to implement any of these features in any order… I'm more of a fa
   - growl notifications
   - auto-run tests
 - document code
+- standardize `Tower.x` api for global helper methods.
+- get design.io working on all platforms
+  - remove ruby dependency if possible
+  - make css @import compiler smarter
+  - test and make sure it compiles all files on the first run
+  - deleting/creating files isn't registering anymore, fix.
 
 <a name="0.5.0" href="0.5.0"></a>
 
@@ -156,6 +169,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - basic responsive admin theme, with functionality like http://activeadmin.info/
 - client and server have the same interface, separate code out so client is as lean as possible
 - make sure templates have proper escaping (xss protection)
+- http://rails-admin-tb.herokuapp.com/admin/league
 
 <a name="0.5.1" href="0.5.1"></a>
 
@@ -166,6 +180,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 - benchmarks folder with stress tests
 
 ## Separate plugins
+
+- Make a mocha web console reporter.
 
 ### TowerPassport
 
@@ -184,10 +200,6 @@ You are free to implement any of these features in any order… I'm more of a fa
 ### NestedSet
 
 - https://github.com/collectiveidea/awesome_nested_set for hierarchical relationships
-
-### Factory
-
-- https://github.com/thoughtbot/factory_girl
 
 ### Existing / External Plugins to Integrate
 
