@@ -43,8 +43,6 @@ You are free to implement any of these features in any order… I'm more of a fa
 - add extension/module generator
 - generate `test/controllers` with example code for scaffold
 - NODE_ENV=production
-- make `store` global, so you only have to apply it once, not per model.
-  - makes testing easier.
   
 <a name="0.4.2" href="0.4.2"></a>
 
@@ -92,7 +90,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 - Add generator for translating different locales in tower.
 - add includes to associations: `Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()`
 - model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
-- hasSecurePassword
+- authentication
+- authorization
 - namespaced models
 - mongo url handler (https://github.com/viatropos/tower/issues/52#issuecomment-4586648)
 - `model#reload`
@@ -100,6 +99,9 @@ You are free to implement any of these features in any order… I'm more of a fa
 - `find(id: null) # find by null`
 - `where(name: "!=": "x")`
 - `find(address: city: "San Diego") # nested doc/object queries`
+- remove dependency on mongodb
+- make `store` global, so you only have to apply it once, not per model.
+  - makes testing easier.
 
 <a name="0.4.5" href="0.4.5"></a>
 
