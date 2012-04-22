@@ -35,8 +35,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 - ~~extends hook for coffeescript~~
 - ~~test "factories"~~
 - ~~basic tests for socket.io~~
-- test the generator code
 - generate `test/controllers` with example code for scaffold
+- test the generator code
 - NODE_ENV=production
 
 <a name="0.4.2" href="0.4.2"></a>
@@ -62,49 +62,49 @@ You are free to implement any of these features in any order… I'm more of a fa
 - finish resourceful routes
 - better controller rendering
 - some sort of `updateAll`|`deleteAll` ​functionality for controllers (array of ids)
-- finalize resourceful controller actions (see https://github.com/​josevalim/inheritedResources)
+- finalize resourceful controller actions (see https://github.com/josevalim/inherited_resources)
 - error hooks for controllers
-- test subdomains on heroku
+- test subdomains on heroku/nodejitsu
 - switch to parsing url params with URI.js
 - basic controller logging
 - https helper methods
 - http caching methods in the controller
-- redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/​questions/4046960/how-to-​redirect-without-www-using-​rails-3-rack)
+- redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/questions/4046960/how-to-redirect-without-www-using-rails-3-rack)
 - namespaced controllers
+- update to express 3.0
 
 <a name="0.4.4" href="0.4.4"></a>
 
 ### 0.4.4 (models)
 
-- nested field queries ("addresses.city", etc.)
-- mongo embedded documents
 - basic model logging (so you can see things like database queries)
+- remove dependency on mongodb
 - uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
 - email/phone validation (and other common validation helpers)
 - i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
-- strict validation
+- strict! validation
 - confirmation validation
-- Add generator for translating different locales in tower.
-- add includes to associations: `Post.includes("​author").where(author: firstName: "=~": "Baldwin").all()`
-- model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
-- authentication
-- authorization
-- test inheritance with type property
-- namespaced models
+- add includes to associations: `Post.includes("author").where(author: firstName: "=~": "Baldwin").all()`
 - mongo url handler (https://github.com/viatropos/tower/issues/52#issuecomment-4586648)
+- model indexes in mongodb (and potentially in memory, i.e. a redis-like plugin for the browser)
+- test index creation in mongodb
+- nested field queries ("addresses.city", etc.)
+- mongo embedded documents
+- test inheritance with type property
 - `model#reload`
 - acceptsNestedAttributes
 - `find(id: null) # find by null`
 - `where(name: "!=": "x")`
 - `find(address: city: "San Diego") # nested doc/object queries`
-- remove dependency on mongodb
 - make `store` global, so you only have to apply it once, not per model.
   - makes testing easier.
 
 <a name="0.4.5" href="0.4.5"></a>
 
-### 0.4.5 (model attachments)
+### 0.4.5 (model extensions)
 
+- authentication
+- authorization
 - add extension/module generator
 - test storing images/blobs in mongo (GridFS?)
   - "Binary" data type?
@@ -113,6 +113,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - get progress bar feedback for streaming file uploads
   - http://debuggable.com/posts/streaming-file-uploads-with-node-js:4ac094b2-b6c8-4a7f-bd07-28accbdd56cb
 - image/asset/attachment model api (see https://github.com/​thoughtbot/paperclip)
+- mass assignment security
 
 <a name="0.4.6" href="0.4.6"></a>
 
@@ -120,7 +121,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 - push notifications (web socket integration into the controllers)
 - test client-side sockets
-- swappable sockets api (socket.ly, socket.io)
+- swappable sockets api (sock.ly, socket.io)
 - subscribe/notifications
   - http://railscasts.com/episodes/249-notifications-in-rails-3
   - pub/sub data through sockets
@@ -147,6 +148,7 @@ You are free to implement any of these features in any order… I'm more of a fa
   - string helpers
   - number helpers
   - validators
+  - masking input fields (phone numbers, social security, email, money, etc.)
 - customize template engine, orm, and test framework in App.config
 - create normalized file/directory api (wrench, pathfinder, findit... need to merge this stuff into one)
 
@@ -161,6 +163,7 @@ You are free to implement any of these features in any order… I'm more of a fa
   - growl notifications
   - auto-run tests
 - document code
+- Add generator for translating different locales in tower.
 - standardize `Tower.x` api for global helper methods.
 - get design.io working on all platforms
   - remove ruby dependency if possible
@@ -181,13 +184,16 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### 0.5.1 (benchmarking)
 
-- cache manifest: https://github.com/​johntopley/manifesto
-- integrate "use strict"; into the codebase
+- cache manifest: https://github.com/johntopley/manifesto
+- integrate `"use strict";` into the codebase if possible
 - benchmarks folder with stress tests
 
 ## Separate plugins
 
 - Make a mocha web console reporter.
+- User stamping
+- Versioning
+- Advanced (lucene) search (down the road)
 
 ### TowerPassport
 
@@ -207,16 +213,30 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 - https://github.com/collectiveidea/awesome_nested_set for hierarchical relationships
 
-### Existing / External Plugins to Integrate
+### Tower.Titanium
 
-Ideally we'd be able to make these libraries much smaller so we could use _all_ of them on the iPhone, but for now they handle tons of use cases and with gzipping it should be reasonably small.
+It's going to be very easy now to make Tower work with titanium mobile.  With coffeekup, you can have the form builder compile down to titanium objects no problem, something like:
 
-- validation: https://github.com/chriso/node-validator
-- url parsing: https://github.com/medialize/URI.js
-- history pushState: https://github.com/balupton/History.js/
-- date parsing: https://github.com/timrwood/moment
+``` coffeescript
+App.View.helpers
+  tabs: (options = {}) ->
+    Titanium.UI.createTabGroup(options)
+    
+  tab: (options) ->
+    options.window ||= @currentPane
+    Titanium.UI.createTab(options)
+    
+  pane: (options, callback) ->
+    @currentPane  = Titanium.UI.createWindow(options)
+    callback()
+```
 
-I'm all about fully featured and tested + small file size, but given a robust library already exists, I'm going with that until I find a way to rewrite it better.
+``` coffeescript
+tabs ->
+  tab id: 'posts-tab', title: "Feed", ->
+    pane title: "My Blog", ->
+      table id: 'posts-table', data: App.Post.all()
+```
 
 ## Support for alternative data stores (as plugins) 
 

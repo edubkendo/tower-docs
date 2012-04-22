@@ -4,7 +4,108 @@
 
 - Don't use any "JS_KEYWORDS" words that CoffeeScript allows you to use, because even though you can do `user.delete()` in CoffeeScript, you'd have to write `user["delete"]()` in JavaScript.  These words are:
 
-`true`, `false`, `null`, `this`, `new`, `delete`, `typeof`, `in`, `instanceof`, `return`, `throw`, `break`, `continue`, `debugger`, `if`, `else`, `switch`, `for`, `while`, `do`, `try`, `catch`, `finally`, `class`, `extends`, `super`
+``` coffeescript
+true
+false
+null
+this
+new
+delete
+typeof
+in
+instanceof
+return
+throw
+break
+continue
+debugger
+if
+else
+switch
+for
+while
+do
+try
+catch
+finally
+class
+extends
+super
+```
+
+## Use `camelCase`, not `snake_case`
+
+## Keep consistent line breaks
+
+- Maximum of 1 blank line between chunks of code.
+- First line of indented code should not have a blank line above it in most cases.
+
+Do this:
+
+``` coffeescript
+class App.User extends Tower.Model
+  @field "email"
+  
+  @hasMany "posts"
+  @hasMany "comments"
+  
+  activate: (callback) ->
+    @updateAttributes activatedAt: new Date, callback
+```
+
+Not this:
+
+``` coffeescript
+class App.User extends Tower.Model
+
+  @field "email"
+  
+  @hasMany "posts"
+  
+  @hasMany "comments"
+  
+  
+  
+  activate: (callback) ->
+    @updateAttributes activatedAt: new Date, callback
+```
+
+## Don't abbreviate method names
+
+- Use the full word for the method name (`width` instead of `w`)
+- Only use abbreviations if the abbreviation is the preferred way of expressing the term in the industry.  But even then, if the spelled out version is easier to read, use that.
+
+``` coffeescript
+"width" > "w"
+"height" > "h"
+"x"
+"y"
+"JSON" > "JavaScriptObjectNotation"
+"src" == "source"
+"directory" > "dir"
+"createDirectory" > "mkdir"
+"background" > "bg"
+```
+
+## Remove trailing whitespace
+
+## Use 2 soft spaces `  `, not 1 tab `\t`
+
+## Use coffeescript array assignments
+
+Do this:
+
+``` coffeescript
+[one, two] = [1, 2]
+```
+
+Over this:
+
+``` coffeescript
+array = [1, 2]
+one   = array[0]
+two   = array[1]
+```
 
 ## Use the `=>` operator instead of `_this`, `_self`, etc.
 
@@ -57,7 +158,7 @@ model.buildUser()
 
 Convert `model.store()` to a `store()` method on the class ONLY IF the number of times you use the method is such that creating the "wrapper" method would save on the number of characters in the js/coffee file (so when it's minimized, it's maximally minimized).  That is, if you only call the long method once, don't wrap it, just deal with it.  Or, if the method is sufficiently complex and needs to be tested, and is still only used once, then make it a method and test it. Better to test than to not.
 
-### Use single underscore for Ruby-ish `bang!` methods: `_create()`.
+### Use single underscore for Ruby-ish `bang!` methods: `create_()`.
 
 ### Organize the code so it can be compiled for the client
 
