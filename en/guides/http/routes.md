@@ -45,7 +45,7 @@ Tower.Route.draw ->
 
 ```
 
-## Hardcore Routing Example
+## (todo) Hardcore Routing Example
 
 Here is a complete example straight from the Rails 3.2 test suite, soon to be in the Tower test suite.
 

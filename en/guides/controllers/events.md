@@ -3,6 +3,8 @@
 All controller actions are just events.  This means then that controllers handle events:
 
 - DOM events
+- Keyboard events
+- Gesture events
 - socket messages
 - url requests
 

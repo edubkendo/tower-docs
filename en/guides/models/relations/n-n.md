@@ -1,6 +1,6 @@
-## Many-to-Many Relationships
+## (todo) Many-to-Many Relationships
 
-Many to many relationships where the inverse documents are stored in a separate collection from the base document are defined using Tower's hasAndBelongsToMany macro. This exhibits similar behaviour to Active Record with the exception that no join collection is needed, the foreign key ids are stored as arrays on either side of the relation.
+Many to many relationships where the inverse documents are stored in a separate collection from the base document are defined using Tower's hasAndBelongsToMany macro. This exhibits similar behavior to Active Record with the exception that no join collection is needed, the foreign key ids are stored as arrays on either side of the relation.
 
 ## Defining
 

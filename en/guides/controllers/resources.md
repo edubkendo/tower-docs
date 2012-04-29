@@ -1,4 +1,4 @@
-# Resources
+# `Tower.Controller.Resources`
 
 Tower goes by the convention that every controller represents one resource, one model.
 

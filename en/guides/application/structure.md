@@ -39,6 +39,7 @@
 `-- config
 |    |-- application.coffee
 |    |-- assets.coffee
+|    |-- bootstrap.coffee
 |    |-- databases.coffee
 |    |-- preinitializers
 |    |-- initializers

@@ -1,4 +1,4 @@
-# Params
+# `Tower.Controller.Params`
 
 You can define parameters which should be parsed into a `Tower.Model.Criteria`.  This allows you to build a very robust query api with minimal effort.
 
@@ -181,7 +181,7 @@ The last url above would generate the criteria:
 }
 ```
 
-### `OR` Queries Over Several Attributes
+### (todo) `OR` Queries Over Several Attributes
 
 You can do `OR` searches over several attributes, i.e. "find all posts in the past 2 days OR those tagged with 'javascript'".  Just prepend each `OR` block with an array index:
 
@@ -190,5 +190,3 @@ You can do `OR` searches over several attributes, i.e. "find all posts in the pa
 [0]createdAt=12-25-2011..12-31-2011&[1]tags=javascript,ruby&sort=createdAt-,title+
 createdAt[0]=12-25-2011..12-31-2011&tags[1]=javascript,ruby&sort=createdAt-,title+
 ```
-
-## Nested

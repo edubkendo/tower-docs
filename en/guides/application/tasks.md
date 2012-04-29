@@ -1,4 +1,4 @@
-# Cake Tasks
+# Application Tasks
 
 ## `cake assets:bundle`
 
@@ -7,3 +7,7 @@
 ## `cake assets:stats`
 
 ## `cake routes`
+
+## `cake docs`
+
+## `npm test`

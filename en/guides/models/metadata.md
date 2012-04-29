@@ -1,3 +1,4 @@
+# `Tower.Model.Metadata`
 
 ``` coffeescript
 toParam: "blog-post"

@@ -1,4 +1,4 @@
-# Actions
+# Controller Actions
 
 By convention there are 7 RESTful actions for a controller:
 
@@ -16,11 +16,11 @@ If you wanted to manually write out simple controller actions, this is how you m
 class App.PostsController extends Tower.Controller
   index: ->
     App.Post.all (error, posts) =>
-      @render "index", locals: posts: posts
+      @render "index", locals: {posts}
     
   new: ->
     post = new App.Post
-    @render "new", locals: post: post
+    @render "new", locals: {post}
     
   create: ->
     App.Post.create @params.post, (error, post) =>
@@ -28,17 +28,17 @@ class App.PostsController extends Tower.Controller
     
   show: ->
     App.Post.find @params.id, (error, post) =>
-      @render "show", locals: post: post
+      @render "show", locals: {post}
     
   edit: ->
     App.Post.find @params.id, (error, post) =>
-      @render "edit", locals: post: post
+      @render "edit", locals: {post}
     
   update: ->
     App.Post.find @params.id, (error, post) =>
       post.updateAttributes @params.post, (error) =>
         if error
-          @render "edit", locals: post: post
+          @render "edit", locals: {post}
         else
           @redirectTo post
     
@@ -48,7 +48,7 @@ class App.PostsController extends Tower.Controller
         @redirectTo "index"
 ```
 
-**Note**: The above actions won't respond to different content types differently (i.e. for json, give me a json string, for html give me some rendered html).  But for some cases that's all you need.
+**Note**: The above actions won't respond to different content types differently (i.e. for JSON, give me a JSON string, for HTML give me some rendered HTML).  But for some cases that's all you need.
 
 In order for those actions to be accessible, routes must be defined.  Routes to all 7 RESTful actions are generated with the following declaration in `config/routes.coffee`:
 

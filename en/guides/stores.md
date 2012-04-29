@@ -1,1 +1,1 @@
-# Stores
+# `Tower.Store`

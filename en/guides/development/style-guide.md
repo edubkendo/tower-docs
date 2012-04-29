@@ -1,5 +1,37 @@
 # Design Principles
 
+## Don't extend core objects
+
+Add to underscore, not to the native object prototypes.
+
+## Use single quotes `'` over double quotes `"`
+
+Single quotes are the preferred convention for defining strings.  Only use double quotes when you're using interpolation:
+
+``` coffeescript
+# do
+staticString  = 'a string'
+dynamicString = "url: #{window.location.url}"
+
+# don't
+staticString  = "a string"
+
+# can't do b/c single quotes don't allow interpolation.
+dynamicString = 'url: #{window.location.url}'
+```
+
+## Use interpolation `#{}` instead of addition `+`
+
+``` coffeescript
+# this
+string = "url: #{window.location.url}"
+
+# not this
+string = "url: " + window.location.url
+```
+
+## Don't pollute the global namespace
+
 ## Avoid CoffeeScript Keywords
 
 - Don't use any "JS_KEYWORDS" words that CoffeeScript allows you to use, because even though you can do `user.delete()` in CoffeeScript, you'd have to write `user["delete"]()` in JavaScript.  These words are:

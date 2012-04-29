@@ -2,22 +2,42 @@
 
 ## New app
 
-`tower new <app-name> [options]`
+```
+tower new <app-name> [options]
+```
 
-## Start server
+## Server
 
-`tower server` (todo)
+```
+tower server
+```
 
-Note: Right now, `node server` works well and is pure node.
+> Note: `node server` works well and is pure node.
 
-## Tower console
+## Console
 
 Use the Tower.js console to programmatically mess around with your application data.
 
-`tower console`
+```
+tower console
+```
 
-## Run Tower generator
+You can also run the console in CoffeeScript!
 
-`tower generate <generator> [args] [options]`
+```
+tower console -c
+```
 
-See the available [[Generators]] for details on how to use them.
+## Generators
+
+```
+tower generate <generator> [args] [options]
+```
+
+See the available Generators for details on how to use them.
+
+### Generate Modules (todo)
+
+```
+tower generate module my-library
+```

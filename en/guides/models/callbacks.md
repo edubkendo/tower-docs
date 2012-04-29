@@ -8,17 +8,17 @@ Tower supports 3 main callbacks:
 
 The following callbacks are implemented:
 
-- `@after   "initialize"`
-- `@before  "validate"`
-- `@after   "validate"`
-- `@before  "create"`
-- `@after   "create"`
-- `@before  "update"`
-- `@after   "update"`
-- `@before  "save"`
-- `@after   "save"`
-- `@before  "destroy"`
-- `@after   "destroy"`
+- `@after   'initialize'`
+- `@before  'validate'`
+- `@after   'validate'`
+- `@before  'create'`
+- `@after   'create'`
+- `@before  'update'`
+- `@after   'update'`
+- `@before  'save'`
+- `@after   'save'`
+- `@before  'destroy'`
+- `@after   'destroy'`
 
 Callbacks are available on any model.
 
@@ -26,37 +26,37 @@ Callbacks are available on any model.
 
 ``` coffeescript
 class App.Post extends Tower.Model
-  @field "title", type: "String"
-  @field "slug", type: "String"
+  @field 'title', type: 'String'
+  @field 'slug', type: 'String'
   
-  @before "save", "generateSlug"
+  @before 'save', 'generateSlug'
   
   generateSlug:  ->
-    @set "slug", @get("title").replace(/[^a-z0-9]+/, '-').toLowerCase()
+    @set 'slug', @get('title').replace(/[^a-z0-9]+/, '-').toLowerCase()
 ```
 
 ## Define the phase and callback directly
 
 ``` coffeescript
 class App.Post extends Tower.Model
-  @field "title", type: "String"
-  @field "slug", type: "String"
+  @field 'title', type: 'String'
+  @field 'slug', type: 'String'
   
-  @callback "save", "before", "generateSlug"
+  @callback 'save', 'before', 'generateSlug'
   
   generateSlug:  ->
-    @set "slug", @get("title").replace(/[^a-z0-9]+/, '-').toLowerCase()
+    @set 'slug', @get('title').replace(/[^a-z0-9]+/, '-').toLowerCase()
 ```
 
 ## Define callbacks with anonymous functions
 
 ``` coffeescript
 class App.Post extends Tower.Model
-  @field "title", type: "String"
-  @field "slug", type: "String"
+  @field 'title', type: 'String'
+  @field 'slug', type: 'String'
   
-  @before "save", ->
-    @set "slug", @get("title").replace(/[^a-z0-9]+/, '-').toLowerCase()
+  @before 'save', ->
+    @set 'slug', @get('title').replace(/[^a-z0-9]+/, '-').toLowerCase()
 ```
 
 ## Callbacks can be asynchronous
@@ -65,12 +65,14 @@ If you have a callback that executes asynchronous code, you can add the `callbac
 
 ``` coffeescript
 class App.Post extends Tower.Model
-  @field "title", type: "String"
-  @field "url", type: "String"
+  @field 'title', type: 'String'
+  @field 'url', type: 'String'
   
-  @before "save", "scrapeWebsite"
+  @before 'save', 'scrapeWebsite'
   
   scrapeWebsite: (callback) ->
-    SomeCrawler.scrapeHTML @get("url"), (error, html) ->
+    SomeCrawler.scrapeHTML @get('url'), (error, html) ->
       callback(error)
 ```
+
+Callbacks are called _in series_, so if you have several async callbacks, know they will be executed one after another.

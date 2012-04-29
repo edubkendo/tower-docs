@@ -1,4 +1,4 @@
-# Browser Testing
+# Testing Views in Tower.js
 
 [Mocha](http://visionmedia.github.com/mocha/) can be used to "spec" an app including specs for acceptance testing.
 See the Tower test suite for how to use Mocha to test a Tower app.

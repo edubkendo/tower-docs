@@ -1,4 +1,4 @@
-# Roadmap
+# Tower.js Roadmap
 
 For 0.5.0, Tower will include the features below.  It's going to be a rolling list.  If you have ideas or features you'd like to see, include them in the section [Potential features](#potential-features) section and we'll move them up if they're in scope.
 
@@ -156,6 +156,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### 0.4.9 (cleanup, optimizations, documentation)
 
+- autocomplete in the terminal (rubymine, node-inspector)
+- autoreload in the console!
 - chunk code into parts for the client, so you can use only bare minimum if desired
   - so you can do things like `require('tower-model')`
 - finalize tower.js internal code organization

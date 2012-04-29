@@ -1,8 +1,8 @@
 # Meta Tags
 
 ``` coffeescript
-meta "title", "keywords", "description", "copyright"
-link "pagination"
+meta 'title', 'keywords', 'description', 'copyright'
+link 'pagination'
 ```
 
 ``` html

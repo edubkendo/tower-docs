@@ -6,8 +6,8 @@
 
 ``` coffeescript
 class App.User extends Tower.Model
-  @sync()
-  @publish()
+  @sync() # or...
+  @publish() # or...
   @subscribe()
   
   @scope "recent", @where(createdAt: ">=": -> _(2).days().ago()).sync()

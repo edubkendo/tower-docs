@@ -13,13 +13,13 @@ When you _save_ a template, you're either saving a template, partial, or layout.
 ### Coffeekup + Mustache
 
 ``` coffeescript
-mustacheEach "posts", ->
-  h2 "{{title}}"
-  p "{{body}}"
+handlebars 'each', 'posts', ->
+  h2 '{{title}}'
+  p '{{body}}'
 ```
 
 ``` html
-{{posts}}
+{{#each posts}}
   <h2>{{title}}</h2>
   <p>{{body}}</p>
 {{/posts}}

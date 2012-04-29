@@ -1,4 +1,4 @@
-# Rendering
+# `Tower.Controller.Rendering`
 
 - Templates
 - JSON

@@ -1,11 +1,11 @@
 # Tables
 
 ``` coffeescript
-tableFor "users", (t) ->
+tableFor 'users', (t) ->
   t.head ->
     t.row ->
-      t.header "name", width: 400, sort: true
-      t.header "createdAt", sort: true
+      t.header 'name', width: 400, sort: true
+      t.header 'createdAt', sort: true
   t.body ->
     for user in users
       t.row ->
@@ -16,7 +16,7 @@ tableFor "users", (t) ->
   t.foot ->
     t.row ->
       t.cell colspan: 2, ->
-        render partial: "shared/pagination", locals: {collection: @users}
+        render partial: 'shared/pagination', locals: {collection: @users}
 ```
 
 ``` html

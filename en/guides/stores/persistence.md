@@ -8,7 +8,7 @@ The store is used by the `Tower.Model` internally.
 - `Store#update`
 - `Store#destroy`
 
-## `Store#create`
+## `Tower.Store#create`
 
 Creates one model.
 

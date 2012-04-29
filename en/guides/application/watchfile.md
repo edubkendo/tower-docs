@@ -24,7 +24,7 @@ require("design.io-stylesheets")
         console.log(error.stack) if error
     catch error
       console.log error.stack
-      
+
 require("design.io-javascripts")
   compress: false
   debug:    false
@@ -39,13 +39,12 @@ require("design.io-javascripts")
         console.log(error.stack) if error
     catch error
       console.log error.stack
-      
-# update .coffee file when .mustache file of same name changes      
+
+# update .coffee file when .mustache file of same name changes
 watch /app\/views.*\.mustache/
   update: (path, callback) ->
-    coffeePath = path.replace(".mustache", ".coffee")    
-    LOG coffeePath
+    coffeePath = path.replace(".mustache", ".coffee")
     if File.exists coffeePath
-      File.touch coffeePath      
+      File.touch coffeePath
     callback()
 ```

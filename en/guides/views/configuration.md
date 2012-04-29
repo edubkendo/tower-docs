@@ -1,8 +1,6 @@
-# Components
+# Configuration
 
-Tower allows configuration of some components such as View components (see below).
-
-## Configuration
+Tower allows configuration of some components:
 
 ``` coffeescript
 Tower.View.configure

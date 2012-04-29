@@ -9,7 +9,7 @@ When you're on the client, you have three options on where to store the data def
 You can specify a default store like this:
 
 ``` coffeescript
-Tower.Model.defaultStore = Tower.Store.Ajax
+Tower.Model.default('store', Tower.Store.Ajax)
 ```
 
 You can swap out stores dynamically on a per-class basis as well:

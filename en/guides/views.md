@@ -1,6 +1,6 @@
 # Tower Views
 
-Tower has built in support for every template framework.
+Tower has built in support for every template framework using [mint.js](http://github.com/viatropos/mint.js).
 
 - HTML5 Bootstrap
 - Twitter Bootstrap

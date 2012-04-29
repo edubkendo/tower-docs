@@ -1,14 +1,12 @@
-# Testing Models
+# Testing Models in Tower.js
 
 ## Example
 
 ``` coffeescript
 # ./test/models/userTest.coffee
-require "../config"
-
-user = null
-
 describe "App.User", ->
+  user = null
+  
   describe "#fields", ->
     beforeEach (done) ->
       App.User.destroy =>
@@ -17,4 +15,3 @@ describe "App.User", ->
     test ".email", ->
       assert.ok user.has("email")
 ```
-

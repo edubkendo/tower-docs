@@ -1,16 +1,16 @@
-# Forms
+# `Tower.View.Form`
 
 ``` coffeescript
 formFor @user, (form) ->
-  form.fieldset "Profile", (fields) ->
-    fields.field "firstName"
-    fields.field "lastName"
-    fields.field "email"
-  form.fieldset "Address", (fields) ->
-    fields.field "lat", as: hidden
-    fields.field "lng", as: hidden
-    fields.field "street"
-    fields.field "city", as: "select", collection: ["CA"]
+  form.fieldset 'Profile', (fields) ->
+    fields.field 'firstName'
+    fields.field 'lastName'
+    fields.field 'email'
+  form.fieldset 'Address', (fields) ->
+    fields.field 'lat', as: hidden
+    fields.field 'lng', as: hidden
+    fields.field 'street'
+    fields.field 'city', as: 'select', collection: ['CA']
 ```
 
 ``` html

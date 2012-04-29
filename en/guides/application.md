@@ -18,8 +18,6 @@ class App extends Tower.Application
     @use Tower.Middleware.Agent
     @use Tower.Middleware.Location
     @use Tower.Middleware.Router
-
-module.exports = global.App = App
 ```
 
 The `configure` function is used to configure the application.

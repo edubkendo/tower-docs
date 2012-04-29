@@ -4,6 +4,19 @@
 
 https://github.com/viatropos/tower/issues
 
+Please markup your issue with GitHub's markdown code blocks:
+
+   ``` bash
+     info  - socket.io started
+   [Mon, 23 Apr 2012 16:40:33 GMT] INFO Tower development server listening on port 3000
+
+   node.js:201
+          throw e; // process.nextTick error, or 'error' event on first tick
+  ...
+  ```
+  
+Your code is wrapped in triple backslashes, and you can specify the language (`\`\`\` bash`, `\`\`\` coffeescript`, `\`\`\` javascript`, `\`\`\` ruby`, `\`\`\` html`, etc.)
+
 ## Features
 
 Add these to the todo wiki's [Potential Features](https://github.com/viatropos/tower/wiki/roadmap#wiki-potential-features) section.
