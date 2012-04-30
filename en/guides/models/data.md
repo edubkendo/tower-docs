@@ -1,6 +1,6 @@
 # `Tower.Model.Data`
 
-Tower supports tracking of changed or "dirty" fields with an API that mirrors that of Active Model. If a defined field has been modified in a model the model will be marked as dirty and some additional behaviour comes into play.
+Tower supports tracking of changed or "dirty" fields with an API that mirrors that of Active Model. If a defined field has been modified in a model the model will be marked as dirty and some additional behavior comes into play.
 
 ## Viewing Changes
 

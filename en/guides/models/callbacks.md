@@ -32,7 +32,7 @@ class App.Post extends Tower.Model
   @before 'save', 'generateSlug'
   
   generateSlug:  ->
-    @set 'slug', @get('title').replace(/[^a-z0-9]+/, '-').toLowerCase()
+    @set 'slug', _.parameterize @get('title')
 ```
 
 ## Define the phase and callback directly
@@ -45,7 +45,7 @@ class App.Post extends Tower.Model
   @callback 'save', 'before', 'generateSlug'
   
   generateSlug:  ->
-    @set 'slug', @get('title').replace(/[^a-z0-9]+/, '-').toLowerCase()
+    @set 'slug', _.parameterize @get('title')
 ```
 
 ## Define callbacks with anonymous functions
@@ -56,7 +56,7 @@ class App.Post extends Tower.Model
   @field 'slug', type: 'String'
   
   @before 'save', ->
-    @set 'slug', @get('title').replace(/[^a-z0-9]+/, '-').toLowerCase()
+    @set 'slug', _.parameterize @get('title')
 ```
 
 ## Callbacks can be asynchronous

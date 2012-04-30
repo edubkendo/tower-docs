@@ -27,18 +27,6 @@ App.User.where(firstName: 'Lance').insert([{lastName: 'Pollard'}, {lastName: 'Sm
 App.User.where(firstName: 'Lance').insert(new App.User(lastName: 'Pollard'))
 ```
 
-## `Tower.Model.destroy`
-
-Deletes all matching records in the datastore given the supplied conditions. See the criteria section on deletion for preferred ways to perform these actions. This runs destroy callbacks on all matching records.
-
-``` coffeescript
-# Destroy all the records from the collection.
-App.User.destroy()
-
-# Destroy all matching records.
-App.User.where(firstName: 'Heinrich').destroy()
-```
-
 ## `Tower.Model.update`
 
 ``` coffeescript
@@ -51,6 +39,18 @@ App.User.where(firstName: 'Lance').update(1, 2, 3)
 App.User.update(App.User.first(), App.User.last(), firstName: 'Lance')
 App.User.update([App.User.first(), App.User.last()], firstName: 'Lance')
 App.User.update([1, 2], firstName: 'Lance')
+```
+
+## `Tower.Model.destroy`
+
+Deletes all matching records in the datastore given the supplied conditions. See the criteria section on deletion for preferred ways to perform these actions. This runs destroy callbacks on all matching records.
+
+``` coffeescript
+# Destroy all the records from the collection.
+App.User.destroy()
+
+# Destroy all matching records.
+App.User.where(firstName: 'Heinrich').destroy()
 ```
 
 ## `Tower.Model#save`

@@ -16,9 +16,9 @@ You can swap out stores dynamically on a per-class basis as well:
 
 ``` coffeescript
 class App.User extends Tower.Model
-  @defaultStore = Tower.Store.Memory
+  @default 'store', Tower.Store.Memory
 
-App.User.create() # save in memory
+App.User.insert() # save in memory
 App.User.store(Tower.Store.Ajax)
-App.User.create() # save with ajax
+App.User.insert() # save with ajax
 ```

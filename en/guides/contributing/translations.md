@@ -22,6 +22,8 @@ Here's how I am going to layout http://towerjs.org:
 - /roadmap
 - /examples (list of projects with pictures)
 - /screencasts
+- /tests (client test suite)
+- /contributors
 
 The bulk of what you'd be translating would be under /guides (I might call this /docs, not 100% yet).  Currently, those files are in the wiki/docs folder when you clone the wiki. 
 

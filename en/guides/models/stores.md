@@ -24,7 +24,7 @@ class App.Page extents Tower.Model
 ## Create
 
 ``` coffeescript
-User.store().create(new User(firstName: "Lance"))
-User.store().create(firstName: "Lance")
-User.store().create([{firstName: "Lance"}, {firstName: "Dane"}])
+App.User.store().insert(new User(firstName: "Lance"))
+App.User.store().insert(firstName: "Lance")
+App.User.store().insert([{firstName: "Lance"}, {firstName: "Dane"}])
 ```

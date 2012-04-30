@@ -18,6 +18,7 @@ table ->
       td 'Type'
       td 'Document'
       td 'Document'
+      td 'Document'
       td 'Graph'
       td 'SQL'
       td 'SQL'

@@ -5,10 +5,12 @@ Tower supports inheritance in both root and embedded records. In scenarios where
 ``` coffeescript
 class App.Canvas extends Tower.Model
   @field 'name', type: 'String'
+  
   @hasMany 'shapes', embedded: true
 
 class App.Browser extends App.Canvas
   @field 'version', type: 'Integer'
+  
   @scope 'recent', @where(version: '>': 3)
 
 class App.Firefox extends Browser
@@ -16,6 +18,7 @@ class App.Firefox extends Browser
 class App.Shape extends Tower.Model
   @field 'x', type: 'Integer'
   @field 'y', type: 'Integer'
+  
   @belongsTo 'canvas', embedded: true
 
 class App.Circle extends App.Shape
@@ -26,7 +29,7 @@ class App.Rectangle extends App.Shape
   @field 'height', type: 'Float'
 ```
 
-In the above example, Canvas, Browser and Firefox will all save in the canvases collection. An additional attribute _type is stored in order to make sure when loaded from the database the correct record is returned. This also holds true for the embedded records Circle, Rectangle, and Shape.
+In the above example, Canvas, Browser and Firefox will all save in the canvases collection. An additional attribute `_type` is stored in order to make sure when loaded from the database the correct record is returned. This also holds true for the embedded records Circle, Rectangle, and Shape.
 
 ## Querying for Subclasses
 
@@ -42,6 +45,8 @@ App.Firefox.where(name: 'Window 1')
 ## Associations
 
 You can add any type of subclass App.to a has one or has many association, through either normal setting or through the build and create methods on the association:
+
+``` coffeescript
 firefox = new App.Firefox
 # Builds a Shape object
 firefox.shapes.build({ x: 0, y: 0 })
@@ -52,3 +57,4 @@ firefox.shapes.create({ x: 0, y: 0 }, Rectangle)
 
 rect = App.Rectangle.new(width: 100, height: 200)
 firefox.shapes
+```
