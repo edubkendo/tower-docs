@@ -35,30 +35,17 @@ You are free to implement any of these features in any order… I'm more of a fa
 - ~~extends hook for coffeescript~~
 - ~~test "factories"~~
 - ~~basic tests for socket.io~~
-- generate `test/controllers` with example code for scaffold
+- ~~generate `test/controllers` with example code for scaffold~~
 - test the generator code
 - NODE_ENV=production
 
 <a name="0.4.2" href="0.4.2"></a>
 
-### 0.4.2 (views)
+### 0.4.2 (controllers)
 
-- ember.js integration
-- automatic form validations based on model of client
-- error/stacktrace printing when view fails to fully render
-- finish table builder
-- make form builder more robust
-- 404/etc error pages
-- error handling on forms when validation error
-- test client side view rendering with coffeekup
-- test client side view rendering with ember
-- test files reload when changed (integration test)
-- test assets can be served with gzip
-
-<a name="0.4.3" href="0.4.3"></a>
-
-### 0.4.3 (controllers)
-
+- ~~ember.js integration~~
+- better `redirectTo`
+- better `urlFor`
 - finish resourceful routes
 - better controller rendering
 - some sort of `updateAll`|`deleteAll` ​functionality for controllers (array of ids)
@@ -66,14 +53,30 @@ You are free to implement any of these features in any order… I'm more of a fa
 - error hooks for controllers
 - test subdomains on heroku/nodejitsu
 - switch to parsing url params with URI.js
-- basic controller logging
+- basic controller logging/subscriptions
 - https helper methods
 - http caching methods in the controller
 - redirect helpers at the top level, so you easily write permanent redirects (http://stackoverflow.com/questions/4046960/how-to-redirect-without-www-using-rails-3-rack)
 - namespaced controllers
 - update to express 3.0
+- rails like flash messages
 
 <a name="0.4.4" href="0.4.4"></a>
+
+### 0.4.3 (views)
+
+- automatic form validations based on model of client
+- error/stacktrace printing when view fails to fully render
+- finish table builder
+- make form builder more robust
+- 404/etc error pages
+- error handling on forms when validation error
+- test client side view rendering with coffeecup
+- test client side view rendering with ember
+- test files reload when changed (integration test)
+- test assets can be served with gzip
+
+<a name="0.4.3" href="0.4.3"></a>
 
 ### 0.4.4 (models)
 
@@ -81,7 +84,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - remove dependency on mongodb
 - uniqueness validation (database should not save a record unless specified attributes are globally unique (i.e. username))
 - email/phone validation (and other common validation helpers)
-- i18n (internationalization/​localization, how to organize the random labels in the app, and prepare for translation into other languages)
+- i18n (internationalization/localization, how to organize the random labels in the app, and prepare for translation into other languages)
 - strict! validation
 - confirmation validation
 - add includes to associations: `Post.includes("author").where(author: firstName: "=~": "Baldwin").all()`
@@ -93,6 +96,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - test inheritance with type property
 - `model#reload`
 - acceptsNestedAttributes
+- mass assignment security
 - `find(id: null) # find by null`
 - `where(name: "!=": "x")`
 - `find(address: city: "San Diego") # nested doc/object queries`
@@ -103,24 +107,20 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### 0.4.5 (model extensions)
 
+- add extension generator
+- add library generator
 - authentication
 - authorization
-- add extension/module generator
-- test storing images/blobs in mongo (GridFS?)
-  - "Binary" data type?
-  - http://blog.james-carr.org/2012/01/09/streaming-files-from-mongodb-gridfs/
 - test storing images on s3
 - get progress bar feedback for streaming file uploads
   - http://debuggable.com/posts/streaming-file-uploads-with-node-js:4ac094b2-b6c8-4a7f-bd07-28accbdd56cb
-- image/asset/attachment model api (see https://github.com/​thoughtbot/paperclip)
-- mass assignment security
+- image/asset/attachment model api (see https://github.com/thoughtbot/paperclip)
 
 <a name="0.4.6" href="0.4.6"></a>
 
 ### 0.4.6 (sockets)
 
 - push notifications (web socket integration into the controllers)
-- test client-side sockets
 - swappable sockets api (sock.ly, socket.io)
 - subscribe/notifications
   - http://railscasts.com/episodes/249-notifications-in-rails-3
@@ -177,6 +177,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ### 0.5.0 (theme)
 
+- well designed error/stacktrace page
 - basic responsive admin theme, with functionality like http://activeadmin.info/
 - client and server have the same interface, separate code out so client is as lean as possible
 - make sure templates have proper escaping (xss protection)
@@ -189,6 +190,12 @@ You are free to implement any of these features in any order… I'm more of a fa
 - cache manifest: https://github.com/johntopley/manifesto
 - integrate `"use strict";` into the codebase if possible
 - benchmarks folder with stress tests
+
+## Other todos
+
+- compile all test/cases into tests.js to render on towerjs.org
+- port most/all rails tests
+- test `included` and `extended` callbacks
 
 ## Separate plugins
 
@@ -203,9 +210,9 @@ You are free to implement any of these features in any order… I'm more of a fa
 - tower generate authentication Session
 - see [devise](https://github.com/plataformatec/devise) for inspiration, but I'm not a fan of devise b/c it's way too hard to customize and creates too much abstraction.  But the feature set it includes is great.  https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
 
-### Tower.Authorization (TowerCanDo)
+### Tower.Authorization (Tower.Ability)
 
-- authorization extension (https://github.com/ryanb/​cancan)
+- authorization extension (https://github.com/ryanb/cancan)
 
 ### Tower.Attachment
 
@@ -246,13 +253,15 @@ These are next, larger features.  These will be included in earlier releases if 
 
 - Neo4j support
 - CouchDB support
-- (PostGreSQL support ?)
-- (MySQL support ?)
+- PostGreSQL support
+- MySQL support
+- SQLite3 support
+- LocalStorage support
+- Redis support
 
 <a name="potential-features" href="potential-features"></a>
 
 ## Potential Features
 
 - hierarchical models (nested sets)
-- state machine (see [https://github.com/pluginaweek/stateMachine](https://github.com/pluginaweek/stateMachine))
-- rails like flash messages
+- ~~state machine (see [https://github.com/pluginaweek/stateMachine](https://github.com/pluginaweek/stateMachine))~~ Ember.js has this built in!
