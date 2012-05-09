@@ -196,6 +196,8 @@ You are free to implement any of these features in any order… I'm more of a fa
 - compile all test/cases into tests.js to render on towerjs.org
 - port most/all rails tests
 - test `included` and `extended` callbacks
+- make javascripts compile with function wrapper in Watchfile (for client)
+- add `cid` or equaivalent
 
 ## Separate plugins
 
