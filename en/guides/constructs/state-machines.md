@@ -1,5 +1,5 @@
 # State Machines
 
 ``` coffeescript
-App.states = Ember.StateManager.create()
+App.stateManager = Ember.StateManager.create()
 ```

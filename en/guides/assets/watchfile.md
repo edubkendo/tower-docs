@@ -1,5 +1,13 @@
 # Watchfile
 
+``` coffeescript
+watch ///test/cases///
+  update: (path, callback) ->
+  
+  client:
+    update: (data) ->
+```
+
 ## Resources
 
 - [https://github.com/joyent/node/issues/2062](https://github.com/joyent/node/issues/2062 "fs.watch fails to detect changes to file replaced by rename event")

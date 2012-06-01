@@ -88,3 +88,44 @@ tableFor 'users', (t) ->
   </tfoot>
 </table>
 ```
+
+## Dynamic Admin Tables
+
+You can build a table that works for any model very easily (todo, since you can't totally do this yet in Handlebars):
+
+``` coffeescript
+hWith 'App.User', ->
+  tableFor '{{name}}', (t) ->
+    t.head ->
+      t.row ->
+        hEach 'fields', ->
+          t.header '{{name}}', sort: true
+    t.body ->
+      hEach 'all', ->
+        t.row ->
+          hEach 'fields', ->
+            t.cell '{{get(name)}}'
+    t.foot ->
+```
+
+## Tables
+
+``` coffeescript
+section id: 'users-page', class: 'page', ->
+  header class: 'header', ->
+    h2 'Users'
+  div class: 'content', ->
+    tableFor 'users', (t) ->
+      t.head ->
+        t.row ->
+          t.header 'First Name'
+          t.header 'Last Name'
+          t.header 'Email'
+      t.body ->
+        for user in @users
+          t.row class: 'user', 'data-id': user.get('id').toString(), ->
+            t.cell class: 'first-name', -> user.get('firstName')
+            t.cell class: 'last-name', -> user.get('lastName')
+            t.cell class: 'email', -> user.get('email')
+  footer class: 'footer', ->
+```

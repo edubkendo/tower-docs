@@ -1,5 +1,7 @@
 # Templates
 
+## CoffeeKup
+
 ## Automatic Template Refreshing in Browser
 
 When you _save_ a template, you're either saving a template, partial, or layout.

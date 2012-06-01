@@ -44,6 +44,9 @@ You are free to implement any of these features in any order… I'm more of a fa
 ### 0.4.2 (controllers)
 
 - ~~ember.js integration~~
+- integrate Ember.StateMachine into client side routes (https://gist.github.com/2679013)
+  - when a route is created, insert the state into the state machines (or multiple states if the route is multiple parts)
+- write `render` for client that handles creating ember views
 - better `redirectTo`
 - better `urlFor`
 - finish resourceful routes
@@ -198,6 +201,14 @@ You are free to implement any of these features in any order… I'm more of a fa
 - test `included` and `extended` callbacks
 - make javascripts compile with function wrapper in Watchfile (for client)
 - add `cid` or equaivalent
+- think about making scopes use `get()`, so `App.User.get('recent')`. This way they can be used in views.
+- handle app config:
+  ``` ruby
+  config.encoding = "utf-8"
+  config.filter_parameters += [:password, :password_confirmation]
+  config.time_zone = "Pacific Time (US & Canada)"
+  ```
+- make logs write to `./log` folder.
 
 ## Separate plugins
 
@@ -267,3 +278,10 @@ These are next, larger features.  These will be included in earlier releases if 
 
 - hierarchical models (nested sets)
 - ~~state machine (see [https://github.com/pluginaweek/stateMachine](https://github.com/pluginaweek/stateMachine))~~ Ember.js has this built in!
+- need to think about having a separate library like https://github.com/flamejs/flame.js that handles common components.  Definitely tower should work without this, but these components may be useful.
+
+## Random Issues
+
+- need to figure out how to append fields to a model base class after the other models have been subclassed.
+- convert modules to `Ember.Mixin` objects. 
+- convert all `class X` in tower to `.extend`, just javascript

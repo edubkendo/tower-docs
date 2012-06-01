@@ -22,3 +22,5 @@ App.User.insert() # save in memory
 App.User.store(Tower.Store.Ajax)
 App.User.insert() # save with ajax
 ```
+
+## Ajax Store

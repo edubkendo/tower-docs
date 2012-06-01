@@ -13,9 +13,13 @@ cake assets:upload # cake assets:upload:s3
 cake assets:stats
 ```
 
-### `assets:bundle`
+### Asset Compression
 
 Bundles all the assets
+
+### Upload Assets to S3
+
+### Print Asset Sizes
 
 ## Asset Manifest
 
@@ -23,43 +27,31 @@ Bundles all the assets
 module.exports =
   javascripts:
     application: [
-      "/app/models/user"
-      "/app/models/post"
+      '/app/models/user'
+      '/app/models/post'
     ]
     bottom: [
-      "/vendor/assets/javascripts/jmd/showdown"
-      "/vendor/assets/javascripts/jmd/jquery.markedit"
+      '/vendor/assets/javascripts/jmd/showdown'
+      '/vendor/assets/javascripts/jmd/jquery.markedit'
     ]
     vendor: [
-      "/vendor/assets/javascripts/tower"
-      "/vendor/assets/javascripts/underscore"
+      '/vendor/assets/javascripts/tower'
+      '/vendor/assets/javascripts/underscore'
     ]
     development: [
-      "/vendor/assets/javascripts/jasmine"
-      "/vendor/assets/javascripts/faker"
-      "/vendor/assets/javascripts/coffeekup"
+      '/vendor/assets/javascripts/jasmine'
+      '/vendor/assets/javascripts/faker'
+      '/vendor/assets/javascripts/coffeekup'
     ]
   
   stylesheets:
     base: [
-      "/app/assets/stylesheets/reset"
-      "/app/assets/stylesheets/typography"
+      '/app/assets/stylesheets/reset'
+      '/app/assets/stylesheets/typography'
     ]
     application: [
-      "/app/assets/stylesheets/application"
+      '/app/assets/stylesheets/application'
     ]
-    
-try
-  Tower.assetManifest = JSON.parse(require("fs").readFileSync("public/assets/manifest.json", "utf-8"))
-catch error
-  Tower.assetManifest = {}
-```
-
-## Tasks
-
-```
-cake assets:bundle
-cake assets:upload
 ```
 
 ## Notes

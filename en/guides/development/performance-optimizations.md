@@ -147,3 +147,15 @@ object.getOrSet()           # 2,920,880  ops/sec (90% slower)
 ## Method Missing in JavaScript
 
 Replace all function calls to `object.send(name, arguments...)` with node burrito, like this guy does: http://www.ruby-forum.com/topic/128539.
+
+## Bitwise operators
+
+- http://stackoverflow.com/questions/1523061/performance-of-bitwise-operators-in-javascript
+
+``` javascript
+POSITION_BELOW: 1 << 0,
+POSITION_RIGHT: 1 << 1,
+POSITION_LEFT: 1 << 2,
+POSITION_ABOVE: 1 << 3,
+POSITION_MIDDLE: 1 << 4,
+```

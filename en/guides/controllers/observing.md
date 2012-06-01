@@ -3,5 +3,6 @@
 `Tower.Controller` extends the `Ember.Object`, which is observable.
 
 ``` coffeescript
-
+class App.PostsController extends Tower.Controller
+  @computed 'key'
 ```

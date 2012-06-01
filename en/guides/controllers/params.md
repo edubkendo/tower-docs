@@ -190,3 +190,20 @@ You can do `OR` searches over several attributes, i.e. "find all posts in the pa
 [0]createdAt=12-25-2011..12-31-2011&[1]tags=javascript,ruby&sort=createdAt-,title+
 createdAt[0]=12-25-2011..12-31-2011&tags[1]=javascript,ruby&sort=createdAt-,title+
 ```
+
+## Pagination
+
+[todo] Each cursor has the properties `currentPage`, `pageCount`, `totalCount`, `hasNextPage`, `hasPreviousPage`, `hasNext`, `hasPrevious`.  This is then bound to your current model cursor:
+
+``` coffeescript
+class App.PostsController extends Tower.Controller
+  all: App.Post.all()
+  
+  next: ->
+    @get('all').nextPage().find()
+    
+  prev: ->
+    @get('all').previousPage().find()
+```
+
+A cursor.find()

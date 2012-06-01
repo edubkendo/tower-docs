@@ -1,0 +1,1 @@
+https://github.com/mongodb/mongo-hadoop

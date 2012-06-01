@@ -79,3 +79,54 @@ formFor @user, (form) ->
   </fieldset>
 </form>
 ```
+
+## Form Internals
+
+The `formFor` helper is pretty much just doing this:
+
+``` coffeescript
+form action: urlFor(@user), method: 'post', ->
+  fieldset class: 'fieldset', ->
+    ul class: 'fields', ->
+      li class: 'field', ->
+        label for: 'user-first-name-input', 'First Name'
+        input id: 'user-first-name-input', type: 'text', value: @user.get('firstName')
+```
+
+## Form fields
+
+``` coffeescript
+field 'firstName', as: 'string'
+field 'email', as: 'email'
+field 'password', as: 'password'
+```
+
+## Form Best-Practices
+
+- If you need to divide your forms up into columns or vertical sections, use the `<fieldset>` tag.
+- Give your `<label>` element a `for` attribute value.  On one hand this is for accessibility, so the computer can tell blind people what the label is for the input in focus.  On the other hand, it makes it so if you click on a label, the browser will focus on the input, so it kind of wires them together.
+- Use the `<legend>` tag to give your form, or a fieldset, a header.
+- If all inputs are required, don't mark them all with an asterisk `*` or whatever.  Instead, mark the few ones that aren't required with `(Optional)`.
+- Set `<form novalidate='true'>`, otherwise the browser will validate the input based on it's type (`<input type='email' />') and it most likely won't be styled the way you style your custom validations.
+
+## Dynamic Admin Forms
+
+Potential for something as simple as:
+
+``` coffeescript
+formFor '{{metadata.toParam}}', (f) ->
+  f.fields (fields) ->
+    hEach 'fields', ->
+      fields.field '{{name}}', as: '{{type}}'
+```
+
+## Don't use these patterns
+
+``` coffeescript
+form ->
+  p ->
+    label
+    input
+  label ->
+    input
+```

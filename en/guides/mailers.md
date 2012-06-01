@@ -1,12 +1,12 @@
 # Mailers
 
 ``` coffeescript
-class Notifier extends Tower.Mailer
+class App.Notifier extends Tower.Mailer
   @welcome: (user) ->
     @notification("welcome", name: user.firstName)
 
   @notification: (key, locals = {}) ->
-    Notifier.defaultUrlOptions.host     = locals.host || "mysite.com"
+    App.Notifier.defaultUrlOptions.host = locals.host || "mysite.com"
     subject                             = Tower.t("emails.#{key}.subject", locals)
     from                                = locals.from || I18n.t("emails.from")
     to                                  = locals.to
@@ -17,9 +17,9 @@ class Notifier extends Tower.Mailer
 Then you use it like this:
 
 ``` coffeescript
-class User extends Tower.Model
+class App.User extends Tower.Model
   welcome: ->
-    Notifier.notification(@).deliver()
+    App.Notifier.notification(@).deliver()
 ```
 
 ## Redis for Email Background Jobs
@@ -27,10 +27,10 @@ class User extends Tower.Model
 Here's a pattern I use a lot
 
 ``` coffeescript
-class User extends Tower.Model
+class App.User extends Tower.Model
   @welcome: (id) ->
-    Notifier.notification(@constructor.find(id)).deliver()
+    App.Notifier.notification(@constructor.find(id)).deliver()
     
   welcome: ->
-    @constructor.async("welcome", @id)
+    @enqueue("welcome", @id)
 ```

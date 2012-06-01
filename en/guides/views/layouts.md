@@ -38,3 +38,7 @@ html ->
   if hasContentFor "bottom"
     yields "bottom"
 ```
+
+## Client
+
+The client doesn't have layouts (at least for now).  In Ember there is the concept of layouts, so you can use them there.
