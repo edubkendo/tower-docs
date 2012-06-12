@@ -12,7 +12,7 @@ Using the flash is simple, just call @flash from your controller, and pass it on
       @flash 'info', 'Hello!'
       @flash 'error', 'Danger Will Robinson!'
       @flash 'success', 'You Did It!!!!!'
-      @render "index", locals: theDude: 'John Wayne'
+      @render "index"
 ```
 
 will produce the following:
