@@ -1,10 +1,10 @@
 #Flash-Messages
 
-The flash is a way to pass messages to your user that will appear on screen only once, then disappear when they change or refresh the page -- unless they do something to cause the message to be added back to the flash, like repeating the same error.  This feature is modeled on a similar feature that appears in both Rails and Express.  The code was modeled closely on Express's, but they function more similarly to how they function in Rails --the developer can just *use* them, without needing to add dynamic helpers or create additional templates. 
+The flash is a way to pass messages to your user that will appear on screen only once, then disappear when they change or refresh the page -- unless they do something to cause the message to be added back to the flash, like repeating the same error.  This feature is modeled on a similar feature that appears in both Rails and Express.  The code was modeled closely on Express's, but they function more closely to how they function in Rails --the developer can just *use* them, without needing to add dynamic helpers or create additional templates. 
 
 ##Usage
 
-Using the flash is simple, just call @flash from your controller, and pass it one of either "error", "success", or "info" followed by the message you want it to flash to your user.  For instance:
+Using the flash is simple, just call @flash from your controller, and pass it one of three types "error", "success", or "info" followed by the message you want it to flash to your user.  For instance:
 
 ```coffeescript
   index: ->
@@ -23,7 +23,7 @@ will produce the following:
 
 ##Dynamic Usage
 
-The flash message can also be generated dynamically, by allowing your program to determine when to call the @flash method based on conditions.
+The flash message can also be generated dynamically, by allowing your program to determine when to call the @flash method based on conditional statements.
 
 ###Simple Case
 For instance, in the simple case, let's assume a posts model with a simple validation for presence on the title field:
@@ -41,7 +41,7 @@ class App.Post extends Tower.Model
   @timestamps()
 ```
 
-Currently, if the user forgets to fill in the title field, the app will simply fail silently.  This could be quite frustrating to a user, who doesn't understand why his post refuses to save.  We can save that with a simple addition to the controller. In the "create" action of the posts controller, do this:
+Currently, if the user forgets to fill in the title field, the app will simply fail silently.  This could be quite frustrating to a user, who doesn't understand why his post refuses to save.  We can solve that with a simple addition to the controller. In the "create" action of the posts controller, do this:
 
 ```coffeescript
   create: ->
@@ -53,7 +53,7 @@ Currently, if the user forgets to fill in the title field, the app will simply f
         @render "show"
 ```
 
-Now the user gets returned to the form, with what they have filled in so far left intact, and an easy to spot error message letting them know what they need to correct it.
+Now the user gets returned to the form, with what they have filled in so far left intact, and an easy to spot error message letting them know what they need to do to correct it.
 
 ![Flash Messages: Single Error](https://github.com/edubkendo/flashMessages/raw/master/screenshots/flash_message_with_single_error.png "Flash Message with single error")
 
