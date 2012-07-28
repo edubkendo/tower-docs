@@ -10,6 +10,21 @@ You are free to implement any of these features in any order… I'm more of a fa
 
 ## 0.5.0 - Full Featured Release
 
+- awesome generators like rails_wizard
+- javascript and coffeescript versions
+- everything in mongodb has an API for it in the ORM
+- basic ember view patterns established (for tables, forms, and menus)
+- relatively stabilized folder/file structure
+- authentication and authorization
+- file uploading
+- background jobs in redis
+- mailer
+- error pages
+- data syncing
+- client routes
+- batch requests
+- testing patterns for an app
+
 <a name="0.4.0" href="0.4.0"></a>
 
 ### ✔ 0.4.0 (functional release)
@@ -64,7 +79,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - update to express 3.0
 - rails like flash messages
 
-<a name="0.4.4" href="0.4.4"></a>
+<a name="0.4.3" href="0.4.3"></a>
 
 ### 0.4.3 (views)
 
@@ -79,7 +94,7 @@ You are free to implement any of these features in any order… I'm more of a fa
 - test files reload when changed (integration test)
 - test assets can be served with gzip
 
-<a name="0.4.3" href="0.4.3"></a>
+<a name="0.4.4" href="0.4.4"></a>
 
 ### 0.4.4 (models)
 
