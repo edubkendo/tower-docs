@@ -444,3 +444,19 @@ instead of this:
 ``` 
 
 This way it's always 100% clear to the reader what is going on.
+
+### Wrap `inline code` in backticks
+
+### Use triple backticks for code blocks, not 4 spaces
+
+Do this:
+
+    ``` coffeescript
+    class App.User extends Tower.Model
+    ```
+
+Instead of this:
+
+``` coffeescript
+    class App.User extends Tower.Model
+```
