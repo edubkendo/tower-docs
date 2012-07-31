@@ -349,6 +349,7 @@ add = (a, b) ->
 - Keep blank line above new comments
 - except at the start of a file
 - or a new level of indentation
+- keep a single space between the starting `#` and your text
 
 Good:
 
@@ -372,8 +373,9 @@ class App.Membership extends Tower.Model
 
   # I am a new level of indentation...
   @field 'role'
-  # ...and I'm not
+  #    ...and I'm not
   @belongsTo 'user'
+  #need indentation
   @belongsTo 'group'
 ```
 
@@ -419,3 +421,26 @@ class App.User extends Tower.Model
   welcome: (callback) ->
     @enqueue 'welcome', @get('id'), callback
 ```
+
+## Writing Documentation
+
+### Write out the full class, even if only demonstrating a single method
+
+For example, if you're writing an example action for a controller, do this:
+
+``` coffeescript
+class App.PostsController extends App.ApplicationController
+  index: ->
+    App.Post.all (error, posts) =>
+      @render json: posts
+``` 
+
+instead of this:
+
+``` coffeescript
+  index: ->
+    App.Post.all (error, posts) =>
+      @render json: posts
+``` 
+
+This way it's always 100% clear to the reader what is going on.
