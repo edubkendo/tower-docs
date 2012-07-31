@@ -1,4 +1,4 @@
-# Design Principles
+# Tower Code Style Guide
 
 ## Don't extend core objects
 
@@ -6,7 +6,7 @@ Add to underscore, not to the native object prototypes.
 
 ## Use single quotes `'` over double quotes `"`
 
-Single quotes are the preferred convention for defining strings.  Only use double quotes when you're using interpolation:
+Single quotes are the preferred convention for defining strings. Only use double quotes when you're using interpolation:
 
 ``` coffeescript
 # do
@@ -29,6 +29,25 @@ string = "url: #{window.location.url}"
 # not this
 string = "url: " + window.location.url
 ```
+
+## Use triple double quotes `"""` for blocks of text
+
+When you need to write blocks of text, use triple quotes `"""`. You can interpolate values within triple double quotes (as opposed to triple single quotes `'''`):
+
+``` coffeescript
+color   = 'red'
+
+styles  = """
+body, html
+  background: #{color}
+"""
+```
+
+Be careful though, triple quotes don't preserve indentation at the beginning of the text, so either add it to the end of the line, or escape it with backslashes `\ `.
+
+## Start new sentences with a single space, not a double space :)
+
+I guess this is better from a typography standpoint.
 
 ## Don't pollute the global namespace
 
@@ -121,6 +140,8 @@ class App.User extends Tower.Model
 
 ## Remove trailing whitespace
 
+[todo] create a command to strip trailing whitespace.
+
 ## Use 2 soft spaces `  `, not 1 tab `\t`
 
 ## Use coffeescript array assignments
@@ -131,7 +152,7 @@ Do this:
 [one, two] = [1, 2]
 ```
 
-Over this:
+Instead of this:
 
 ``` coffeescript
 array = [1, 2]
@@ -140,6 +161,28 @@ two   = array[1]
 ```
 
 ## Use the `=>` operator instead of `_this`, `_self`, etc.
+
+When using the double arrow operator `=>`, coffeescript generates `var _this = this` for the wrapping method, so wherever you use `this.aMethod()` or `@aMethod()` it will replace it with `_this.aMethod()`, so you don't have to mess around with setting up the right binding context manually.
+
+``` coffeescript
+methods =
+  a: ->
+    self = @
+
+    defineSelfExplicitly = -> # single arrow
+      self.c()
+
+    defineSelfExplicitly()
+
+  b: ->
+    defineSelfImplicitly = => # double arrow
+      @c()
+
+    defineSelfImplicitly()
+
+  c: ->
+    console.log 'called c'
+```
 
 ## Group public/private methods
 
@@ -271,4 +314,108 @@ if (typeof a === "undefined" || a === null) a = true;
 b || (b = true);
 
 c || (c = true);
+```
+
+## Comment your code (when the time is right)
+
+Here is the structure of a comment (using `codo`):
+
+``` coffeescript
+# Title goes here, single line if possible,
+# otherwise overflow to next line with no blank line
+# in between.
+# 
+# Can put some more description here, 
+# multiple lines if desired.
+# You can also use **markdown** anywhere in the comment!
+# 
+# @todo Mark it with todo just after the title and [optional] description,
+#   and indent if multiple lines (indent anything following `@[keyword]`).
+# 
+# @example Optional example with optional title
+#   # This will be syntax highlighted
+#   add(1, 2) #=> 3
+# 
+# @param [Integer] a First integer
+# @param [Integer] b Second integer
+# 
+# @return [Integer] Put the return value last
+add = (a, b) ->
+  a + b
+```
+
+## Write consistent comments
+
+- Keep blank line above new comments
+- except at the start of a file
+- or a new level of indentation
+
+Good:
+
+``` coffeescript
+# This class maps a user to a group
+class App.Membership extends Tower.Model
+  # I am a new level of indentation...
+  @field 'role'
+
+  # ...and I'm not
+  @belongsTo 'user'
+  @belongsTo 'group'
+```
+
+Bad:
+
+``` coffeescript
+
+# This class maps a user to a group
+class App.Membership extends Tower.Model
+
+  # I am a new level of indentation...
+  @field 'role'
+  # ...and I'm not
+  @belongsTo 'user'
+  @belongsTo 'group'
+```
+
+You also should avoid using `###` block comments, because while they may prevent having to start every line with a `#`, it breaks up your code in ways that make it hard to read. Only use block comments to comment out large portions of your code, not for writing documentation within.
+
+## Tower.Model style conventions
+
+Order executable class methods in this order: concerns (mixins, unless mixin depends on things defined later in class), `field`, field helpers (i.e. `timestamps`), associations (`belongsTo` first since it adds a field for the association id, then `hasOne`, and `hasMany`), association helpers (i.e. `acceptsNestedAttributesFor`, or custom plugins), mass assignment protection (i.e. `@protected` and `@accessible`), scopes, validations, class methods, instance methods. Separate each different section with a blank line, and keep related items with no blank line between. This is all optional, but is helpful for reading and understanding someone else's code. The most important thing is to use consistent spacing.
+
+``` coffeescript
+class App.User extends Tower.Model
+  if Tower.isServer
+    @include App.UserAuthenticationConcern
+
+  @field 'firstName'
+  @field 'lastName'
+  @field 'role'
+
+  @timestamps()
+
+  @belongsTo 'address'
+
+  @hasOne 'profile'
+
+  @hasMany 'memberships'
+  @hasMany 'groups', through: 'memberships'
+
+  @acceptsNestedAttributeFor 'memberships'
+
+  @protected 'role'
+
+  @scope 'admin', role: 'admin'
+
+  @validates 'firstName', 'lastName', presence: true
+
+  @welcome: (id, callback) ->
+    @find id, (error, user) =>
+      if user
+        App.Notification.welcome(user).deliver(callback)
+      else
+        callback.call(@, error)
+
+  welcome: (callback) ->
+    @enqueue 'welcome', @get('id'), callback
 ```

@@ -22,8 +22,24 @@ You are free to implement any of these features in any order… I'm more of a fa
 - error pages
 - data syncing
 - client routes
-- batch requests
 - testing patterns for an app
+
+## 0.6.0 - Testing, Robustness
+
+## 0.7.0 - Performance Tuning
+
+## 0.8.0 - Multiple Databases, Batch Requests, Content Processing
+
+- postgresql
+- mysql
+- sqlite
+- cassandra
+- redis
+- neo4j
+- database migrations
+- transaction support
+- batch requests
+- video/audio/image processing
 
 <a name="0.4.0" href="0.4.0"></a>
 
