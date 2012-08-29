@@ -2,22 +2,29 @@
 
 The main application is defined in `config/application.coffee` and defaults to this:
 
+```coffeescript
+global.App = Tower.Application.create()
+```
+It is configured in 'config/bootstrap.coffee', which defaults to:
+
 ``` coffeescript
-class App extends Tower.Application
-  @configure ->
-    @use "favicon", Tower.publicPath + "/favicon.ico"
-    @use "static",  Tower.publicPath, maxAge: Tower.publicCacheDuration
-    @use "profiler" if Tower.env != "production"
-    @use "logger"
-    @use "query"
-    @use "cookieParser", Tower.session.secret
-    @use "session", Tower.session.key
-    @use "bodyParser"
-    @use "csrf"
-    @use "methodOverride", "_method"
-    @use Tower.Middleware.Agent
-    @use Tower.Middleware.Location
-    @use Tower.Middleware.Router
+App.configure ->
+  @use 'favicon', Tower.publicPath + '/favicon.png'
+  @use 'static',  Tower.publicPath, maxAge: Tower.publicCacheDuration
+  @use 'profiler' if Tower.env != 'production'
+  @use 'logger'
+  @use 'query'
+  @use 'cookieParser', Tower.config.session.key
+  @use 'session', secret: Tower.config.session.secret, cookie: {domain: Tower.config.session.cookie.domain}
+  @use 'bodyParser', uploadDir: './public/uploads'
+  #@use 'csrf'
+  @use 'methodOverride', '_method'
+  @use Tower.MiddlewareAgent
+  @use Tower.MiddlewareLocation
+  # if Tower.httpCredentials && Tower.branch != 'development'
+  #   @use 'basicAuth', Tower.httpCredentials.username, Tower.httpCredentials.password
+
+  @use Tower.MiddlewareRouter
 ```
 
 The `configure` function is used to configure the application.

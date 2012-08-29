@@ -69,6 +69,11 @@ To install both `dependencies` and `devDependencies`, run this command:
 ```
 npm install
 ```
+Use the "--save" tag to cause NPM to add the packages you install to your package.json
+
+```
+npm install --save
+```
 
 **Note**: When you push your app to Heroku, it's compiled to a "slug".  This makes it easy to clone and scale your app.  The ideal is to minimize the size of that slug so it's faster to clone.  The two biggest ways to do this are 1) minimize the number of images/pdfs/assets in your project (put them on S3 or something), and 2) minimize the number of modules you use in production.  So if you only need gzipping to compile your assets for production, put that into your `devDependencies`.
 

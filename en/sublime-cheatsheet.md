@@ -43,6 +43,19 @@ Install by following the instructions here: https://github.com/kemayo/sublime-te
 
 Use it. Shift + Command + P comes in use again. Shift + Command + P and write “git”, you will see all the possible git commands you most probably use on a day-to-day basis. Shift + Command + P+ “git blame” + hit that “Enter” + punch the colleague that broke the sacred code. :) You have it all - git status, git pull, git push, git diff, you name it.
 
+[Ctags with Sublime Text and Coffeescript](https://gist.github.com/2901380)
+
+Ctags are incredibly helpful for navigating within Tower itself, jumping quickly to functions and methods when you don't know where they originate.
+
+[mocha-coffeescript-tmbundle](https://github.com/markbates/mocha-coffeescript-tmbundle)
+
+Installs snippets and syntax support for mocha coffeescript files.
+
+[SublimeREPL](https://github.com/wuub/SublimeREPL)
+
+Use the coffeescript repl from within Sublime Text with full syntax highlighting and auto-completion. Actually, wondering how hard it would be to hack this to run the Tower console.
+
+
 http://1p1e1.tumblr.com/post/14262857223/9-reasons-you-must-install-sublime-text-2-code-like-a
 
 https://github.com/kemayo/sublime-text-2-clipboard-history
